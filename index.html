@@ -3,1112 +3,996 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KrishiCulture | 100% Jaivik Bio-Cultures & Kisan मित्र AI</title>
+  <title>KrishiCulture | ज़िंदा मिट्टी, दमदार फसल! Bio-Cultures for Living Soil</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      scroll-behavior: smooth;
-      background-color: #fefce8;
-      color: #1e293b;
-    }
-    .glass-nav {
-      background: rgba(254, 252, 232, 0.94);
-      backdrop-filter: blur(12px);
-    }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+    .glass-nav { background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); }
+    .hero-banner-bg { background: linear-gradient(135deg, #064e3b 0%, #065f46 55%, #047857 100%); }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-    /* Nature Animations: Walking Ladybug, Flying Dragonfly, Swaying Leaves/Flowers/Crops */
-    @keyframes ladybugWalk {
-      0% { transform: translateX(-40px) translateY(0px) rotate(12deg); }
-      25% { transform: translateX(25vw) translateY(-6px) rotate(4deg); }
-      50% { transform: translateX(52vw) translateY(2px) rotate(14deg); }
-      75% { transform: translateX(78vw) translateY(-5px) rotate(5deg); }
-      100% { transform: translateX(105vw) translateY(0px) rotate(10deg); }
-    }
-    @keyframes dragonflyFly {
-      0% { transform: translate(102vw, 18px) rotate(-10deg) scale(1); }
-      30% { transform: translate(68vw, -12px) rotate(-4deg) scale(1.06); }
-      55% { transform: translate(42vw, 14px) rotate(-14deg) scale(0.96); }
-      80% { transform: translate(15vw, -8px) rotate(-6deg) scale(1.04); }
-      100% { transform: translate(-60px, 10px) rotate(-12deg) scale(1); }
-    }
-    @keyframes swayCrop {
-      0%, 100% { transform: rotate(-4deg); }
-      50% { transform: rotate(5deg); }
-    }
-    @keyframes floatLeaf {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-7px) rotate(8deg); }
-    }
-    @keyframes scanline {
-      0% { top: 0%; }
-      50% { top: 92%; }
-      100% { top: 0%; }
-    }
-    .ladybug-anim { animation: ladybugWalk 26s linear infinite; }
-    .dragonfly-anim { animation: dragonflyFly 19s ease-in-out infinite; }
-    .crop-sway { transform-origin: bottom center; animation: swayCrop 3.4s ease-in-out infinite; }
-    .leaf-float { animation: floatLeaf 4s ease-in-out infinite; }
-    .scanner-bar { animation: scanline 1.6s ease-in-out infinite; }
+    @keyframes scanline { 0% { top: 0%; } 50% { top: 90%; } 100% { top: 0%; } }
+    .scanner-bar { animation: scanline 1.5s ease-in-out infinite; }
   </style>
 </head>
-<body class="bg-yellow-50 text-slate-900 font-medium antialiased pb-24 sm:pb-0 overflow-x-hidden">
+<body class="bg-slate-50 text-slate-800 antialiased pb-20 sm:pb-0">
 
-  <!-- Animated Nature Sky & Ground Layer (Dragonfly Flying & Ladybug Walking) -->
-  <div class="pointer-events-none fixed inset-0 z-30 overflow-hidden">
-    <!-- Flying Dragonfly -->
-    <div class="dragonfly-anim absolute top-20 left-0 opacity-85">
-      <svg width="46" height="36" viewBox="0 0 64 48" fill="none">
-        <ellipse cx="26" cy="14" rx="14" ry="4" transform="rotate(-18 26 14)" fill="#bae6fd" fill-opacity="0.8" stroke="#0284c7" stroke-width="1.2"/>
-        <ellipse cx="28" cy="20" rx="12" ry="3.5" transform="rotate(12 28 20)" fill="#e0f2fe" fill-opacity="0.8" stroke="#0284c7" stroke-width="1.2"/>
-        <rect x="20" y="16" width="34" height="3.5" rx="2" fill="#15803d"/>
-        <circle cx="19" cy="17.5" r="3.5" fill="#166534"/>
-      </svg>
-    </div>
-
-    <!-- Walking Ladybug -->
-    <div class="ladybug-anim absolute bottom-14 sm:bottom-3 left-0 opacity-90">
-      <svg width="32" height="26" viewBox="0 0 48 38" fill="none">
-        <ellipse cx="24" cy="20" rx="13" ry="10" fill="#dc2626" stroke="#1e293b" stroke-width="2"/>
-        <path d="M24 10 V30" stroke="#1e293b" stroke-width="2"/>
-        <circle cx="36" cy="20" r="5" fill="#1e293b"/>
-        <circle cx="20" cy="16" r="2" fill="#1e293b"/>
-        <circle cx="27" cy="15" r="1.8" fill="#1e293b"/>
-        <circle cx="20" cy="24" r="2" fill="#1e293b"/>
-        <circle cx="27" cy="25" r="1.8" fill="#1e293b"/>
-      </svg>
-    </div>
+  <div class="bg-emerald-950 text-emerald-100 text-[11px] sm:text-xs py-2 px-3 text-center font-medium">
+    <span>🌿 <span data-t="topNotice">Zero Chemical • 100% Organic Lab-Certified Bio-Cultures • Helpline:</span> <a href="tel:+916350078784" class="underline font-bold text-amber-300">+91 63500 78784</a></span>
   </div>
 
-  <!-- Top Notice Bar -->
-  <div class="bg-emerald-950 text-yellow-200 text-xs sm:text-sm py-2 px-4 text-center font-bold">
-    <span>🌿 100% Pure Organic Bio-Cultures (Zero Chemical) | 1L se 30L Multiply Karein | Helpline: <a href="tel:+916350078784" class="underline font-extrabold text-amber-300">+91 63500 78784</a></span>
-  </div>
-
-  <!-- Navbar -->
-  <header class="sticky top-0 z-40 glass-nav border-b-2 border-emerald-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5">
-        <div class="w-10 h-10 rounded-xl bg-emerald-700 text-yellow-300 flex items-center justify-center shadow crop-sway">
-          <i data-lucide="sprout" class="w-6 h-6"></i>
+  <header class="sticky top-0 z-40 glass-nav border-b border-emerald-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-2">
+      <a href="#" class="flex items-center gap-2 min-w-0">
+        <div class="w-9 h-9 rounded-xl bg-emerald-700 text-white flex items-center justify-center shadow shrink-0">
+          <i data-lucide="sprout" class="w-5 h-5"></i>
         </div>
-        <div>
-          <span class="text-lg sm:text-xl font-extrabold text-emerald-950 tracking-tight">Krishi<span class="text-emerald-700">Culture</span></span>
-          <span class="block text-[10px] uppercase tracking-widest text-emerald-800 font-extrabold -mt-1">100% Jaivik Bio-Cultures</span>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-baseline gap-x-1.5">
+            <span class="text-lg sm:text-xl font-extrabold text-emerald-950 tracking-tight">Krishi<span class="text-amber-500">Culture</span></span>
+            <span class="text-[10px] sm:text-xs font-extrabold text-emerald-700 truncate">ज़िंदा मिट्टी, दमदार फसल!</span>
+          </div>
+          <span class="block text-[9px] sm:text-[10px] font-bold text-slate-500 tracking-wide">Bio-Cultures for Living Soil.</span>
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-5 text-sm font-extrabold text-emerald-950">
-        <a href="#pest-management" class="hover:text-emerald-700">Insect Pest Guide</a>
-        <a href="#land-prep" class="hover:text-emerald-700">Land Preparation</a>
-        <a href="#products" class="hover:text-emerald-700">Bio-Cultures</a>
-        <a href="#plant-doctor" class="hover:text-emerald-700">Photo Jaanch</a>
-        <a href="#multiplication" class="hover:text-emerald-700">1L→30L Vidhi</a>
-      </nav>
+      <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <select id="lang-switcher" onchange="setLanguage(this.value)" aria-label="Language Selector" class="bg-emerald-50 border border-emerald-200 text-emerald-900 text-[11px] sm:text-xs font-extrabold rounded-full px-2.5 py-1.5 focus:outline-none cursor-pointer">
+          <option value="hinglish">Hinglish</option>
+          <option value="hi">हिन्दी</option>
+          <option value="en">English</option>
+        </select>
 
-      <div class="flex items-center gap-2">
-        <button onclick="toggleCart()" class="relative flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-extrabold shadow transition">
-          <i data-lucide="shopping-cart" class="w-4 h-4 text-yellow-300"></i>
-          <span>Cart</span>
+        <button onclick="toggleCart()" class="relative flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow transition">
+          <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+          <span class="hidden sm:inline" data-t="cartBtn">Cart</span>
           <span id="cart-count" class="bg-yellow-400 text-emerald-950 text-xs font-extrabold w-5 h-5 rounded-full flex items-center justify-center">0</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Banner with Swaying Crops, Flowers, Leaves & Single "Kisan मित्र AI" Button -->
-  <section class="bg-gradient-to-br from-emerald-900 via-emerald-800 to-green-900 text-white py-8 px-4 border-b-4 border-yellow-400 relative overflow-hidden">
-    <!-- Decorative Animated Leaves & Flowers -->
-    <div class="leaf-float absolute top-4 right-6 text-2xl sm:text-3xl opacity-80 pointer-events-none">🌻</div>
-    <div class="crop-sway absolute bottom-2 left-6 text-2xl sm:text-3xl opacity-80 pointer-events-none">🌾</div>
-    <div class="leaf-float absolute bottom-3 right-14 text-2xl opacity-75 pointer-events-none">🍃</div>
+  <section class="hero-banner-bg text-white pt-6 pb-8 px-4 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center space-y-4">
+      <div class="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-400/40 rounded-full px-4 py-1.5 text-[11px] sm:text-xs font-bold text-amber-300 shadow-sm">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
+        <span>Zero Chemical • Sustainable &amp; Scientific Organic Agriculture</span>
+      </div>
 
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-      <div class="space-y-2.5 max-w-2xl">
-        <span class="inline-flex items-center gap-1.5 bg-yellow-400 text-emerald-950 text-xs font-extrabold px-3 py-1 rounded-full">
-          <span>🌱 100% Organic & Sustainable Farming</span>
-        </span>
-        <h1 class="text-2xl sm:text-4xl font-extrabold leading-tight">
-          Shuddh Jaivik Bio-Cultures & <span class="text-yellow-300">Kisan मित्र AI</span>
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+          Krishi<span class="text-yellow-400">Culture</span>
         </h1>
-        <p class="text-xs sm:text-sm text-emerald-100 font-semibold leading-relaxed">
-          Fasal ke keet-rog, kshetra ke anusaar buwai aur zameen ki taiyari (Land Preparation), mitti ka swasthya, aur 1L se 30L Bio-Culture multiply karne ki poori jaankari.
+        <p class="text-sm sm:text-lg font-extrabold text-yellow-300 mt-1">
+          ज़िंदा मिट्टी, दमदार फसल! <span class="text-white/95 font-semibold">Bio-Cultures for Living Soil.</span>
         </p>
       </div>
 
-      <!-- Single Prominent "Kisan मित्र AI" Entry on Front -->
-      <div class="w-full md:w-auto shrink-0">
-        <button onclick="toggleAssistant()" class="w-full md:w-auto bg-yellow-400 hover:bg-yellow-300 text-emerald-950 font-extrabold px-6 py-4 rounded-2xl shadow-xl border-2 border-yellow-200 flex items-center justify-center gap-3 text-base transition active:scale-95">
-          <span class="w-9 h-9 rounded-xl bg-emerald-900 text-yellow-300 flex items-center justify-center">
-            <i data-lucide="sparkles" class="w-5 h-5"></i>
-          </span>
-          <div class="text-left">
-            <span class="block text-sm sm:text-base font-extrabold leading-none">Kisan मित्र AI</span>
-            <span class="block text-[11px] font-bold text-emerald-900 mt-1">Fasal, Mitti, Keet & Bio-Cultures Puchein →</span>
+      <div class="space-y-2.5 max-w-2xl mx-auto pt-1">
+        <h2 class="text-lg sm:text-2xl font-extrabold leading-snug text-white">
+          100% Organic Lab-Certified Bio-Cultures with High CFU Count — Multiply Up to 30×
+        </h2>
+        <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed" data-t="heroSub">
+          High live microbial count (2×10⁸ to 1×10⁹ CFU/ml) jo mitti ki urvarakta badhaye, poshak tatvon ko unlock kare aur fasal ko rog-keet mukt rakhe.
+        </p>
+      </div>
+
+      <div class="pt-2">
+        <a href="#products" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-yellow-400 hover:bg-yellow-300 text-emerald-950 font-extrabold px-8 py-4 rounded-2xl shadow-xl shadow-yellow-400/25 text-base sm:text-lg transition transform active:scale-95">
+          <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+          <span data-t="buyYellowBtn">Bio-Cultures Kharidein / जैविक कल्चर खरीदें</span>
+          <i data-lucide="arrow-down" class="w-5 h-5"></i>
+        </a>
+      </div>
+
+      <div class="max-w-2xl mx-auto pt-1">
+        <button onclick="toggleAssistant()" class="w-full bg-white/15 hover:bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl px-4 py-3.5 flex items-center justify-between gap-3 text-left transition shadow-md">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-yellow-400 text-emerald-950 flex items-center justify-center shrink-0">
+              <i data-lucide="sparkles" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-sm sm:text-base font-extrabold text-white" data-t="kisanMitraTitle">Kisan Mitra AI (किसान मित्र AI)</h3>
+              <p class="text-[11px] sm:text-xs text-emerald-100" data-t="kisanMitraSub">Fasal ke rog, Acidic/Alkaline soil treatment aur sahi culture puchein →</p>
+            </div>
           </div>
+          <span class="bg-emerald-950 text-yellow-300 text-[11px] font-extrabold px-3 py-1.5 rounded-xl shrink-0" data-t="askBtn">Puchein</span>
+        </button>
+      </div>
+
+      <div class="max-w-2xl mx-auto grid grid-cols-3 gap-2.5 pt-1">
+        <button onclick="openScannerModal()" class="bg-white text-emerald-950 hover:bg-emerald-50 rounded-2xl p-3 flex flex-col items-center justify-center gap-1 shadow-md transition">
+          <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+            <i data-lucide="scan-line" class="w-5 h-5"></i>
+          </div>
+          <span class="text-xs font-extrabold" data-t="scannerBtn">Scanner</span>
+          <span class="text-[10px] text-slate-500 leading-tight" data-t="scannerSub">Photo se ilaj</span>
+        </button>
+
+        <button onclick="openOtherOptionsModal()" class="bg-white text-emerald-950 hover:bg-emerald-50 rounded-2xl p-3 flex flex-col items-center justify-center gap-1 shadow-md transition">
+          <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
+            <i data-lucide="sliders-horizontal" class="w-5 h-5"></i>
+          </div>
+          <span class="text-xs font-extrabold" data-t="otherOptBtn">Other Options</span>
+          <span class="text-[10px] text-slate-500 leading-tight" data-t="otherOptSub">Soil pH &amp; 30× Vidhi</span>
+        </button>
+
+        <button onclick="openHistoryModal()" class="bg-white text-emerald-950 hover:bg-emerald-50 rounded-2xl p-3 flex flex-col items-center justify-center gap-1 shadow-md transition">
+          <div class="w-9 h-9 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center">
+            <i data-lucide="history" class="w-5 h-5"></i>
+          </div>
+          <span class="text-xs font-extrabold" data-t="historyBtn">History</span>
+          <span class="text-[10px] text-slate-500 leading-tight" data-t="historySub">Scans &amp; Orders</span>
         </button>
       </div>
     </div>
   </section>
-    <!-- INSECT PEST MANAGEMENT SECTION (Common Insects + Crop-Wise Specific Pests with Images, Life Cycle, Pheromone Traps & Natural Baits) -->
-  <section id="pest-management" class="py-8 px-4 max-w-7xl mx-auto">
-    <div class="bg-white border-2 border-emerald-200 rounded-3xl p-5 sm:p-7 shadow-sm">
+    <section id="crops-bar-section" class="bg-white border-b border-slate-200 py-7 px-4">
+    <div class="max-w-7xl mx-auto">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
         <div>
-          <span class="text-[11px] font-extrabold uppercase tracking-wider text-emerald-900 bg-yellow-200 px-3 py-1 rounded-full">100% Organic IPM • Life Cycle • Traps & Baits</span>
-          <h2 class="text-xl sm:text-3xl font-extrabold text-emerald-950 mt-2">Insect Pest Management (Common & Crop-Wise)</h2>
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full" data-t="cropBadge">100% Organic Stage-Wise Crop Guide</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1" data-t="cropBarHeading">Crops Bar — Fasal Chunein aur Stage-Wise Rog/Keet Dekhein</h2>
         </div>
-        <span id="pest-section-badge" class="self-start sm:self-auto text-xs font-extrabold bg-emerald-100 text-emerald-900 px-3 py-1.5 rounded-full border border-emerald-300">Common Insects (Sabhi Fasalein)</span>
+        <span id="active-crop-label" class="self-start sm:self-auto text-xs font-extrabold bg-yellow-100 text-amber-950 border border-yellow-300 px-3 py-1 rounded-full">Common (Sabhi Fasalein)</span>
       </div>
 
-      <!-- Crop Choice Tabs -->
-      <div class="flex items-center gap-3 sm:gap-4 overflow-x-auto no-scrollbar pb-3 mb-5 border-b-2 border-yellow-100">
-        <button onclick="selectPestCrop('common', this)" class="pest-tab-btn shrink-0 flex flex-col items-center gap-1.5">
-          <div class="w-14 h-14 rounded-full bg-emerald-700 text-yellow-300 flex items-center justify-center text-xl shadow ring-2 ring-yellow-400 ring-offset-2">🐞</div>
-          <span class="text-xs font-extrabold text-emerald-950">Common Pests</span>
+      <div class="flex items-center gap-3 sm:gap-4 overflow-x-auto no-scrollbar pb-3 border-b border-slate-100">
+        <button onclick="selectCrop('common', this)" class="crop-tab-btn shrink-0 flex flex-col items-center gap-1.5">
+          <div class="w-14 h-14 rounded-full bg-emerald-100 border-2 border-emerald-400 flex items-center justify-center text-2xl shadow ring-4 ring-yellow-400 scale-105 transition">🐞</div>
+          <span class="text-xs font-extrabold text-emerald-900">Common</span>
         </button>
-        <button onclick="selectPestCrop('cereals', this)" class="pest-tab-btn shrink-0 flex flex-col items-center gap-1.5">
-          <div class="w-14 h-14 rounded-full bg-yellow-100 border-2 border-yellow-400 flex items-center justify-center text-2xl crop-sway">🌾</div>
-          <span class="text-xs font-bold text-slate-800">Dhan / Gehu</span>
+        <button onclick="selectCrop('paddy', this)" class="crop-tab-btn shrink-0 flex flex-col items-center gap-1.5">
+          <div class="w-14 h-14 rounded-full bg-amber-50 border-2 border-amber-300 flex items-center justify-center text-2xl transition">🌾</div>
+          <span class="text-xs font-semibold text-slate-700">Dhan (Rice)</span>
         </button>
-        <button onclick="selectPestCrop('vegetables', this)" class="pest-tab-btn shrink-0 flex flex-col items-center gap-1.5">
-          <div class="w-14 h-14 rounded-full bg-yellow-100 border-2 border-yellow-400 flex items-center justify-center text-2xl leaf-float">🍅</div>
-          <span class="text-xs font-bold text-slate-800">Sabjiya</span>
+        <button onclick="selectCrop('wheat', this)" class="crop-tab-btn shrink-0 flex flex-col items-center gap-1.5">
+          <div class="w-14 h-14 rounded-full bg-yellow-50 border-2 border-yellow-300 flex items-center justify-center text-2xl transition">🌿</div>
+          <span class="text-xs font-semibold text-slate-700">Gehu (Wheat)</span>
         </button>
-        <button onclick="selectPestCrop('pulses', this)" class="pest-tab-btn shrink-0 flex flex-col items-center gap-1.5">
-          <div class="w-14 h-14 rounded-full bg-yellow-100 border-2 border-yellow-400 flex items-center justify-center text-2xl crop-sway">🫘</div>
-          <span class="text-xs font-bold text-slate-800">Dalhan / Tilhan</span>
+        <button onclick="selectCrop('maize', this)" class="crop-tab-btn shrink-0 flex flex-col items-center gap-1.5">
+          <div class="w-14 h-14 rounded-full bg-orange-50 border-2 border-orange-200 flex items-center justify-center text-2xl transition">🌽</div>
+          <span class="text-xs font-semibold text-slate-700">Makka/Jwar</span>
         </button>
-        <button onclick="selectPestCrop('cotton', this)" class="pest-tab-btn shrink-0 flex flex-col items-center gap-1.5">
-          <div class="w-14 h-14 rounded-full bg-yellow-100 border-2 border-yellow-400 flex items-center justify-center text-2xl leaf-float">☁️</div>
-          <span class="text-xs font-bold text-slate-800">Kapas / Ganna</span>
+        <button onclick="selectCrop('cotton', this)" class="crop-tab-btn shrink-0 flex flex-col items-center gap-1.5">
+          <div class="w-14 h-14 rounded-full bg-sky-50 border-2 border-sky-200 flex items-center justify-center text-2xl transition">☁️</div>
+          <span class="text-xs font-semibold text-slate-700">Kapas (Cotton)</span>
         </button>
-        <button onclick="selectPestCrop('fruits', this)" class="pest-tab-btn shrink-0 flex flex-col items-center gap-1.5">
-          <div class="w-14 h-14 rounded-full bg-yellow-100 border-2 border-yellow-400 flex items-center justify-center text-2xl crop-sway">🥭</div>
-          <span class="text-xs font-bold text-slate-800">Bagwani (Fruits)</span>
+        <button onclick="selectCrop('sugarcane', this)" class="crop-tab-btn shrink-0 flex flex-col items-center gap-1.5">
+          <div class="w-14 h-14 rounded-full bg-lime-50 border-2 border-lime-300 flex items-center justify-center text-2xl transition">🎋</div>
+          <span class="text-xs font-semibold text-slate-700">Ganna</span>
+        </button>
+        <button onclick="selectCrop('pulses', this)" class="crop-tab-btn shrink-0 flex flex-col items-center gap-1.5">
+          <div class="w-14 h-14 rounded-full bg-amber-50 border-2 border-amber-200 flex items-center justify-center text-2xl transition">🫘</div>
+          <span class="text-xs font-semibold text-slate-700">Dalhan</span>
+        </button>
+        <button onclick="selectCrop('oilseeds', this)" class="crop-tab-btn shrink-0 flex flex-col items-center gap-1.5">
+          <div class="w-14 h-14 rounded-full bg-yellow-50 border-2 border-yellow-400 flex items-center justify-center text-2xl transition">🥜</div>
+          <span class="text-xs font-semibold text-slate-700">Tilhan</span>
+        </button>
+        <button onclick="selectCrop('vegetables', this)" class="crop-tab-btn shrink-0 flex flex-col items-center gap-1.5">
+          <div class="w-14 h-14 rounded-full bg-red-50 border-2 border-red-200 flex items-center justify-center text-2xl transition">🍅</div>
+          <span class="text-xs font-semibold text-slate-700">Sabjiya</span>
+        </button>
+        <button onclick="selectCrop('fruits', this)" class="crop-tab-btn shrink-0 flex flex-col items-center gap-1.5">
+          <div class="w-14 h-14 rounded-full bg-green-50 border-2 border-green-300 flex items-center justify-center text-2xl transition">🥭</div>
+          <span class="text-xs font-semibold text-slate-700">Bagwani</span>
         </button>
       </div>
 
-      <div class="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-        <h3 id="pest-grid-heading" class="text-base sm:text-xl font-extrabold text-emerald-950">Sabhi Faslon Ke Common Insects (Aam Keet)</h3>
-        <span class="text-xs text-emerald-800 font-bold">Life Cycle • Pheromone Traps • Natural Baits • Bio-Cultures</span>
-      </div>
-
-      <div id="pest-cards-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="crop-stage-bar" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-3"></div>
+      <div id="crop-pest-disease-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-2"></div>
     </div>
   </section>
 
-  <!-- AREA-WISE CROP LAND PREPARATION & BIO-CULTURE APPLICATION (Replaced Weather Section) -->
-  <section id="land-prep" class="py-8 px-4 max-w-7xl mx-auto">
-    <div class="bg-gradient-to-r from-yellow-100 via-amber-50 to-emerald-50 border-2 border-yellow-400 rounded-3xl p-5 sm:p-8 shadow-sm">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
-        <div>
-          <span class="bg-emerald-800 text-yellow-300 text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">Area-Wise Land Preparation & Sowing</span>
-          <h2 class="text-xl sm:text-3xl font-extrabold text-emerald-950 mt-2">Kshetra (Area) Ke Anusaar Khet Ki Taiyari Aur Bio-Cultures Prayog</h2>
-        </div>
-        <select id="area-select" onchange="renderLandPrep()" class="bg-white border-2 border-emerald-600 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-extrabold text-emerald-950 shadow-xs">
-          <option value="plains">1. North & Central Plains (दोमट / जलोढ़ मिट्टी)</option>
-          <option value="arid">2. Arid & Sandy Area - Rajasthan/Gujarat (रेतीली व क्षारीय मिट्टी)</option>
-          <option value="black">3. Heavy Black / Clay Soil Area (काली व भारी मिट्टी)</option>
-          <option value="humid">4. High Rainfall & Hilly Area (अधिक वर्षा / अम्लीय मिट्टी)</option>
-        </select>
-      </div>
-
-      <div id="land-prep-content" class="grid md:grid-cols-3 gap-5"></div>
-    </div>
-  </section>
-
-  <!-- Working Photo Diagnosis Tool -->
-  <section id="plant-doctor" class="py-6 px-4 max-w-7xl mx-auto">
-    <div class="bg-white border-2 border-emerald-200 rounded-3xl p-5 sm:p-7 shadow-sm">
-      <div class="grid lg:grid-cols-12 gap-6 items-center">
-        <div class="lg:col-span-6 space-y-3">
-          <span class="inline-flex items-center gap-1.5 bg-yellow-200 text-emerald-950 text-xs font-extrabold px-3 py-1 rounded-full">
-            <i data-lucide="camera" class="w-3.5 h-3.5"></i>
-            <span>Organic Crop Photo Jaanch</span>
-          </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-emerald-950">
-            Fasal Ki Photo Lein Aur Jaivik Ilaj Dekhein
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-700 font-semibold">
-            Patte, tane ya jad ki photo khinchein ya gallery se chunein. Uske baad <strong>Proceed</strong> dabakar sahi organic Bio-Culture paayein.
-          </p>
-
-          <input type="file" id="crop-photo-input" accept="image/*" onchange="handlePhotoSelected(event)" class="hidden" />
-          <button type="button" onclick="document.getElementById('crop-photo-input').click()" class="bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold px-5 py-3.5 rounded-2xl shadow flex items-center gap-2 text-xs sm:text-sm transition">
-            <i data-lucide="camera" class="w-4 h-4 text-yellow-300"></i>
-            <span>Take a Picture / Photo Chunein</span>
-          </button>
-        </div>
-
-        <div class="lg:col-span-6">
-          <div id="photo-step-empty" class="border-2 border-dashed border-emerald-300 rounded-2xl p-6 text-center bg-yellow-50/70">
-            <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto mb-2">
-              <i data-lucide="image-plus" class="w-6 h-6"></i>
-            </div>
-            <p class="text-sm font-extrabold text-emerald-950">Yahan aapki li gayi photo dikhegi</p>
-            <p class="text-xs text-slate-600 font-semibold mt-1">Photo select karne ke baad Proceed button aayega</p>
-          </div>
-
-          <div id="photo-step-preview" class="hidden bg-yellow-50 border-2 border-emerald-300 rounded-2xl p-4 space-y-3">
-            <div class="flex items-center gap-4">
-              <div class="relative w-20 h-20 rounded-xl overflow-hidden border-2 border-emerald-600 shrink-0">
-                <img id="photo-preview-img" src="" class="w-full h-full object-cover" />
-                <div id="scan-line" class="hidden scanner-bar absolute left-0 right-0 h-1 bg-yellow-400 shadow"></div>
-              </div>
-              <div class="flex-1">
-                <span class="text-xs font-extrabold text-emerald-800">Photo Taiyar Hai ✓</span>
-                <label class="block text-xs font-extrabold text-slate-900 mt-1">Fasal me kya dikh raha hai?</label>
-                <select id="photo-symptom" class="w-full mt-1 border-2 border-emerald-300 rounded-xl px-3 py-2 text-xs font-extrabold bg-white text-slate-900">
-                  <option value="yellow">Pattiya peeli padna / Poshan ki kami</option>
-                  <option value="wilt">Paudha sukhna / Jad galan / Fafund rog</option>
-                  <option value="pests">Sundi / Safed makhi / Ras chusak keet / Deemak</option>
-                  <option value="nematode">Jadon me gaanth banna (Nematodes)</option>
-                </select>
-              </div>
-            </div>
-
-            <button type="button" onclick="proceedDiagnosis()" id="proceed-scan-btn" class="w-full bg-yellow-400 hover:bg-yellow-300 text-emerald-950 font-extrabold py-3 rounded-xl text-sm shadow transition flex items-center justify-center gap-2">
-              <span>Proceed — Jaanch Karein & Upchar Dekhein</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </button>
-          </div>
-
-          <div id="photo-step-result" class="hidden mt-3 bg-emerald-50 border-2 border-emerald-600 rounded-2xl p-4 space-y-2.5">
-            <div class="flex items-center justify-between">
-              <span class="bg-emerald-800 text-yellow-300 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">100% Organic Report</span>
-              <button type="button" onclick="resetPhotoTool()" class="text-xs font-extrabold text-emerald-900 underline">Doosri Photo Lein</button>
-            </div>
-            <h4 id="diag-title" class="font-extrabold text-base text-emerald-950"></h4>
-            <p id="diag-desc" class="text-xs text-slate-800 font-semibold leading-relaxed"></p>
-            <div id="diag-cultures" class="flex flex-wrap gap-1.5 pt-1"></div>
-            <button type="button" onclick="addDiagnosedToCart()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold py-2.5 rounded-xl text-xs shadow mt-2">
-              Yeh Recommended Cultures Cart Me Dalein
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-    <!-- All Bio-Cultures Catalog (Removed "15" everywhere so you can add more anytime) -->
-  <section id="products" class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+  <section id="products" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-7">
       <div>
-        <span class="text-emerald-800 font-extrabold text-xs uppercase tracking-wider">100% Pure Mother Cultures (1 Liter Packing)</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-emerald-950 mt-1">Our Organic Bio-Cultures Range</h2>
-        <p class="text-slate-700 font-semibold text-xs sm:text-sm mt-1">Har 1 Liter Mother Culture ko multiply karke 30 Liter (30 Acre ke liye) bana sakte hain</p>
+        <span class="text-emerald-700 font-extrabold text-xs uppercase tracking-wider" data-t="storeTag">100% Pure Organic Mother Cultures • 1 Liter Bottle</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1" data-t="storeHeading">KrishiCulture Bio-Cultures Store</h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-1" data-t="storeSub">Seedhe lab se khet tak • White round 1 Liter bottle packing • 30× tak multiply karein</p>
       </div>
 
       <div class="flex flex-wrap gap-2" id="category-filters">
-        <button onclick="filterProducts('all', this)" class="filter-btn bg-emerald-700 text-white px-3.5 py-2 rounded-full text-xs font-extrabold transition">Sabhi Bio-Cultures</button>
-        <button onclick="filterProducts('nutrient', this)" class="filter-btn bg-white text-slate-800 border-2 border-emerald-200 hover:border-emerald-600 px-3.5 py-2 rounded-full text-xs font-extrabold transition">Nutrients (₹400/L)</button>
-        <button onclick="filterProducts('disease', this)" class="filter-btn bg-white text-slate-800 border-2 border-emerald-200 hover:border-emerald-600 px-3.5 py-2 rounded-full text-xs font-extrabold transition">Disease Control (₹420/L)</button>
-        <button onclick="filterProducts('pest', this)" class="filter-btn bg-white text-slate-800 border-2 border-emerald-200 hover:border-emerald-600 px-3.5 py-2 rounded-full text-xs font-extrabold transition">Pest Control (₹440/L)</button>
-        <button onclick="filterProducts('nematode', this)" class="filter-btn bg-white text-slate-800 border-2 border-emerald-200 hover:border-emerald-600 px-3.5 py-2 rounded-full text-xs font-extrabold transition">Nematodes (₹440/L)</button>
+        <button onclick="filterProducts('all', this)" class="filter-btn bg-emerald-700 text-white px-3.5 py-2 rounded-full text-xs font-bold transition">Sabhi Cultures</button>
+        <button onclick="filterProducts('nutrient', this)" class="filter-btn bg-white text-slate-700 border border-slate-200 hover:border-emerald-500 px-3.5 py-2 rounded-full text-xs font-bold transition">Nutrients (₹400/L)</button>
+        <button onclick="filterProducts('disease', this)" class="filter-btn bg-white text-slate-700 border border-slate-200 hover:border-emerald-500 px-3.5 py-2 rounded-full text-xs font-bold transition">Disease Control (₹420/L)</button>
+        <button onclick="filterProducts('pest', this)" class="filter-btn bg-white text-slate-700 border border-slate-200 hover:border-emerald-500 px-3.5 py-2 rounded-full text-xs font-bold transition">Pest Control (₹440/L)</button>
+        <button onclick="filterProducts('nematode', this)" class="filter-btn bg-white text-slate-700 border border-slate-200 hover:border-emerald-500 px-3.5 py-2 rounded-full text-xs font-bold transition">Nematodes (₹440/L)</button>
       </div>
     </div>
 
     <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </section>
 
-  <!-- Upyog Vidhi: 1L se 30L Multiplication Method -->
-  <section id="multiplication" class="py-14 bg-emerald-950 text-white px-4 border-y-4 border-yellow-400">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center max-w-3xl mx-auto mb-10">
-        <span class="bg-yellow-400 text-emerald-950 font-extrabold text-xs uppercase tracking-wider px-3 py-1 rounded-full">Upyog Vidhi & Multiplication Formula</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold mt-3">1 Liter Mother Culture Se 30 Liter Banane Ki Aasan Vidhi</h2>
-        <p class="text-emerald-100 font-semibold text-sm sm:text-base mt-2">
-          1 Acre khet me multiply kiya hua <strong>1 Liter culture</strong> dalta hai. Har culture ko <strong>3 baar multiply</strong> karke <strong>5 se 7 din</strong> me 1 Liter se 30 Liter tak taiyar kiya ja sakta hai!
+  <section id="multiplication" class="py-12 bg-emerald-950 text-white px-4">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="bg-yellow-400 text-emerald-950 font-extrabold text-xs uppercase tracking-wider px-3 py-1 rounded-full" data-t="multBadge">Upyog Vidhi • Multiply Up to 30×</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold mt-3" data-t="multHeading">1 Liter Mother Culture Se 30 Liter Banane Ki Vidhi (5–7 Din)</h2>
+        <p class="text-emerald-200 text-xs sm:text-sm mt-2" data-t="multSub">1 Acre khet me multiply kiya hua 1 Liter culture dalta hai. Is process ko 3 baar dohrakar 1 Liter se 30 Liter (30 Acre ke liye) bana sakte hain.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+        <div class="bg-emerald-900/70 border border-emerald-700/60 rounded-2xl p-4"><strong class="text-yellow-300 block mb-1">1. Gud-Pani Ubaalein:</strong> 10 Liter pani me 300 gram gud (jaggery) milakar achhi tarah ubaalein jab tak poori tarah ghul jaye.</div>
+        <div class="bg-emerald-900/70 border border-emerald-700/60 rounded-2xl p-4"><strong class="text-yellow-300 block mb-1">2. Markin Kapde Se Chhaanein:</strong> Ghol ko saaf Markin ke kapde se chhaan kar room temperature par thanda hone dein.</div>
+        <div class="bg-emerald-900/70 border border-emerald-700/60 rounded-2xl p-4"><strong class="text-yellow-300 block mb-1">3. Besan Milayein:</strong> Thanda hone par isme 100 gram besan (gram flour) achhi tarah ghol dein.</div>
+        <div class="bg-emerald-900/70 border border-emerald-700/60 rounded-2xl p-4"><strong class="text-yellow-300 block mb-1">4. Mother Culture &amp; Chhaon:</strong> 1 Liter Mother Culture milakar Markin kapde se muh bandhein aur chhaon (shade) me rakhein.</div>
+        <div class="bg-emerald-900/70 border border-emerald-700/60 rounded-2xl p-4"><strong class="text-yellow-300 block mb-1">5. Dande Se Hilayein:</strong> 3–6 ft lakdi/steel dande se din me 1–2 baar hilayein (Bacterial: pehle din se roz; Fungal: 4 din baad roz).</div>
+        <div class="bg-emerald-900/70 border border-emerald-700/60 rounded-2xl p-4"><strong class="text-yellow-300 block mb-1">6. 1 Hafte Me Taiyar (3× Repeat):</strong> 5–7 din me taiyar culture ko 1L bottles me chhaon me rakhein; 3 baar multiply se 30L taiyar!</div>
+      </div>
+
+      <div class="bg-white text-slate-900 rounded-3xl p-5 sm:p-7 space-y-4">
+        <h3 class="text-lg sm:text-xl font-extrabold text-emerald-950" data-t="mixHeading">Cultures Ko Aapas Me Milane (Mixing) Ke Sahi Niyam</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4">
+            <strong class="text-emerald-900 block mb-1">Poshan aur Rog Niyantran Combo (Ek Sath Mila Sakte Hain):</strong>
+            <p class="text-slate-700">Nitrogen Fixing Bacteria (Azotobacter, Azospirillum, Acetobacter, Rhizobium), PSB, KMB, ZMB, SMB, IMB, SiMB, CMB, Pseudomonas fluorescens, Trichoderma viride aur Trichoderma harzianum ko prayog ke samay ek sath milaya ja sakta hai.</p>
+          </div>
+          <div class="bg-sky-50 border border-sky-200 rounded-2xl p-4">
+            <strong class="text-sky-900 block mb-1">Keet aur Nematodes Combo (Ek Sath Mila Sakte Hain):</strong>
+            <p class="text-slate-700">Metarhizium anisopliae, Beauveria bassiana aur Verticillium lecanii ko aapas me aur Paecilomyces sp. ke sath mila sakte hain. Nematodes ke liye Paecilomyces sp. ko Pseudomonas fluorescens aur Trichoderma viride ke sath milakar chalayein.</p>
+          </div>
+        </div>
+        <p class="text-xs font-bold text-red-800 bg-red-50 border border-red-200 rounded-xl p-3">
+          ⏱️ Zaroori Savdhani: Cultures ko pani, compost ya gobar khad (FYM) me keval prayog ke samay hi milayein aur 3 se 4 ghante ke andar khet me upyog kar lein. Mix karne ke baad lambe samay tak store na karein.
         </p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-        <div class="bg-emerald-900/80 border border-emerald-700 rounded-2xl p-5">
-          <span class="bg-yellow-400 text-emerald-950 text-xs font-extrabold px-2.5 py-1 rounded-lg">Step 1</span>
-          <h3 class="font-extrabold text-base text-white mt-3">Gud Aur Pani Ubaalein</h3>
-          <p class="text-xs text-emerald-100 font-medium mt-1.5 leading-relaxed">
-            <strong>10 Liter pani</strong> me <strong>300 gram gud (jaggery)</strong> milakar achhi tarah ubaalein jab tak gud pani me poori tarah ghul na jaye.
-          </p>
-        </div>
-
-        <div class="bg-emerald-900/80 border border-emerald-700 rounded-2xl p-5">
-          <span class="bg-yellow-400 text-emerald-950 text-xs font-extrabold px-2.5 py-1 rounded-lg">Step 2</span>
-          <h3 class="font-extrabold text-base text-white mt-3">Chhaan Kar Thanda Karein</h3>
-          <p class="text-xs text-emerald-100 font-medium mt-1.5 leading-relaxed">
-            Is gud ke ghol ko ek saaf <strong>Markin ke kapde (clean Markin cloth)</strong> se chhaan lein aur room temperature par thanda hone dein.
-          </p>
-        </div>
-
-        <div class="bg-emerald-900/80 border border-emerald-700 rounded-2xl p-5">
-          <span class="bg-yellow-400 text-emerald-950 text-xs font-extrabold px-2.5 py-1 rounded-lg">Step 3</span>
-          <h3 class="font-extrabold text-base text-white mt-3">Besan (Gram Flour) Milayein</h3>
-          <p class="text-xs text-emerald-100 font-medium mt-1.5 leading-relaxed">
-            Jab ghol thanda ho jaye, tab usme <strong>100 gram besan (gram flour)</strong> achhi tarah mila dein.
-          </p>
-        </div>
-
-        <div class="bg-emerald-900/80 border border-emerald-700 rounded-2xl p-5">
-          <span class="bg-yellow-400 text-emerald-950 text-xs font-extrabold px-2.5 py-1 rounded-lg">Step 4</span>
-          <h3 class="font-extrabold text-base text-white mt-3">1 Liter Mother Culture Daalein</h3>
-          <p class="text-xs text-emerald-100 font-medium mt-1.5 leading-relaxed">
-            Ab is 10 Liter gud-besan ke ghol me <strong>1 Liter Mother Culture</strong> milayein, saaf Markin ke kapde se muh dhak dein aur <strong>chhaon (shade)</strong> me rakhein.
-          </p>
-        </div>
-
-        <div class="bg-emerald-900/80 border border-emerald-700 rounded-2xl p-5">
-          <span class="bg-yellow-400 text-emerald-950 text-xs font-extrabold px-2.5 py-1 rounded-lg">Step 5</span>
-          <h3 class="font-extrabold text-base text-white mt-3">Rozana Dande Se Hilayein</h3>
-          <p class="text-xs text-emerald-100 font-medium mt-1.5 leading-relaxed">
-            3 se 6 feet lambe lakdi ya steel ke dande se din me 1–2 baar hilayein. <strong>Bacterial cultures</strong> me pehle din se roz hilayein, aur <strong>Fungal cultures</strong> me 4 din baad roz hilayein.
-          </p>
-        </div>
-
-        <div class="bg-emerald-900/80 border border-emerald-700 rounded-2xl p-5">
-          <span class="bg-yellow-400 text-emerald-950 text-xs font-extrabold px-2.5 py-1 rounded-lg">Step 6 (5–7 Din)</span>
-          <h3 class="font-extrabold text-base text-white mt-3">1 Hafte Me Taiyar (3 Baar Multiply)</h3>
-          <p class="text-xs text-emerald-100 font-medium mt-1.5 leading-relaxed">
-            <strong>5–7 din (1 hafta)</strong> me culture taiyar ho jayega. Isse 10L banega aur is process ko <strong>3 baar dohrayein to 1 Liter se 30 Liter</strong> ban jayega! (1 Acre = 1 Liter prayog karein).
-          </p>
-        </div>
-      </div>
-
-      <!-- Acre & Multiplication Calculator -->
-      <div class="bg-yellow-50 text-slate-900 rounded-3xl p-6 sm:p-8 max-w-3xl mx-auto shadow-xl border-2 border-yellow-400">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-yellow-300 pb-4 mb-4">
-          <div>
-            <span class="text-xs font-extrabold uppercase text-emerald-800">Khet & Multiplication Calculator</span>
-            <h3 class="text-xl font-extrabold text-emerald-950">Aapke Khet Me Kitna Mother Culture Lagega?</h3>
-          </div>
-          <div class="text-right">
-            <span class="text-xs text-slate-600 font-bold block">Khet Ka Area</span>
-            <span id="calc-acre-val" class="text-2xl font-extrabold text-emerald-800">5 Acre</span>
-          </div>
-        </div>
-
-        <input type="range" id="acre-slider" min="1" max="30" value="5" oninput="updateAcreCalc()" class="w-full accent-emerald-700 cursor-pointer h-2.5 bg-yellow-200 rounded-lg mb-4" />
-
-        <div class="grid sm:grid-cols-3 gap-3 text-center bg-white p-4 rounded-2xl border border-emerald-200">
-          <div>
-            <span class="text-[11px] text-slate-600 font-bold block">Khet Me Zaroorat (1L / Acre)</span>
-            <strong id="calc-field-liters" class="text-lg font-extrabold text-slate-900">5 Liter Ready Culture</strong>
-          </div>
-          <div>
-            <span class="text-[11px] text-slate-600 font-bold block">Kharidna Padega (3x Multiply se)</span>
-            <strong id="calc-mother-needed" class="text-lg font-extrabold text-emerald-700">Sirf 1 Liter Mother Culture</strong>
-          </div>
-          <div>
-            <span class="text-[11px] text-slate-600 font-bold block">1L se Max Capacity</span>
-            <strong class="text-lg font-extrabold text-amber-600">30 Liter (30 Acre)</strong>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Separate Category-Wise Culture List & Mixing Rules -->
-  <section id="mixing-guide" class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-10">
-      <span class="text-emerald-800 font-extrabold text-xs uppercase tracking-wider">Category-Wise Bio-Cultures & Mixing Guide</span>
-      <h2 class="text-2xl sm:text-4xl font-extrabold text-emerald-950 mt-1">Kaun Sa Culture Kis Kaam Aata Hai Aur Kaise Milayein</h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-white rounded-3xl p-6 border-2 border-emerald-200 shadow-sm">
-        <span class="bg-emerald-100 text-emerald-900 text-xs font-extrabold px-3 py-1 rounded-full">1. Nutrients Fixation & Mobilization (₹400/L)</span>
-        <h3 class="text-lg font-extrabold text-emerald-950 mt-3 mb-2">Poshan Dene Wale Cultures:</h3>
-        <p class="text-xs sm:text-sm text-slate-800 font-semibold leading-relaxed">
-          • <strong>Nitrogen Fixing Bacteria</strong> (Azotobacter, Azospirillum, Acetobacter, Rhizobium)<br>
-          • <strong>Phosphorus Solubilizing Bacteria (PSB)</strong><br>
-          • <strong>Potash Mobilizing Bacteria (KMB)</strong><br>
-          • <strong>Zinc Mobilizing Bacteria (ZMB)</strong><br>
-          • <strong>Sulphur Mobilizing Bacteria (SMB)</strong><br>
-          • <strong>Iron Mobilizing Bacteria (IMB)</strong><br>
-          • <strong>Silicon Mobilizing Bacteria (SiMB)</strong><br>
-          • <strong>Calcium Mobilizing Bacteria (CMB)</strong>
-        </p>
-      </div>
-
-      <div class="bg-white rounded-3xl p-6 border-2 border-yellow-300 shadow-sm">
-        <span class="bg-yellow-200 text-emerald-950 text-xs font-extrabold px-3 py-1 rounded-full">2. Disease Management / Control (₹420/L)</span>
-        <h3 class="text-lg font-extrabold text-emerald-950 mt-3 mb-2">Bimari Aur Fafund Rokne Wale Cultures:</h3>
-        <p class="text-xs sm:text-sm text-slate-800 font-semibold leading-relaxed">
-          • <strong>Pseudomonas fluorescens</strong><br>
-          • <strong>Trichoderma viride</strong><br>
-          • <strong>Trichoderma harzianum</strong>
-        </p>
-        <div class="mt-4 pt-3 border-t border-slate-200">
-          <span class="bg-rose-100 text-rose-900 text-xs font-extrabold px-3 py-1 rounded-full">4. Plant Parasitic Nematodes Control</span>
-          <p class="text-xs sm:text-sm text-slate-800 font-semibold mt-2">
-            • <strong>Paecilomyces sp.</strong> ko <strong>Pseudomonas fluorescens</strong> aur <strong>Trichoderma viride</strong> ke sath milakar jad gaanth (nematodes) control ke liye prayog karein.
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-3xl p-6 border-2 border-emerald-200 shadow-sm">
-        <span class="bg-emerald-100 text-emerald-900 text-xs font-extrabold px-3 py-1 rounded-full">3. Pests Management / Control (₹440/L)</span>
-        <h3 class="text-lg font-extrabold text-emerald-950 mt-3 mb-2">Keet Niyantran Karne Wale Cultures:</h3>
-        <p class="text-xs sm:text-sm text-slate-800 font-semibold leading-relaxed">
-          • <strong>Metarhizium anisopliae</strong> (Safed lat, deemak)<br>
-          • <strong>Beauveria bassiana</strong> (Sundi, whitefly, thrips)<br>
-          • <strong>Verticillium lecanii</strong> (Mahu, jassids, mealybug)
-        </p>
-      </div>
-
-      <div class="bg-yellow-100 rounded-3xl p-6 border-2 border-yellow-400 shadow-sm space-y-3">
-        <span class="bg-emerald-800 text-yellow-300 text-xs font-extrabold px-3 py-1 rounded-full">Aapas Me Milane (Mixing) Ke Niyam</span>
-        <h3 class="text-lg font-extrabold text-emerald-950">Pani, Compost Ya FYM Me Milane Ka Sahi Tarika:</h3>
-        <p class="text-xs text-slate-900 font-semibold leading-relaxed">
-          • <strong>Group A (Ek Sath Mila Sakte Hain):</strong> Sabhi Nutrients Cultures (Nitrogen fixing, PSB, KMB, ZMB, SMB, IMB, SiMB, CMB) aur Disease Control Cultures (Pseudomonas fluorescens, Trichoderma viride, Trichoderma harzianum) ko prayog ke samay ek sath milaya ja sakta hai.
-        </p>
-        <p class="text-xs text-slate-900 font-semibold leading-relaxed">
-          • <strong>Group B (Ek Sath Mila Sakte Hain):</strong> Metarhizium anisopliae, Beauveria bassiana, Verticillium lecanii ko aapas me aur Paecilomyces sp. ke sath milakar prayog kar sakte hain.
-        </p>
-        <p class="text-xs font-extrabold text-red-900 bg-red-100 p-2.5 rounded-xl border border-red-300">
-          ⏱️ Zaroori Niyam: Cultures ko keval prayog ke samay hi milayein aur 3 se 4 ghante ke andar khet me istemal kar lein. Mix karne ke baad store karke na rakhein.
-        </p>
-      </div>
-    </div>
-  </section>
-    <!-- Footer -->
-  <footer id="contact" class="bg-emerald-950 text-emerald-100 pt-10 pb-8 px-4">
-    <div class="max-w-7xl mx-auto grid sm:grid-cols-3 gap-8 pb-8 border-b border-emerald-800">
+  <footer class="bg-slate-900 text-slate-300 py-8 px-4 text-center sm:text-left">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
-        <div class="flex items-center gap-2 text-white mb-2">
-          <i data-lucide="sprout" class="w-6 h-6 text-yellow-400"></i>
-          <span class="text-xl font-extrabold">KrishiCulture</span>
-        </div>
-        <p class="text-xs text-emerald-200 font-medium leading-relaxed">
-          100% Pure Organic Mother Bio-Cultures (1 Liter Bottle Packing). 1L se 30L tak multiply karein aur jaivik kheti apnayein.
-        </p>
+        <span class="text-lg font-extrabold text-white">Krishi<span class="text-yellow-400">Culture</span></span>
+        <span class="text-xs text-yellow-300 font-bold ml-2">ज़िंदा मिट्टी, दमदार फसल! Bio-Cultures for Living Soil.</span>
       </div>
-      <div>
-        <h4 class="text-yellow-300 font-extrabold mb-2 text-xs uppercase tracking-wider">Sampark Sutra</h4>
-        <p class="text-sm text-white font-extrabold">+91 63500 78784</p>
-        <p class="text-xs text-emerald-200 mt-1">All India Home & Farm Delivery</p>
+      <div class="flex items-center gap-3">
+        <a href="tel:+916350078784" class="text-xs font-bold text-emerald-300">+91 63500 78784</a>
+        <a href="https://wa.me/916350078784" target="_blank" class="bg-green-600 hover:bg-green-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl">WhatsApp Order</a>
       </div>
-      <div>
-        <h4 class="text-yellow-300 font-extrabold mb-2 text-xs uppercase tracking-wider">Direct WhatsApp Support</h4>
-        <a href="https://wa.me/916350078784?text=Namaste,%20mujhe%20bio-cultures%20order%20karne%20hain." target="_blank" class="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-emerald-950 font-extrabold px-4 py-2.5 rounded-xl text-xs transition">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>WhatsApp Par Baat Karein</span>
-        </a>
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto pt-5 text-center text-xs text-emerald-300 font-semibold">
-      © 2026 KrishiCulture Organic Bio-Agri Store. All Rights Reserved.
     </div>
   </footer>
-
-  <!-- Mobile Bottom Navigation Bar (With Single Kisan मित्र AI) -->
-  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-yellow-50 border-t-2 border-emerald-300 flex justify-around py-2 sm:hidden shadow-lg">
-    <a href="#pest-management" class="flex flex-col items-center text-[10px] font-extrabold text-emerald-950">
-      <i data-lucide="bug" class="w-5 h-5 mb-0.5 text-emerald-700"></i>
-      <span>Insect Pests</span>
-    </a>
-    <a href="#land-prep" class="flex flex-col items-center text-[10px] font-extrabold text-emerald-950">
-      <i data-lucide="tractor" class="w-5 h-5 mb-0.5 text-emerald-700"></i>
-      <span>Land Prep</span>
-    </a>
-    <a href="#products" class="flex flex-col items-center text-[10px] font-extrabold text-emerald-950">
-      <i data-lucide="flask-conical" class="w-5 h-5 mb-0.5 text-emerald-700"></i>
-      <span>Cultures</span>
-    </a>
-    <button onclick="toggleAssistant()" class="flex flex-col items-center text-[10px] font-extrabold text-emerald-950 bg-yellow-300 px-3 py-0.5 rounded-xl">
-      <i data-lucide="sparkles" class="w-5 h-5 mb-0.5 text-emerald-800"></i>
-      <span>Kisan मित्र AI</span>
-    </button>
+    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 flex justify-around py-2 sm:hidden shadow-lg">
+    <a href="#products" class="flex flex-col items-center text-[10px] font-bold text-emerald-800"><i data-lucide="shopping-bag" class="w-4 h-4 mb-0.5"></i><span>Cultures</span></a>
+    <button onclick="toggleAssistant()" class="flex flex-col items-center text-[10px] font-bold text-indigo-700"><i data-lucide="sparkles" class="w-4 h-4 mb-0.5"></i><span>KisanMitra</span></button>
+    <button onclick="openScannerModal()" class="flex flex-col items-center text-[10px] font-bold text-emerald-700"><i data-lucide="scan-line" class="w-4 h-4 mb-0.5"></i><span>Scanner</span></button>
+    <button onclick="openHistoryModal()" class="flex flex-col items-center text-[10px] font-bold text-slate-700"><i data-lucide="history" class="w-4 h-4 mb-0.5"></i><span>History</span></button>
+    <a href="#crops-bar-section" class="flex flex-col items-center text-[10px] font-bold text-amber-700"><i data-lucide="wheat" class="w-4 h-4 mb-0.5"></i><span>Crops</span></a>
   </nav>
 
-  <!-- Kisan मित्र AI Modal -->
   <div id="ai-assistant-modal" class="fixed inset-0 z-50 hidden bg-slate-950/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-yellow-50 rounded-t-3xl sm:rounded-3xl max-w-lg w-full h-[88vh] sm:h-[620px] flex flex-col shadow-2xl overflow-hidden border-2 border-yellow-400">
-      <div class="p-4 bg-gradient-to-r from-emerald-900 to-emerald-700 text-white flex items-center justify-between">
+    <div class="bg-white rounded-t-3xl sm:rounded-3xl max-w-lg w-full h-[85vh] sm:h-[600px] flex flex-col shadow-2xl overflow-hidden">
+      <div class="p-4 bg-gradient-to-r from-emerald-800 to-indigo-700 text-white flex items-center justify-between">
         <div class="flex items-center gap-2.5">
-          <div class="w-10 h-10 rounded-xl bg-yellow-400 text-emerald-950 flex items-center justify-center font-extrabold">
-            <i data-lucide="sparkles" class="w-5 h-5"></i>
-          </div>
+          <div class="w-9 h-9 rounded-full bg-yellow-400 text-emerald-950 flex items-center justify-center"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
           <div>
-            <h3 class="font-extrabold text-base text-yellow-300">Kisan मित्र AI</h3>
-            <span class="text-[11px] text-emerald-100 font-semibold block">Crop, Sowing, Land Prep, Soil Health, Pests & Bio-Cultures</span>
+            <h3 class="font-extrabold text-sm sm:text-base">Kisan Mitra AI</h3>
+            <span class="text-[11px] text-emerald-100 block">100% Organic Kheti, Soil pH &amp; Culture Salahkar</span>
           </div>
         </div>
-        <button onclick="toggleAssistant()" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white font-bold">✕</button>
+        <button onclick="toggleAssistant()" class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">✕</button>
       </div>
-
-      <div id="ai-chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-yellow-50/70 text-xs sm:text-sm">
-        <div class="bg-white border-2 border-emerald-200 rounded-2xl rounded-tl-none p-3.5 shadow-xs max-w-[92%]">
-          <p class="font-extrabold text-emerald-900 mb-1">Ram-Ram / Namaste Kisan Bhai-Behen! 🌾🌻</p>
-          <p class="text-slate-800 font-semibold leading-relaxed">
-            Main aapka <strong>Kisan मित्र AI</strong> hoon. Aap mujhse in sabhi vishayon par seedha sawal pooch sakte hain:<br>
-            • <strong>Crop Problems & Sowing Time</strong> (Area ke hisaab se)<br>
-            • <strong>Land Preparation</strong> (Zameen ki taiyari me Bio-Cultures ka prayog)<br>
-            • <strong>Soil Health</strong> (Acidic aur Alkaline mitti ka upchar)<br>
-            • <strong>Insect Pests & Diseases</strong> (Pheromone traps, baits aur jaivik ilaj)<br>
-            • <strong>Nutrient Deficiencies</strong> (Patti peeli padna / poshan kami)<br>
-            • <strong>Bio-Cultures</strong> (Selection, compatibility, 1L→30L multiplication & application)
-          </p>
+      <div id="ai-chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50 text-xs sm:text-sm">
+        <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-3.5 max-w-[90%]">
+          <strong class="text-emerald-800 block mb-1">Namaste! Main hoon Kisan Mitra AI 🌱</strong>
+          <p class="text-slate-700">Fasal ke rog-keet, <strong>Acidic/Alkaline Soil pH treatment</strong>, <strong>1L se 30L multiplication</strong>, ya pattiyon ki kami (V/W pattern) ke baare me kuch bhi puchein.</p>
         </div>
       </div>
-
-      <!-- Topic Quick Chips -->
-      <div class="px-3 py-2 bg-white border-t border-emerald-200 flex gap-2 overflow-x-auto no-scrollbar">
-        <button onclick="askQuickQuestion('Area ke hisaab se sowing time aur land preparation me culture kaise dalein?')" class="shrink-0 bg-yellow-200 text-emerald-950 text-[11px] font-extrabold px-3 py-1.5 rounded-full">Sowing & Land Prep</button>
-        <button onclick="askQuickQuestion('Alkaline aur Acidic soil health kaise sudharein?')" class="shrink-0 bg-emerald-100 text-emerald-950 text-[11px] font-extrabold px-3 py-1.5 rounded-full">Soil Health (pH)</button>
-        <button onclick="askQuickQuestion('Pheromone trap aur bait se keet niyantran kaise karein?')" class="shrink-0 bg-yellow-200 text-emerald-950 text-[11px] font-extrabold px-3 py-1.5 rounded-full">Pests & Traps</button>
-        <button onclick="askQuickQuestion('Patti peeli padne (Nutrient deficiency) me kaun sa culture dein?')" class="shrink-0 bg-emerald-100 text-emerald-950 text-[11px] font-extrabold px-3 py-1.5 rounded-full">Nutrient Deficiency</button>
-        <button onclick="askQuickQuestion('Bio-cultures selection, mixing compatibility aur 1L se 30L multiplication vidhi batayein')" class="shrink-0 bg-yellow-200 text-emerald-950 text-[11px] font-extrabold px-3 py-1.5 rounded-full">Bio-Cultures Guide</button>
+      <div class="px-3 py-2 bg-white border-t border-slate-100 flex gap-2 overflow-x-auto no-scrollbar">
+        <button onclick="askQuickQuestion('Alkaline soil treatment kaise karein?')" class="shrink-0 bg-amber-100 text-amber-950 text-[11px] font-extrabold px-3 py-1.5 rounded-full">Alkaline Soil</button>
+        <button onclick="askQuickQuestion('Acidic soil treatment kaise karein?')" class="shrink-0 bg-emerald-100 text-emerald-950 text-[11px] font-extrabold px-3 py-1.5 rounded-full">Acidic Soil</button>
+        <button onclick="askQuickQuestion('1L se 30L kaise banayein?')" class="shrink-0 bg-sky-100 text-sky-900 text-[11px] font-bold px-3 py-1.5 rounded-full">1L→30L Vidhi</button>
+        <button onclick="askQuickQuestion('Peeli patti kami ya bimari kaise pehchanein?')" class="shrink-0 bg-yellow-100 text-yellow-950 text-[11px] font-bold px-3 py-1.5 rounded-full">V vs W Peelapan</button>
       </div>
-
-      <form onsubmit="handleAiChatSubmit(event)" class="p-3 bg-white border-t-2 border-emerald-200 flex gap-2">
-        <input type="text" id="ai-user-input" placeholder="Apna sawal likhein (jaise: Gehu ki land prep me kaun sa culture dalein)..." class="flex-1 border-2 border-emerald-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold focus:outline-none focus:border-emerald-700" />
-        <button type="submit" class="bg-emerald-700 hover:bg-emerald-800 text-yellow-300 font-extrabold px-4 rounded-xl flex items-center justify-center">
-          <i data-lucide="send" class="w-4 h-4"></i>
-        </button>
+      <form onsubmit="handleAiChatSubmit(event)" class="p-3 bg-white border-t border-slate-200 flex gap-2">
+        <input type="text" id="ai-user-input" placeholder="Apna sawal likhein..." class="flex-1 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-emerald-600" />
+        <button type="submit" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 rounded-xl"><i data-lucide="send" class="w-4 h-4"></i></button>
       </form>
     </div>
   </div>
 
-  <!-- Quick View Modal -->
+  <div id="scanner-modal" class="fixed inset-0 z-50 hidden bg-slate-950/65 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-5 sm:p-6 relative shadow-2xl max-h-[90vh] overflow-y-auto space-y-4">
+      <button onclick="closeModalById('scanner-modal')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">✕</button>
+      <div>
+        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">Organic Crop Scanner</span>
+        <h3 class="text-xl font-extrabold text-slate-900 mt-1">Photo Scan Se Jaivik Culture Chunein</h3>
+      </div>
+      <input type="file" id="crop-photo-input" accept="image/*" onchange="handlePhotoSelected(event)" class="hidden" />
+      <button type="button" onclick="document.getElementById('crop-photo-input').click()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-2xl shadow flex items-center justify-center gap-2 text-sm">
+        <i data-lucide="camera" class="w-5 h-5"></i><span>Take a Picture / Photo Upload Karein</span>
+      </button>
+      <div id="photo-step-preview" class="hidden bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="relative w-20 h-20 rounded-xl overflow-hidden border border-emerald-400 shrink-0">
+            <img id="photo-preview-img" src="" class="w-full h-full object-cover" />
+            <div id="scan-line" class="hidden scanner-bar absolute left-0 right-0 h-1 bg-yellow-400"></div>
+          </div>
+          <div class="flex-1">
+            <label class="block text-xs font-extrabold text-slate-800">Lakshan Chunein:</label>
+            <select id="photo-symptom" class="w-full mt-1 border border-slate-300 rounded-xl px-2.5 py-2 text-xs font-bold bg-white">
+              <option value="yellow">Pattiya peeli padna (V ya W pattern / Poshan kami)</option>
+              <option value="wilt">Paudha sukhna / Jad galan / Dhabbe (Fungal/Bacterial)</option>
+              <option value="pests">Sundi / Safed makhi / Mahu / Thrips / Deemak</option>
+              <option value="nematode">Jadon me gaanth banna (Root-Knot Nematodes)</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" onclick="proceedDiagnosis()" id="proceed-scan-btn" class="w-full bg-yellow-400 hover:bg-yellow-300 text-emerald-950 font-extrabold py-3 rounded-xl text-sm shadow">Proceed — Jaanch Karein</button>
+      </div>
+      <div id="photo-step-result" class="hidden bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-4 space-y-2.5">
+        <h4 id="diag-title" class="font-extrabold text-sm text-emerald-950"></h4>
+        <p id="diag-desc" class="text-xs text-slate-700"></p>
+        <div id="diag-cultures" class="flex flex-wrap gap-1.5"></div>
+        <button type="button" onclick="addMultipleToCart(diagnosedIds); closeModalById('scanner-modal');" class="w-full bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs">+ Yeh Cultures Cart Me Dalein</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="other-options-modal" class="fixed inset-0 z-50 hidden bg-slate-950/65 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-5 sm:p-6 relative shadow-2xl max-h-[90vh] overflow-y-auto space-y-4">
+      <button onclick="closeModalById('other-options-modal')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">✕</button>
+      <h3 class="text-xl font-extrabold text-slate-900">Other Farming Options</h3>
+      <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 space-y-2">
+        <div class="flex justify-between items-center"><span class="text-xs font-extrabold text-emerald-900">Acre &amp; 30× Multiplication Calculator</span><span id="calc-acre-val" class="text-base font-extrabold text-emerald-700">5 Acre</span></div>
+        <input type="range" id="acre-slider" min="1" max="30" value="5" oninput="updateAcreCalc()" class="w-full accent-emerald-700 h-2 bg-slate-200 rounded-lg" />
+        <p id="calc-summary" class="text-xs font-bold text-slate-800">5 Liter Ready Culture = Sirf 1 Liter Mother Culture (₹400–₹440 me 30 Acre tak)</p>
+      </div>
+      <div class="grid grid-cols-2 gap-2.5 text-xs font-bold">
+        <button onclick="closeModalById('other-options-modal'); openSoilTreatmentAssistant('alkaline');" class="bg-amber-100 text-amber-950 p-3 rounded-2xl text-left">🧪 Alkaline Soil Treatment (pH &gt; 7.5)</button>
+        <button onclick="closeModalById('other-options-modal'); openSoilTreatmentAssistant('acidic');" class="bg-emerald-100 text-emerald-950 p-3 rounded-2xl text-left">🌱 Acidic Soil Treatment (pH &lt; 6.0)</button>
+        <a href="#multiplication" onclick="closeModalById('other-options-modal')" class="bg-sky-100 text-sky-950 p-3 rounded-2xl text-left">🔄 1L se 30L Banane Ki Vidhi</a>
+        <a href="#crops-bar-section" onclick="closeModalById('other-options-modal')" class="bg-rose-100 text-rose-950 p-3 rounded-2xl text-left">🐞 Stage-Wise Pest &amp; Disease</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="history-modal" class="fixed inset-0 z-50 hidden bg-slate-950/65 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-5 sm:p-6 relative shadow-2xl max-h-[85vh] overflow-y-auto space-y-3">
+      <button onclick="closeModalById('history-modal')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">✕</button>
+      <div class="flex items-center justify-between pr-8">
+        <h3 class="text-xl font-extrabold text-slate-900">Aapki Scan &amp; Order History</h3>
+        <button onclick="clearHistory()" class="text-xs font-bold text-rose-600 underline">Clear All</button>
+      </div>
+      <div id="history-list" class="space-y-2.5 text-xs"></div>
+    </div>
+  </div>
+
   <div id="product-modal" class="fixed inset-0 z-50 hidden bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-lg w-full p-6 relative shadow-2xl max-h-[90vh] overflow-y-auto border-2 border-emerald-300">
-      <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 font-bold">✕</button>
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModalById('product-modal')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">✕</button>
       <div id="modal-body"></div>
     </div>
   </div>
 
-  <!-- Slide-over Cart Drawer -->
   <div id="cart-drawer" class="fixed inset-0 z-50 hidden">
     <div onclick="toggleCart()" class="absolute inset-0 bg-slate-950/50"></div>
-    <div class="absolute right-0 top-0 h-full w-full max-w-md bg-yellow-50 shadow-2xl flex flex-col">
-      <div class="p-4 border-b border-emerald-800 flex items-center justify-between bg-emerald-950 text-white">
-        <div class="flex items-center gap-2">
-          <i data-lucide="shopping-bag" class="w-5 h-5 text-yellow-400"></i>
-          <h3 class="font-extrabold text-base">Aapka Krishi Cart</h3>
-        </div>
-        <button onclick="toggleCart()" class="p-1.5 rounded-lg hover:bg-emerald-900 font-bold">✕</button>
+    <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col">
+      <div class="p-4 border-b flex items-center justify-between bg-emerald-950 text-white">
+        <h3 class="font-bold text-base">Aapka KrishiCulture Cart</h3>
+        <button onclick="toggleCart()" class="p-1.5 rounded-lg">✕</button>
       </div>
-
       <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
-
-      <div id="cart-footer" class="p-4 border-t-2 border-emerald-200 bg-white space-y-3 hidden">
-        <div class="flex justify-between text-base font-extrabold text-emerald-950">
-          <span>Kul Rashi (Total)</span>
-          <span id="cart-total">₹0</span>
-        </div>
-
-        <button onclick="openCheckout()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-yellow-300 font-extrabold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm">
-          <i data-lucide="message-circle" class="w-5 h-5"></i>
-          <span>Proceed & WhatsApp Par Order Bhejein</span>
-        </button>
+      <div id="cart-footer" class="p-4 border-t bg-slate-50 space-y-3 hidden">
+        <div class="flex justify-between text-base font-extrabold"><span>Kul Rashi (Total)</span><span id="cart-total">₹0</span></div>
+        <button onclick="openCheckout()" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-3.5 rounded-xl text-sm">Proceed &amp; WhatsApp Par Order Bhejein</button>
       </div>
     </div>
   </div>
 
-  <!-- Checkout Modal -->
   <div id="checkout-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 relative shadow-2xl max-h-[92vh] overflow-y-auto border-2 border-yellow-400">
-      <button onclick="closeCheckout()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 font-bold">✕</button>
-
-      <h3 class="text-xl font-extrabold text-emerald-950 mb-1">Apni Details Bharein</h3>
-      <p class="text-xs text-slate-600 font-semibold mb-4">Submit karte hi aapke sabhi selected products ki list WhatsApp par send ho jayegi</p>
-
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 relative shadow-2xl max-h-[92vh] overflow-y-auto">
+      <button onclick="closeModalById('checkout-modal')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">✕</button>
+      <h3 class="text-xl font-extrabold text-slate-900 mb-3">Delivery Details</h3>
       <form onsubmit="sendOrderToWhatsApp(event)" class="space-y-3">
-        <div>
-          <label class="block text-xs font-extrabold text-slate-800 mb-1">Kisan / Buyer Ka Naam *</label>
-          <input type="text" id="cust-name" required placeholder="Apna naam likhein" class="w-full border-2 border-emerald-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:outline-none focus:border-emerald-700" />
+        <input type="text" id="cust-name" required placeholder="Kisan / Buyer Ka Naam *" class="w-full border rounded-xl px-3.5 py-2.5 text-sm" />
+        <div class="grid grid-cols-2 gap-2">
+          <input type="tel" id="cust-phone" required placeholder="Mobile Number *" class="w-full border rounded-xl px-3.5 py-2.5 text-sm" />
+          <input type="text" id="cust-pin" required placeholder="PIN Code *" class="w-full border rounded-xl px-3.5 py-2.5 text-sm" />
         </div>
-        <div class="grid grid-cols-2 gap-2.5">
-          <div>
-            <label class="block text-xs font-extrabold text-slate-800 mb-1">Mobile Number *</label>
-            <input type="tel" id="cust-phone" required placeholder="10 digit number" class="w-full border-2 border-emerald-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:outline-none focus:border-emerald-700" />
-          </div>
-          <div>
-            <label class="block text-xs font-extrabold text-slate-800 mb-1">PIN Code *</label>
-            <input type="text" id="cust-pin" required placeholder="6 digit PIN" class="w-full border-2 border-emerald-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:outline-none focus:border-emerald-700" />
-          </div>
-        </div>
-        <div>
-          <label class="block text-xs font-extrabold text-slate-800 mb-1">Poora Pata (Gaon, Tehsil, Jila) *</label>
-          <textarea id="cust-address" rows="2" required placeholder="Apna delivery pata likhein..." class="w-full border-2 border-emerald-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:outline-none focus:border-emerald-700"></textarea>
-        </div>
-
-        <div id="checkout-summary-box" class="bg-yellow-50 border-2 border-yellow-300 rounded-xl p-3 text-xs text-emerald-950 font-semibold space-y-1"></div>
-
-        <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-yellow-300 font-extrabold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm">
-          <i data-lucide="send" class="w-4 h-4"></i>
-          <span>WhatsApp Par Order Confirm Karein</span>
-        </button>
+        <textarea id="cust-address" rows="2" required placeholder="Poora Pata (Gaon, Tehsil, Jila) *" class="w-full border rounded-xl px-3.5 py-2.5 text-sm"></textarea>
+        <div id="checkout-summary-box" class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs space-y-1"></div>
+        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-3.5 rounded-xl text-sm">WhatsApp Par Order Confirm Karein</button>
       </form>
     </div>
   </div>
 
-  <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-16 sm:bottom-5 left-1/2 -translate-x-1/2 z-50 bg-emerald-950 text-yellow-300 px-5 py-2.5 rounded-full text-xs font-extrabold shadow-xl opacity-0 pointer-events-none transition-all duration-300 border border-yellow-400">
-    <span id="toast-msg">Cart me add ho gaya!</span>
-  </div>
+  <div id="toast" class="fixed bottom-16 sm:bottom-5 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-xl opacity-0 pointer-events-none transition-all duration-300"><span id="toast-msg">Added!</span></div>
     <script>
     const WHATSAPP_NUMBER = '916350078784';
 
+    const LANG_DICT = {
+      hinglish: {
+        topNotice: 'Zero Chemical • 100% Organic Lab-Certified Bio-Cultures • Helpline:',
+        cartBtn: 'Cart',
+        heroSub: 'High live microbial count (2×10⁸ to 1×10⁹ CFU/ml) jo mitti ki urvarakta badhaye, poshak tatvon ko unlock kare aur fasal ko rog-keet mukt rakhe.',
+        buyYellowBtn: 'Bio-Cultures Kharidein / जैविक कल्चर खरीदें',
+        kisanMitraTitle: 'Kisan Mitra AI (किसान मित्र AI)',
+        kisanMitraSub: 'Fasal ke rog, Acidic/Alkaline soil treatment aur sahi culture puchein →',
+        askBtn: 'Puchein',
+        scannerBtn: 'Scanner',
+        scannerSub: 'Photo se ilaj',
+        otherOptBtn: 'Other Options',
+        otherOptSub: 'Soil pH & 30× Vidhi',
+        historyBtn: 'History',
+        historySub: 'Scans & Orders',
+        cropBadge: '100% Organic Stage-Wise Crop Guide',
+        cropBarHeading: 'Crops Bar — Fasal Chunein aur Stage-Wise Rog/Keet Dekhein',
+        storeTag: '100% Pure Organic Mother Cultures • 1 Liter Bottle',
+        storeHeading: 'KrishiCulture Bio-Cultures Store',
+        storeSub: 'Seedhe lab se khet tak • White round 1 Liter bottle packing • 30× tak multiply karein',
+        multBadge: 'Upyog Vidhi • Multiply Up to 30×',
+        multHeading: '1 Liter Mother Culture Se 30 Liter Banane Ki Vidhi (5–7 Din)',
+        multSub: '1 Acre khet me multiply kiya hua 1 Liter culture dalta hai. Is process ko 3 baar dohrakar 1 Liter se 30 Liter (30 Acre ke liye) bana sakte hain.',
+        mixHeading: 'Cultures Ko Aapas Me Milane (Mixing) Ke Sahi Niyam'
+      },
+      hi: {
+        topNotice: 'शून्य रसायन • 100% जैविक लैब-प्रमाणित बायो-कल्चर • हेल्पलाइन:',
+        cartBtn: 'कार्ट',
+        heroSub: 'उच्च जीवित सूक्ष्मजीव संख्या (2×10⁸ से 1×10⁹ CFU/ml) जो मिट्टी की उर्वरता बढ़ाए, पोषक तत्वों को अनलॉक करे और फसल को रोग-कीट मुक्त रखे।',
+        buyYellowBtn: 'जैविक बायो-कल्चर खरीदें',
+        kisanMitraTitle: 'किसान मित्र AI',
+        kisanMitraSub: 'फसल के रोग, अम्लीय/क्षारीय मिट्टी सुधार और सही कल्चर पूछें →',
+        askBtn: 'पूछें',
+        scannerBtn: 'स्कैनर',
+        scannerSub: 'फोटो से इलाज',
+        otherOptBtn: 'अन्य विकल्प',
+        otherOptSub: 'मिट्टी pH व 30× विधि',
+        historyBtn: 'हिस्ट्री',
+        historySub: 'पुराने स्कैन व ऑर्डर',
+        cropBadge: '100% जैविक फसल-अवस्था मार्गदर्शिका',
+        cropBarHeading: 'फसल चुनें और अवस्था के अनुसार कीट व रोग देखें',
+        storeTag: '100% शुद्ध जैविक मदर कल्चर • 1 लीटर पैकिंग',
+        storeHeading: 'KrishiCulture जैविक कल्चर स्टोर',
+        storeSub: 'सीधे लैब से खेत तक • सफेद गोल 1 लीटर बोतल • 30× तक बढ़ाएं',
+        multBadge: 'उपयोग विधि • 30× तक मल्टीप्लाई करें',
+        multHeading: '1 लीटर मदर कल्चर से 30 लीटर बनाने की विधि (5–7 दिन)',
+        multSub: '1 एकड़ में मल्टीप्लाई किया 1 लीटर कल्चर लगता है। 3 बार दोहराकर 1 लीटर से 30 लीटर (30 एकड़ हेतु) बनाएं।',
+        mixHeading: 'कल्चर को आपस में मिलाने (Mixing) के सही नियम'
+      },
+      en: {
+        topNotice: 'Zero Chemical • 100% Organic Lab-Certified Bio-Cultures • Helpline:',
+        cartBtn: 'Cart',
+        heroSub: 'High live microbial count (2×10⁸ to 1×10⁹ CFU/ml) to boost soil fertility, unlock bound nutrients, and keep crops free from pests and diseases.',
+        buyYellowBtn: 'Buy Bio-Cultures Now',
+        kisanMitraTitle: 'Kisan Mitra AI Assistant',
+        kisanMitraSub: 'Ask about crop pests, Acidic/Alkaline soil treatment & right cultures →',
+        askBtn: 'Ask AI',
+        scannerBtn: 'Scanner',
+        scannerSub: 'Scan crop photo',
+        otherOptBtn: 'Other Options',
+        otherOptSub: 'Soil pH & 30× Method',
+        historyBtn: 'History',
+        historySub: 'Scans & Orders',
+        cropBadge: '100% Organic Stage-Wise Crop Guide',
+        cropBarHeading: 'Crops Bar — Select Crop for Stage-Wise Pests & Diseases',
+        storeTag: '100% Pure Organic Mother Cultures • 1 Liter Bottle',
+        storeHeading: 'KrishiCulture Bio-Cultures Store',
+        storeSub: 'Lab to farm directly • White round 1 Liter bottle • Multiply up to 30×',
+        multBadge: 'Application Guide • Multiply Up to 30×',
+        multHeading: 'How to Multiply 1 Liter Mother Culture to 30 Liters (5–7 Days)',
+        multSub: 'Apply 1 Liter multiplied culture per Acre. Repeat the process up to 3 times to turn 1 Liter into 30 Liters.',
+        mixHeading: 'Compatible Bio-Culture Mixing Rules'
+      }
+    };
+
     function getWhiteBottleSVG(shortLabel) {
       return `
-        <div class="w-full h-48 bg-gradient-to-b from-yellow-100/70 to-emerald-50 flex items-center justify-center p-3 relative overflow-hidden">
-          <svg viewBox="0 0 180 220" class="h-44 w-auto drop-shadow-md">
+        <div class="w-full h-44 bg-gradient-to-b from-slate-100 to-slate-200/70 flex items-center justify-center p-2.5">
+          <svg viewBox="0 0 180 220" class="h-40 w-auto drop-shadow-md">
             <rect x="74" y="10" width="32" height="16" rx="4" fill="#15803d"/>
             <rect x="72" y="23" width="36" height="5" rx="2" fill="#166534"/>
             <path d="M76 28 L104 28 L112 52 L68 52 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
             <rect x="46" y="50" width="88" height="156" rx="26" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
             <rect x="114" y="56" width="12" height="144" rx="6" fill="#f1f5f9"/>
-            <rect x="53" y="82" width="74" height="88" rx="8" fill="#fefce8" stroke="#86efac" stroke-width="1.3"/>
-            <rect x="53" y="82" width="74" height="14" rx="4" fill="#15803d"/>
-            <text x="90" y="92" font-size="6.5" font-weight="bold" fill="#fef08a" text-anchor="middle" font-family="sans-serif">100% ORGANIC</text>
-            <text x="90" y="118" font-size="7.2" font-weight="800" fill="#15803d" text-anchor="middle" font-family="sans-serif">${shortLabel[0]}</text>
-            <text x="90" y="129" font-size="7.2" font-weight="800" fill="#15803d" text-anchor="middle" font-family="sans-serif">${shortLabel[1] || ''}</text>
-            <text x="90" y="140" font-size="6.5" font-weight="700" fill="#166534" text-anchor="middle" font-family="sans-serif">${shortLabel[2] || ''}</text>
-            <line x1="62" y1="150" x2="118" y2="150" stroke="#bbf7d0" stroke-width="1"/>
-            <text x="90" y="161" font-size="6.8" font-weight="bold" fill="#166534" text-anchor="middle" font-family="sans-serif">1 Liter Mother Culture</text>
+            <rect x="53" y="80" width="74" height="92" rx="8" fill="#f8fafc" stroke="#bbf7d0" stroke-width="1.2"/>
+            <rect x="53" y="80" width="74" height="14" rx="4" fill="#15803d"/>
+            <text x="90" y="90" font-size="5.8" font-weight="bold" fill="#ffffff" text-anchor="middle" font-family="sans-serif">LIVING SOIL • 100% ORGANIC</text>
+            <text x="90" y="114" font-size="7" font-weight="800" fill="#15803d" text-anchor="middle" font-family="sans-serif">${shortLabel[0]}</text>
+            <text x="90" y="125" font-size="7" font-weight="800" fill="#15803d" text-anchor="middle" font-family="sans-serif">${shortLabel[1] || ''}</text>
+            <text x="90" y="136" font-size="5.6" font-weight="700" fill="#166534" text-anchor="middle" font-family="sans-serif">${shortLabel[2] || ''}</text>
+            <line x1="62" y1="147" x2="118" y2="147" stroke="#dcfce7" stroke-width="1"/>
+            <text x="90" y="158" font-size="6.4" font-weight="bold" fill="#166534" text-anchor="middle" font-family="sans-serif">1 Liter Mother Culture</text>
           </svg>
         </div>
       `;
     }
 
     const PRODUCTS = [
-      {
-        id: 'nitrogen',
-        name: 'Nitrogen Fixing Bacteria (Azotobacter, Azospirillum, Acetobacter, Rhizobium)',
-        bottleLines: ['Nitrogen Fixing', 'Bacteria', '(Azoto/Rhizo/Aceto)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'Nitrogen fixing bacteria ko baaki sabhi Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante ke andar prayog karein.',
-        benefits: 'Hawa se nitrogen lekar mitti aur jadon me sthir karta hai. 1L se 30L tak multiply karke 30 acre me prayog karein.'
-      },
-      {
-        id: 'psb',
-        name: 'Phosphorus Solubilizing Bacteria (PSB)',
-        bottleLines: ['Phosphorus', 'Solubilizing', 'Bacteria (PSB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'PSB ko sabhi Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Zameen me pade aghulansheel phosphorus ko ghulansheel banakar jadon ko upalabdh karata hai.'
-      },
-      {
-        id: 'kmb',
-        name: 'Potash Mobilizing Bacteria (KMB)',
-        bottleLines: ['Potash', 'Mobilizing', 'Bacteria (KMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'KMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Mitti me bandhe hue potash ko gati dekar phal aur daane ka size, chamak aur wazan badhata hai.'
-      },
-      {
-        id: 'zmb',
-        name: 'Zinc Mobilizing Bacteria (ZMB)',
-        bottleLines: ['Zinc', 'Mobilizing', 'Bacteria (ZMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'ZMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Dhan, gehu aur bagwani faslon me zinc ki kami (khaira rog) door karta hai.'
-      },
-      {
-        id: 'smb',
-        name: 'Sulphur Mobilizing Bacteria (SMB)',
-        bottleLines: ['Sulphur', 'Mobilizing', 'Bacteria (SMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'SMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Tilhan (Sarso, Moongfali, Soyabean) aur pyaz-lahsun me tel ki matra aur quality badhata hai.'
-      },
-      {
-        id: 'imb',
-        name: 'Iron Mobilizing Bacteria (IMB)',
-        bottleLines: ['Iron', 'Mobilizing', 'Bacteria (IMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'IMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Paudhon me iron (loha) ki uplabdhata badhakar pattiyon ka peela padna (chlorosis) rokta hai.'
-      },
-      {
-        id: 'simb',
-        name: 'Silicon Mobilizing Bacteria (SiMB)',
-        bottleLines: ['Silicon', 'Mobilizing', 'Bacteria (SiMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'SiMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Paudhe ke tane ko majboot banata hai jisse fasal girti nahi aur rog pratirodhak shakti badhti hai.'
-      },
-      {
-        id: 'cmb',
-        name: 'Calcium Mobilizing Bacteria (CMB)',
-        bottleLines: ['Calcium', 'Mobilizing', 'Bacteria (CMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'CMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Phal aur sabjiyon ko phatne (cracking) se bachata hai aur shelf-life badhata hai.'
-      },
-      {
-        id: 'pseudomonas',
-        name: 'Pseudomonas fluorescens',
-        bottleLines: ['Pseudomonas', 'fluorescens', 'Bio-Bactericide'],
-        category: 'disease',
-        catLabel: 'Disease Management / Control',
-        price: 420,
-        mixText: 'Pseudomonas fluorescens ko Nutrients cultures aur Trichoderma ke sath (ya Nematodes ke liye Paecilomyces sp. aur Trichoderma viride ke sath) milakar 3–4 ghante me prayog karein.',
-        benefits: 'Bacterial wilt, blight aur blast rogon ko rokta hai. Paecilomyces sp. aur Trichoderma viride ke sath nematodes control karta hai.'
-      },
-      {
-        id: 'trichoderma-viride',
-        name: 'Trichoderma viride',
-        bottleLines: ['Trichoderma', 'viride', 'Bio-Fungicide'],
-        category: 'disease',
-        catLabel: 'Disease Management / Control',
-        price: 420,
-        mixText: 'Trichoderma viride ko Nutrients cultures aur Pseudomonas ke sath (ya Nematodes ke liye Paecilomyces sp. aur Pseudomonas ke sath) milakar 3–4 ghante me prayog karein.',
-        benefits: 'Mitti janit fafund rog (Root rot, Collar rot, Wilt) ko jad se khatam karta hai.'
-      },
-      {
-        id: 'trichoderma-harzianum',
-        name: 'Trichoderma harzianum',
-        bottleLines: ['Trichoderma', 'harzianum', 'Bio-Fungicide'],
-        category: 'disease',
-        catLabel: 'Disease Management / Control',
-        price: 420,
-        mixText: 'Trichoderma harzianum ko Nutrients cultures, Pseudomonas fluorescens aur Trichoderma viride ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Jadon ke aas-paas suraksha kavach banakar Fusarium, Rhizoctonia aur Pythium fafund ko rokta hai.'
-      },
-      {
-        id: 'metarhizium',
-        name: 'Metarhizium anisopliae',
-        bottleLines: ['Metarhizium', 'anisopliae', 'Bio-Insecticide'],
-        category: 'pest',
-        catLabel: 'Pests Management / Control',
-        price: 440,
-        mixText: 'Metarhizium anisopliae ko Beauveria bassiana, Verticillium lecanii aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.',
-        benefits: 'Safed lat (White grub), deemak (Termite) aur mitti ke keeton ka 100% jaivik niyantran karta hai.'
-      },
-      {
-        id: 'beauveria',
-        name: 'Beauveria bassiana',
-        bottleLines: ['Beauveria', 'bassiana', 'Bio-Insecticide'],
-        category: 'pest',
-        catLabel: 'Pests Management / Control',
-        price: 440,
-        mixText: 'Beauveria bassiana ko Metarhizium anisopliae, Verticillium lecanii aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.',
-        benefits: 'Sundi (Caterpillar), pod borer, whitefly aur thrips keeton ko prakritik roop se nasht karta hai.'
-      },
-      {
-        id: 'verticillium',
-        name: 'Verticillium lecanii',
-        bottleLines: ['Verticillium', 'lecanii', 'Bio-Insecticide'],
-        category: 'pest',
-        catLabel: 'Pests Management / Control',
-        price: 440,
-        mixText: 'Verticillium lecanii ko Metarhizium anisopliae, Beauveria bassiana aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.',
-        benefits: 'Ras chusak keet jaise Mahu (Aphids), Jassids, Whitefly aur Mealybug par tezi se asar karta hai.'
-      },
-      {
-        id: 'paecilomyces',
-        name: 'Paecilomyces sp.',
-        bottleLines: ['Paecilomyces', 'sp.', 'Nematode Control'],
-        category: 'nematode',
-        catLabel: 'Plant Parasitic Nematodes Control',
-        price: 440,
-        mixText: 'Paecilomyces sp. ko Pseudomonas fluorescens aur Trichoderma viride ke sath (ya Metarhizium, Beauveria, Verticillium ke sath) milakar 3–4 ghante me prayog karein.',
-        benefits: 'Plant parasitic nematodes (jad gaanth rog) ko khatam karta hai. Pseudomonas fluorescens aur Trichoderma viride ke sath best result deta hai.'
-      }
+      { id: 'nitrogen', name: 'Nitrogen Fixing Bacteria (Azotobacter, Azospirillum, Acetobacter, Rhizobium)', bottleLines: ['Nitrogen Fixing', 'Bacteria', '(Azoto/Rhizo/Aceto)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'Nitrogen Fixing Bacteria ko baaki Nutrients cultures aur Pseudomonas fluorescens, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Atmospheric nitrogen ko fix karke natural growth badhaye aur dalhan, anaj, ganna me chemical nitrogen ki zaroorat khatam kare.' },
+      { id: 'psb', name: 'Phosphorus Solubilizing Bacteria (PSB)', bottleLines: ['Phosphorus', 'Solubilizing', 'Bacteria (PSB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'PSB ko Nutrients cultures aur Pseudomonas fluorescens, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Mitti me lock tricalcium aur iron/aluminium phosphate ko gholkar jadon ke vikas aur phoolon ke liye uplabdh karata hai.' },
+      { id: 'kmb', name: 'Potash Mobilizing Bacteria (KMB)', bottleLines: ['Potash', 'Mobilizing', 'Bacteria (KMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'KMB ko Nutrients cultures aur Pseudomonas fluorescens, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Clay mitti me bandhe potash ko release karke daane-phal ka size, chamak, sugar aur rog pratirodhak shakti badhata hai.' },
+      { id: 'zmb', name: 'Zinc Mobilizing Bacteria (ZMB)', bottleLines: ['Zinc', 'Mobilizing', 'Bacteria (ZMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'ZMB ko Nutrients cultures aur Pseudomonas fluorescens, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Dhan me Khaira rog, Little Leaf aur W-pattern zinc deficiency door karke alkaline soil me zinc uplabdh karata hai.' },
+      { id: 'smb', name: 'Sulphur Mobilizing Bacteria (SMB)', bottleLines: ['Sulphur', 'Mobilizing', 'Bacteria (SMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'SMB ko Nutrients cultures aur Pseudomonas fluorescens, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Tilhan me tel ki matra badhata hai aur alkaline/usar mitti ka pH santulit karne me madad karta hai.' },
+      { id: 'imb', name: 'Iron Mobilizing Bacteria (IMB)', bottleLines: ['Iron', 'Mobilizing', 'Bacteria (IMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'IMB ko Nutrients cultures aur Pseudomonas fluorescens, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'High pH mitti me upari pattiyon ka safed-peela padna (Iron chlorosis) rok kar chlorophyll badhata hai.' },
+      { id: 'simb', name: 'Silicon Mobilizing Bacteria (SiMB)', bottleLines: ['Silicon', 'Mobilizing', 'Bacteria (SiMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'SiMB ko Nutrients cultures aur Pseudomonas fluorescens, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Paudhe ki cell wall aur tane ko majboot banata hai jisse dhan/gehu girta nahi aur Blast/keet hamla kam hota hai.' },
+      { id: 'cmb', name: 'Calcium Mobilizing Bacteria (CMB)', bottleLines: ['Calcium', 'Mobilizing', 'Bacteria (CMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'CMB ko Nutrients cultures aur Pseudomonas fluorescens, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Blossom End Rot, phal phatna (cracking) rokta hai aur Acidic soil me calcium ki kami poori karta hai.' },
+      { id: 'pseudomonas', name: 'Pseudomonas fluorescens', bottleLines: ['Pseudomonas', 'fluorescens', 'Disease Control'], category: 'disease', catLabel: 'Disease Management / Control', price: 420, mixText: 'Nutrients cultures aur Trichoderma ke sath (ya Nematodes ke liye Paecilomyces sp. aur Trichoderma viride ke sath) milakar 3–4 ghante me prayog karein.', benefits: 'Bacterial Wilt, Bacterial Leaf Blight, Citrus Canker, Blast aur Damping Off ke khilaf jad aur patti par suraksha kavach banata hai.' },
+      { id: 'trichoderma-viride', name: 'Trichoderma viride', bottleLines: ['Trichoderma', 'viride', 'Disease Control'], category: 'disease', catLabel: 'Disease Management / Control', price: 420, mixText: 'Nutrients cultures aur Pseudomonas fluorescens ke sath (ya Nematodes ke liye Paecilomyces sp. aur Pseudomonas ke sath) milakar 3–4 ghante me prayog karein.', benefits: 'Mitti me Fusarium Wilt, Root Rot, Collar Rot, Damping Off aur Red Rot jaise hanikarak fafund ko jad se nasht karta hai.' },
+      { id: 'trichoderma-harzianum', name: 'Trichoderma harzianum', bottleLines: ['Trichoderma', 'harzianum', 'Disease Control'], category: 'disease', catLabel: 'Disease Management / Control', price: 420, mixText: 'Nutrients cultures, Pseudomonas fluorescens aur Trichoderma viride ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Garmi aur nami dono mausam me jadon ke aas-paas tezi se failkar Pythium, Rhizoctonia aur Fusarium ko rokta hai.' },
+      { id: 'metarhizium', name: 'Metarhizium anisopliae', bottleLines: ['Metarhizium', 'anisopliae', 'Pest Control'], category: 'pest', catLabel: 'Pests Management / Control', price: 440, mixText: 'Beauveria bassiana, Verticillium lecanii aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.', benefits: 'Safed lat (White Grub), Deemak (Termite), Root Weevil aur mitti me chhupe pupa ko prakritik roop se khatam karta hai.' },
+      { id: 'beauveria', name: 'Beauveria bassiana', bottleLines: ['Beauveria', 'bassiana', 'Pest Control'], category: 'pest', catLabel: 'Pests Management / Control', price: 440, mixText: 'Metarhizium anisopliae, Verticillium lecanii aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.', benefits: 'Sundi (Bollworm/Pod Borer/Fruit Borer), DBM, Thrips, Stem Borer aur Brown Plant Hopper ko bina zeher ke khatam karta hai.' },
+      { id: 'verticillium', name: 'Verticillium lecanii', bottleLines: ['Verticillium', 'lecanii', 'Pest Control'], category: 'pest', catLabel: 'Pests Management / Control', price: 440, mixText: 'Metarhizium anisopliae, Beauveria bassiana aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.', benefits: 'Mahu (Aphids), Safed Makhi (Whitefly), Hara Tela (Jassids), Hopper aur Mealybug par tezi se asar karta hai.' },
+      { id: 'paecilomyces', name: 'Paecilomyces sp.', bottleLines: ['Paecilomyces', 'sp.', 'Nematode Control'], category: 'nematode', catLabel: 'Plant Parasitic Nematodes Control', price: 440, mixText: 'Nematodes ke liye Pseudomonas fluorescens aur Trichoderma viride ke sath (ya Metarhizium, Beauveria, Verticillium ke sath) milakar 3–4 ghante me prayog karein.', benefits: 'Root-Knot Nematodes (jad gaanth rog) ke andon aur larvae par hamla karke paudhe ko phir se hara-bhara banata hai.' }
     ];
-          const PEST_DATA = {
+          const CROP_STAGE_DATA = {
       common: {
-        badge: 'Common Insects (Sabhi Fasalein)',
-        heading: 'Sabhi Faslon Ke Common Insects (Aam Keet)',
-        pests: [
+        label: 'Common (Sabhi Fasalein)',
+        entries: [
           {
-            name: 'Aphids / Mahu (माहू / चेपा)',
-            img: 'https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=600&q=80',
-            damage: 'Pattiyon aur komal tehniyon se ras chooskar chipchipa honeydew chhodta hai jisse kali fafund lagti hai.',
-            organic: 'Neem Oil (10000 ppm) ka shaam ko spray karein aur medon par cheentiyon ki roktham karein.',
-            predators: 'Ladybird Beetle (Coccinella), Green Lacewing (Chrysoperla), Syrphid fly',
-            cultures: ['Verticillium lecanii'],
-            ids: ['verticillium']
-          },
-          {
-            name: 'Whitefly / Safed Makhi (सफेद मक्खी)',
-            img: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80',
-            damage: 'Patti ke neeche se ras choosti hai aur Leaf Curl / Yellow Mosaic virus failati hai.',
-            organic: '25–30 Yellow Sticky Traps/acre lagayein aur Neem Oil (10000 ppm) ka spray karein.',
-            predators: 'Encarsia sp. (parasitoid), Ladybird Beetle, Chrysoperla carnea',
+            stage: 'Vegetative / Leaf Stage',
+            type: 'Insect Pest',
+            name: 'Aphids (माहू) & Whitefly (सफेद मक्खी)',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bemisia_tabaci_under_leaf_of_eggplant.jpg?width=600',
+            svgKey: 'whitefly',
+            symptoms: 'Pattiyon ke neeche se ras chooskar chipchipa honeydew chhodte hain jisse kali fafund aur Leaf Curl / Mosaic virus failta hai.',
+            organic: '25–30 Yellow Sticky Traps/acre lagayein, shaam ko Neem Oil (10000 ppm) spray karein aur medon se cheentiyan hatayein.',
+            predators: 'Ladybird Beetle (Coccinella), Chrysoperla carnea, Encarsia sp.',
             cultures: ['Verticillium lecanii', 'Beauveria bassiana'],
             ids: ['verticillium', 'beauveria']
           },
           {
-            name: 'Thrips (थ्रिप्स / तेला)',
-            img: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=600&q=80',
-            damage: 'Patti ki upari satah khurach kar ras choosta hai jisse pattiyan naav (boat) ki tarah upar mudti hain.',
-            organic: '20–25 Blue Sticky Traps/acre lagayein, Neem Oil spray karein aur mitti me pupa nasht karein.',
-            predators: 'Anthocorid bug, Predatory mites',
-            cultures: ['Beauveria bassiana'],
-            ids: ['beauveria']
-          },
-          {
+            stage: 'Flowering / Fruiting Stage',
+            type: 'Insect Pest',
             name: 'Pod & Fruit Borer Sundi (फल व फली छेदक)',
-            img: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80',
-            damage: 'Hari-bhuri sundi phalon aur phaliyon me gol chhed karke andar ke daane aur guda kha jati hai.',
-            organic: '4–5 Pheromone Traps/acre, 20 Bird Perches/acre, Marigold trap crop aur 5% NSKE spray karein.',
-            predators: 'Trichogramma chilonis (egg parasitoid), Campoletis chlorideae, Bracon sp.',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Helicoverpa_armigera_larva.jpg?width=600',
+            svgKey: 'caterpillar',
+            symptoms: 'Hari-bhuri sundi phaliyon aur phalon me gol chhed karke aadha sharir andar dalkar daane-guda kha jati hai.',
+            organic: 'Pheromone Traps (4–5/acre), Bird Perches (20/acre), Marigold trap crop aur 5% NSKE ka chhidkav karein.',
+            predators: 'Trichogramma chilonis, Campoletis chlorideae, Bracon sp.',
             cultures: ['Beauveria bassiana'],
             ids: ['beauveria']
           },
           {
-            name: 'Termites & White Grub (दीमक व सफेद लट)',
-            img: 'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=600&q=80',
-            damage: 'Mitti ke andar jadon ko kaat dete hain jisse paudhe tukdon (patches) me sookh kar gir jate hain.',
-            organic: 'Keval achhi sadi gobar khad (FYM) dalein, garmi me gehri jutai aur Light Traps lagayein.',
-            predators: 'Carabid beetles, Insectivorous birds, Frogs',
-            cultures: ['Metarhizium anisopliae'],
-            ids: ['metarhizium']
-          },
-          {
-            name: 'Root-Knot Nematodes (सूत्रकृमि / जड़ गांठ)',
-            img: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80',
-            damage: 'Jadon me mala jaisi gaanth ban jati hai, paudha peela aur bauna reh jata hai.',
-            organic: '100–200 kg Neem Khali (Neem Cake)/acre dalein aur khet me Genda (Marigold) ugayein.',
+            stage: 'Root & Soil Zone',
+            type: 'Nematode & Disease',
+            name: 'Root-Knot Nematodes (जड़ गांठ) & Fusarium Wilt',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Meloidogyne_incognita_galls_(01).jpg?width=600',
+            svgKey: 'nematode',
+            symptoms: 'Jadon me mala jaisi gaanth banna ya tana phadne par bhoori nas dikhna, jisse paudha dhoop me murjha kar sookh jata hai.',
+            organic: '100–200 kg Neem Khali/acre, Genda (Marigold) intercrop aur anaj faslon ke sath 3-saal crop rotation.',
             predators: 'Predatory Nematodes & beneficial soil microbes',
             cultures: ['Paecilomyces sp.', 'Pseudomonas fluorescens', 'Trichoderma viride'],
             ids: ['paecilomyces', 'pseudomonas', 'trichoderma-viride']
           }
         ]
       },
-      cereals: {
-        badge: 'Dhan, Gehu, Makka & Jwar',
-        heading: 'Dhan, Gehu & Makka Ke Vishesh Keet (Cereal Pests)',
-        pests: [
+      paddy: {
+        label: 'Dhan (Paddy / Rice)',
+        entries: [
           {
+            stage: 'Nursery & Vegetative Stage',
+            type: 'Insect Pest',
             name: 'Yellow Stem Borer (तना छेदक - Dead Heart)',
-            img: 'https://images.unsplash.com/photo-1536617621572-1d5f1e6269a0?auto=format&fit=crop&w=600&q=80',
-            damage: 'Beech ki mukhya patti sookh jati hai (Dead Heart) aur baali safed khali reh jati hai (White Earhead).',
-            organic: 'Ropai se pehle paudh ke upari sire (tips) kaatein, 5 Pheromone Traps/acre aur katai baad gehri jutai karein.',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Rice_yellow_stem_borer.jpg?width=600',
+            svgKey: 'stemborer',
+            symptoms: 'Kalle (tillers) ki beech ki patti sookh jati hai (Dead Heart) aur baali nikalne par safed khali baali (White Earhead) rehti hai.',
+            organic: 'Ropai se pehle paudh ke upari sire (tips) kaatein, 5 Pheromone Traps/acre aur katai ke baad gehri jutai karein.',
             predators: 'Trichogramma japonicum, Tetrastichus schoenobii, Carabid beetle',
             cultures: ['Beauveria bassiana', 'Metarhizium anisopliae'],
             ids: ['beauveria', 'metarhizium']
           },
           {
+            stage: 'Tillering & Booting Stage',
+            type: 'Insect Pest',
             name: 'Brown Plant Hopper - BPH (भूरा फुदका)',
-            img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80',
-            damage: 'Tane ke nichle hisse se ras chooskar gol ghere me fasal sukha deta hai (Hopper Burn).',
-            organic: 'Khet ka pani 3–4 din nikal kar sukhayein, har 8–10 ft par paata (alleyways) banayein aur urea rokein.',
-            predators: 'Wolf Spider (Lycosa), Mirid Bug (Cyrtorhinus lividipennis), Ladybird Beetle',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nilaparvata_lugens_-_Brown_planthopper_-_UGA5190055.jpg?width=600',
+            svgKey: 'hopper',
+            symptoms: 'Tane ke nichle hisse se ras chooskar khet me gol ghere me fasal sukha deta hai (Hopper Burn).',
+            organic: 'Khet ka pani 3–4 din nikal kar sukhayein (AWD), har 8–10 ft par paata (alleyways) chhodein aur extra nitrogen rokein.',
+            predators: 'Wolf Spider (Lycosa pseudoannulata), Mirid Bug (Cyrtorhinus), Coccinella',
             cultures: ['Beauveria bassiana', 'Verticillium lecanii'],
             ids: ['beauveria', 'verticillium']
           },
           {
-            name: 'Gundhi Bug & Leaf Folder (गुंधी बग व पत्ती लपेटक)',
-            img: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=600&q=80',
-            damage: 'Doodhiya avastha me daane ka doodh chooskar khokhla (chaffy) kar deta hai aur khet me badbu aati hai.',
-            organic: 'Medon se saawan ghaas hatayein, Neem Oil + Lehsun ark ka shaam ko spray karein aur rassi chalayein.',
-            predators: 'Xanthopimpla emaculata, Spiders, Dragonflies',
-            cultures: ['Beauveria bassiana'],
-            ids: ['beauveria']
+            stage: 'Tillering & Panicle Stage',
+            type: 'Plant Disease',
+            name: 'Rice Blast (झोंका) & Khaira Disease',
+            img: '',
+            svgKey: 'blast',
+            symptoms: 'Patton par aankh/naav ke aakar ke rakh-rang ke dhabbe (Leaf Blast), baali ki gardan sadna (Neck Blast) ya zinc kami se bhoore dhabbe (Khaira).',
+            organic: 'Extra nitrogen band karein, mitti me Silicon aur Potash badhayein aur seed/nursery root dip bio-culture se karein.',
+            predators: 'Beneficial rhizosphere bacteria & mycoparasitic fungi',
+            cultures: ['Pseudomonas fluorescens', 'Trichoderma viride', 'Silicon Mobilizing Bacteria (SiMB)', 'Zinc Mobilizing Bacteria (ZMB)'],
+            ids: ['pseudomonas', 'trichoderma-viride', 'simb', 'zmb']
           }
         ]
       },
-      vegetables: {
-        badge: 'Tamatar, Mirch, Baingan, Gobhi, Bhindi',
-        heading: 'Sabjiyon Ke Vishesh Keet (Vegetable Pests)',
-        pests: [
+      wheat: {
+        label: 'Gehu (Wheat)',
+        entries: [
           {
-            name: 'Brinjal & Bhindi Shoot/Fruit Borer (तना व फल छेदक)',
-            img: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600&q=80',
-            damage: 'Komal tehniyan murjha jati hain aur phalon me chhed hokar andar sundi bhar jati hai.',
-            organic: 'Grasit tehniyan aur phal todkar nasht karein, Pheromone traps lagayein aur 5% NSKE spray karein.',
-            predators: 'Trichogramma chilonis, Bracon greeni, Trathala flavoorbitalis',
-            cultures: ['Beauveria bassiana'],
-            ids: ['beauveria']
-          },
-          {
-            name: 'Diamond Back Moth - DBM (गोभी की हीरक पृष्ठ सुंडी)',
-            img: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80',
-            damage: 'Gobhi ke patton ki nichli satah khakar patton ko chhalni (skeletonize) kar deti hai.',
-            organic: 'Har 25 katar gobhi ke baad 2 katar Sarso (Trap crop) lagayein aur 5% NSKE spray karein.',
-            predators: 'Cotesia plutellae (Apanteles), Brachymeria sp.',
-            cultures: ['Beauveria bassiana'],
-            ids: ['beauveria']
-          },
-          {
-            name: 'Chilli Thrips & Yellow Mite (मिर्च का मुरदा रोग)',
-            img: 'https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=600&q=80',
-            damage: 'Thrips se pattiyan upar ki taraf aur Mites se neeche ki taraf mudkar chhoti reh jati hain.',
-            organic: 'Blue Sticky Traps lagayein, Neem Oil (10000 ppm) aur Sulphur Mobilizing Bacteria (SMB) dein.',
-            predators: 'Anthocorid bug, Predatory mites (Amblyseius)',
-            cultures: ['Beauveria bassiana', 'Verticillium lecanii'],
-            ids: ['beauveria', 'verticillium']
-          }
-        ]
-      },
-      pulses: {
-        badge: 'Chana, Arhar, Moong, Sarso, Moongfali',
-        heading: 'Dalhan & Tilhan Ke Vishesh Keet (Pulse & Oilseed Pests)',
-        pests: [
-          {
-            name: 'Gram Pod Borer (चना व अरहर की फली छेदक सुंडी)',
-            img: 'https://images.unsplash.com/photo-1515543904379-3d757afe72e4?auto=format&fit=crop&w=600&q=80',
-            damage: 'Sundi phaliyon me chhed karke aadha sharir andar dalkar kachche daane kha jati hai.',
-            organic: '90 din par upari kopal ki chhantai (Nipping), 20 Bird Perches/acre, Dhaniya intercrop aur 5% NSKE.',
-            predators: 'Campoletis chlorideae, Trichogramma chilonis, Drongo birds',
-            cultures: ['Beauveria bassiana'],
-            ids: ['beauveria']
-          },
-          {
-            name: 'Mustard Aphid & Painted Bug (सरसों का माहू व चितकबरा कीट)',
-            img: 'https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&w=600&q=80',
-            damage: 'Phool aur phaliyon ka ras chooskar tel ki matra aur paidawar aadhi kar deta hai.',
-            organic: 'Samay par buwai karein, Yellow Sticky Traps lagayein aur shaam ko Neem Oil spray karein.',
-            predators: 'Ladybird Beetle (Coccinella septempunctata), Green Lacewing',
-            cultures: ['Verticillium lecanii'],
-            ids: ['verticillium']
-          },
-          {
-            name: 'Groundnut White Grub & Leaf Miner (सफेद लट व पर्ण सुरंगक)',
-            img: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=600&q=80',
-            damage: 'Safed lat jadon ko kaat deti hai aur Leaf miner pattiyon me jalne jaise dhabbe banata hai.',
-            organic: 'Barish ke baad Neem/Ber ke pedon se bhring pakad kar nasht karein aur Soybean trap crop lagayein.',
-            predators: 'Bracon sp., Predatory birds, Toads',
-            cultures: ['Metarhizium anisopliae', 'Beauveria bassiana'],
-            ids: ['metarhizium', 'beauveria']
-          }
-        ]
-      },
-      cotton: {
-        badge: 'Kapas & Ganna (Cotton & Sugarcane)',
-        heading: 'Kapas & Ganna Ke Vishesh Keet',
-        pests: [
-          {
-            name: 'Pink Bollworm & Red Cotton Bug (गुलाबी सुंडी व लाल कीड़ा)',
-            img: 'https://images.unsplash.com/photo-1594897030264-ab7d87efc473?auto=format&fit=crop&w=600&q=80',
-            damage: 'Gulabi sundi phoolon ko rosette banakar tinde kharab karti hai aur Red bug rui ko daagi karta hai.',
-            organic: 'Pheromone traps (Gossyplure), charon taraf Bhindi trap crop aur pedi (ratooning) na lein.',
-            predators: 'Trichogramma chilonis, Chrysoperla carnea, Harpactor costalis',
-            cultures: ['Beauveria bassiana'],
-            ids: ['beauveria']
-          },
-          {
-            name: 'Cotton Jassids & Mealybug (हरा तेला व मिलीबग)',
-            img: 'https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?auto=format&fit=crop&w=600&q=80',
-            damage: 'Jassids se pattiyan kinare se laal hokar jalti hain (Hopper burn) aur Mealybug safed mom banata hai.',
-            organic: 'Tane par Grease band lagayein, tez pani se dhokar Neem Oil + Soap spray aur Yellow Traps lagayein.',
-            predators: 'Cryptolaemus montrouzieri (Mealybug destroyer), Spiders',
-            cultures: ['Verticillium lecanii'],
-            ids: ['verticillium']
-          },
-          {
-            name: 'Sugarcane Early Shoot Borer & Pyrilla (गन्ना छेदक व पायरिला)',
-            img: 'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=600&q=80',
-            damage: 'Shoot borer se gobh sookhti hai aur Pyrilla pattiyon ka ras chooskar chini ki matra ghatata hai.',
-            organic: 'Sookhi pattiyon ki chhantai (Detrashing) karein aur andon ke samooh nasht karein.',
-            predators: 'Epiricania melanoleuca (Pyrilla parasitoid), Trichogramma chilonis',
-            cultures: ['Metarhizium anisopliae', 'Beauveria bassiana'],
-            ids: ['metarhizium', 'beauveria']
-          }
-        ]
-      },
-      fruits: {
-        badge: 'Aam, Nimbu/Kinnow, Anar, Amrud, Kela',
-        heading: 'Bagwani Faslon Ke Vishesh Keet (Fruit Orchard Pests)',
-        pests: [
-          {
-            name: 'Fruit Fly (फल मक्खी - Aam, Amrud, Kinnow)',
-            img: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600&q=80',
-            damage: 'Phalon me chhed karke andar safed maggots guda sada dete hain aur phal neeche gir jate hain.',
-            organic: '10 Methyl Eugenol Traps/acre lagayein, gire phalon ko gaddhe me dabayein aur thalon ki gudai karein.',
-            predators: 'Opius compensatus, Spalangia sp.',
+            stage: 'Seedling & Root Zone',
+            type: 'Insect Pest',
+            name: 'Termites (दीमक) & Root Feeding',
+            img: '',
+            svgKey: 'termite',
+            symptoms: 'Safed-peeli deemak jadon aur tane ko andar se kha jati hai jisse kisi bhi stage par paudhe sookh jate hain.',
+            organic: 'Kachchi gobar khad kabhi na dalein, keval sadi FYM aur samay par sinchai karein.',
+            predators: 'Insectivorous birds, Carabid beetles',
             cultures: ['Metarhizium anisopliae'],
             ids: ['metarhizium']
           },
           {
-            name: 'Anar Butterfly & Citrus Leaf Miner (अनार तितली व लीफ माइनर)',
-            img: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80',
-            damage: 'Anar ki titli phal me chhed karti hai; Citrus leaf miner pattiyon me safed surang banata hai.',
-            organic: 'Phalon ko bag (Fruit Bagging) se dhakein, prabhavit tehniyan kaatein aur Neem Oil spray karein.',
-            predators: 'Trichogramma chilonis, Chrysoperla sp., Tamarixia radiata',
+            stage: 'Vegetative & Earhead Stage',
+            type: 'Plant Disease',
+            name: 'Wheat Rust (रतुआ / गेरुई) & Loose Smut (कंडवा)',
+            img: '',
+            svgKey: 'rust',
+            symptoms: 'Patton par peeli dhariyan ya narangi-kala powder jharna (Rust), aur baliyon me daanon ki jagah kala choora (Loose Smut).',
+            organic: 'Buwai se pehle Solar Heat Seed Treatment karein, sankramit baliyan plastic bag me todkar nasht karein aur balanced Potash/Sulphur dein.',
+            predators: 'Hyperparasitic bio-agents in soil & phyllosphere',
+            cultures: ['Trichoderma viride', 'Pseudomonas fluorescens', 'Sulphur Mobilizing Bacteria (SMB)', 'Potash Mobilizing Bacteria (KMB)'],
+            ids: ['trichoderma-viride', 'pseudomonas', 'smb', 'kmb']
+          }
+        ]
+      },
+      maize: {
+        label: 'Makka & Jwar (Maize/Sorghum)',
+        entries: [
+          {
+            stage: 'Seedling & Whorl Stage',
+            type: 'Insect Pest',
+            name: 'Fall Armyworm (फॉल आर्मीवर्म) & Stem Borer',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/-_9666_%E2%80%93_Spodoptera_frugiperda_%E2%80%93_Fall_Armyworm.jpg?width=600',
+            svgKey: 'caterpillar',
+            symptoms: 'Sir par ulta Y nishan wali sundi goph (whorl) ke andar patte chabakar shot holes aur burade jaisi gandagi chhodti hai.',
+            organic: 'Samay par buwai, dalhan ke sath intercropping, Pheromone Traps aur Neem Oil (10000 ppm) goph me spray karein.',
+            predators: 'Trichogramma spp., Telenomus spp., Cotesia spp., Predatory birds',
+            cultures: ['Beauveria bassiana', 'Nitrogen Fixing Bacteria (Azospirillum)'],
+            ids: ['beauveria', 'nitrogen']
+          },
+          {
+            stage: 'Flowering / Earhead Stage',
+            type: 'Plant Disease',
+            name: 'Ergot (अरगट / चेपा) & Grain Mold',
+            img: '',
+            svgKey: 'ergot',
+            symptoms: 'Bhutte/sitte par gulabi-safed chipchipa ras tapakna jo baad me kaale sing jaise dane (Sclerotia) ban jata hai.',
+            organic: 'Buwai se pehle 10% namak ke pani me beej dalkar tairne wale sclerotia hatayein aur khet ki gehri jutai karein.',
+            predators: 'Beneficial antagonistic soil microbes',
+            cultures: ['Trichoderma viride', 'Pseudomonas fluorescens'],
+            ids: ['trichoderma-viride', 'pseudomonas']
+          }
+        ]
+      },
+      cotton: {
+        label: 'Kapas (Cotton)',
+        entries: [
+          {
+            stage: 'Vegetative / Leaf Stage',
+            type: 'Insect Pest',
+            name: 'Cotton Aphids (माहू), Whitefly & Jassids',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Aphis_gossypii.jpg?width=600',
+            svgKey: 'whitefly',
+            symptoms: 'Pattiyon ka neeche mudna, kinaron ka eent jaisa laal hokar jalna (Hopper Burn) aur Leaf Curl Virus failna.',
+            organic: 'Yellow Sticky Traps, moong/urad ki intercropping aur Neem Oil (10000 ppm) spray karein.',
+            predators: 'Chrysoperla carnea, Coccinellid beetles, Spiders',
+            cultures: ['Verticillium lecanii', 'Beauveria bassiana'],
+            ids: ['verticillium', 'beauveria']
+          },
+          {
+            stage: 'Flowering & Boll Stage',
+            type: 'Insect Pest',
+            name: 'Pink Bollworm (गुलाबी सुंडी) & Spotted Bollworm',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pectinophora_gossypiella_1265079.jpg?width=600',
+            svgKey: 'bollworm',
+            symptoms: 'Phool gulab ki kali jaise band reh jate hain (Rosette Flowers) aur gulabi sundi tinde ke andar rui-binaule kharab karti hai.',
+            organic: 'Gossyplure Pheromone Traps, charon taraf Bhindi/Genda trap crop, Bird Perches, 5% NSKE aur pedi (ratooning) na lein.',
+            predators: 'Trichogramma chilonis, Bracon spp., Chrysoperla carnea',
+            cultures: ['Beauveria bassiana'],
+            ids: ['beauveria']
+          },
+          {
+            stage: 'Root & Soil Zone',
+            type: 'Plant Disease',
+            name: 'Dry Root Rot (जड़ गलन) & Para Wilt',
+            img: '',
+            svgKey: 'rootrot',
+            symptoms: 'Jaden kaali pad kar sad jati hain, chhal aasani se utarti hai aur paudha achanak sookh jata hai.',
+            organic: 'Fasal chakra apnayein, khet me pani jama na hone dein aur FYM ke sath bio-fungicide drenching karein.',
+            predators: 'Antagonistic soil Trichoderma & Pseudomonas',
+            cultures: ['Trichoderma viride', 'Trichoderma harzianum', 'Pseudomonas fluorescens'],
+            ids: ['trichoderma-viride', 'trichoderma-harzianum', 'pseudomonas']
+          }
+        ]
+      },
+                  sugarcane: {
+        label: 'Ganna (Sugarcane)',
+        entries: [
+          {
+            stage: 'Nursery / Sett Stage',
+            type: 'Insect Pest',
+            name: 'Early Shoot Borer & Termites (अगेती तना छेदक व दीमक)',
+            img: '',
+            svgKey: 'stemborer',
+            symptoms: '1–3 mahine ki fasal me beech ki gobh sookh kar badbu ke sath aasani se ukhad jati hai (Dead Heart).',
+            organic: 'Trash mulching (patti bichaav), deep trench planting, light traps aur sadi FYM ka upyog karein.',
+            predators: 'Trichogramma chilonis, T. minutum',
+            cultures: ['Metarhizium anisopliae', 'Beauveria bassiana'],
+            ids: ['metarhizium', 'beauveria']
+          },
+          {
+            stage: 'Grand Growth & Root Zone',
+            type: 'Plant Disease',
+            name: 'Red Rot (लाल सड़न) & White Grub',
+            img: '',
+            svgKey: 'redrot',
+            symptoms: 'Upari pattiyan kinare se sookhti hain aur ganna phadne par laal gude me safed aadi pattiyan va sirke jaisi gandh aati hai.',
+            organic: 'Rogmukt beej, 54°C moist hot air sett treatment, 2–3 saal crop rotation aur detrashing karein.',
+            predators: 'Epiricania melanoleuca (Pyrilla), Pharoscymnus hornii (Scale)',
+            cultures: ['Trichoderma viride', 'Metarhizium anisopliae', 'Nitrogen Fixing Bacteria (Acetobacter)'],
+            ids: ['trichoderma-viride', 'metarhizium', 'nitrogen']
+          }
+        ]
+      },
+      pulses: {
+        label: 'Dalhan (Gram, Arhar, Moong)',
+        entries: [
+          {
+            stage: 'Seedling & Root Zone',
+            type: 'Plant Disease',
+            name: 'Fusarium Wilt (उकठा) & Collar Rot',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fusarium_oxysporum_a1_(1).jpg?width=600',
+            svgKey: 'rootrot',
+            symptoms: 'Ek taraf ki tehniyan peeli pad kar murjhana aur nichla tana lambai me phadne par andar kaali-bhoori dhari dikhna.',
+            organic: 'Jwar/Makka ke sath 3-saal crop rotation ya intercropping (jwar ki jaden Fusarium ko rokti hain) aur shallow sowing.',
+            predators: 'Beneficial Trichoderma & rhizosphere bacteria',
+            cultures: ['Trichoderma viride', 'Trichoderma harzianum', 'Nitrogen Fixing Bacteria (Rhizobium)'],
+            ids: ['trichoderma-viride', 'trichoderma-harzianum', 'nitrogen']
+          },
+          {
+            stage: 'Flowering & Pod Stage',
+            type: 'Insect Pest',
+            name: 'Gram Pod Borer (फली छेदक - Helicoverpa)',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Helicoverpa_armigera_larva.jpg?width=600',
+            svgKey: 'caterpillar',
+            symptoms: 'Sundi phaliyon me gol chhed karke kachche daane kha jati hai.',
+            organic: '90 din par upari kopal ki chhantai (Nipping), Dhaniya/Sarso intercrop, Bird Perches (20/acre) aur 5% NSKE.',
+            predators: 'Campoletis chlorideae, Trichogramma chilonis, Drongo birds',
+            cultures: ['Beauveria bassiana', 'Phosphorus Solubilizing Bacteria (PSB)'],
+            ids: ['beauveria', 'psb']
+          }
+        ]
+      },
+      oilseeds: {
+        label: 'Tilhan (Mustard, Groundnut, Soybean)',
+        entries: [
+          {
+            stage: 'Root Zone & Vegetative Stage',
+            type: 'Insect Pest',
+            name: 'Groundnut White Grub (सफेद लट) & Tikka Disease',
+            img: '',
+            svgKey: 'whitegrub',
+            symptoms: 'C-aakar ki safed lat jadon ko kaat deti hai; Tikka rog me 30–60 din me patton par peele ghere wale bhoore-kaale dhabbe bante hain.',
+            organic: 'Pehli barish ke baad Neem/Ber ke pedon se bhring pakad kar nasht karein, Light traps lagayein aur gehri jutai karein.',
+            predators: 'Predatory birds, Carabid beetles, Toads',
+            cultures: ['Metarhizium anisopliae', 'Trichoderma viride'],
+            ids: ['metarhizium', 'trichoderma-viride']
+          },
+          {
+            stage: 'Flowering & Siliqua Stage',
+            type: 'Insect Pest',
+            name: 'Mustard Aphid (सरसों का माहू / चेपा)',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Aphis_gossypii.jpg?width=600',
+            svgKey: 'aphid',
+            symptoms: 'Phool aur phaliyon par ras chooskar tel ki matra ghatata hai aur kali fafund paida karta hai.',
+            organic: '10–14 din ageti buwai, Yellow Sticky Traps aur shaam ko Neem Oil spray karein; tel badhane ke liye Sulphur dein.',
+            predators: 'Coccinella septempunctata, Green Lacewing, Syrphid fly',
+            cultures: ['Verticillium lecanii', 'Sulphur Mobilizing Bacteria (SMB)'],
+            ids: ['verticillium', 'smb']
+          }
+        ]
+      },
+      vegetables: {
+        label: 'Sabjiya (Tomato, Chilli, Brinjal, Cabbage)',
+        entries: [
+          {
+            stage: 'Nursery & Seedling Stage',
+            type: 'Plant Disease',
+            name: 'Damping Off (आर्द्रगलन) & Cutworm',
+            img: '',
+            svgKey: 'dampingoff',
+            symptoms: 'Chhote paudhon ka jameen ke paas tana gal kar gir jana ya raat me cutworm dwara tana katna.',
+            organic: '6-inch oonchi nursery bed (Raised Bed), summer soil solarization aur shaam ki sinchai se bachein.',
+            predators: 'Insectivorous birds & soil antagonists',
+            cultures: ['Trichoderma viride', 'Metarhizium anisopliae'],
+            ids: ['trichoderma-viride', 'metarhizium']
+          },
+          {
+            stage: 'Vegetative / Leaf Stage',
+            type: 'Insect Pest',
+            name: 'Chilli Thrips (मुरदा रोग) & Diamond Back Moth (DBM)',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Plutella_xylostella_caterpillar_on_cabbage_(20).jpg?width=600',
+            svgKey: 'thrips',
+            symptoms: 'Mirch ki pattiyan naav ki tarah upar mudna (Thrips) ya gobhi ke patton me chhalni jaise chhed (DBM).',
+            organic: 'Blue Sticky Traps (Thrips), har 20–25 katar gobhi par 2 katar Sarso trap crop (DBM), aur 5% NSKE spray.',
+            predators: 'Cotesia plutellae, Anthocorid bug, Amblyseius predatory mites',
             cultures: ['Beauveria bassiana', 'Verticillium lecanii'],
             ids: ['beauveria', 'verticillium']
           },
           {
-            name: 'Mango Hopper, Mealybug & Banana Weevil (भुनगा व घुन)',
-            img: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=600&q=80',
-            damage: 'Mango hopper baur (flowers) ka ras choosta hai aur Banana weevil tane me surang banata hai.',
-            organic: 'Aam ke tane par December me polythene grease band lagayein aur baag me safai rakhein.',
-            predators: 'Cryptolaemus montrouzieri, Coccinellids, Earwigs',
-            cultures: ['Verticillium lecanii', 'Metarhizium anisopliae'],
-            ids: ['verticillium', 'metarhizium']
+            stage: 'Vegetative & Fruiting Stage',
+            type: 'Plant Disease',
+            name: 'Early Blight (अगेती झुलसा) & Late Blight (पछेती झुलसा)',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Late_blight_of_tomato_caused_by_Phytophthora_infestans_(5815188381).jpg?width=600',
+            svgKey: 'blight',
+            symptoms: 'Nichli pattiyon par gol chhalle (Early Blight) ya thand-kohre me patte kaale hokar neeche safed rui jamna (Late Blight).',
+            organic: 'Aloo me oonchi mitti chadhayein, katai se 10 din pehle paudhe kaatein, crop rotation aur Potash/Calcium poshan dein.',
+            predators: 'Beneficial microbial antagonists',
+            cultures: ['Trichoderma viride', 'Pseudomonas fluorescens', 'Calcium Mobilizing Bacteria (CMB)', 'Potash Mobilizing Bacteria (KMB)'],
+            ids: ['trichoderma-viride', 'pseudomonas', 'cmb', 'kmb']
+          },
+          {
+            stage: 'Flowering & Fruiting Stage',
+            type: 'Insect Pest',
+            name: 'Brinjal/Okra Shoot & Fruit Borer (तना व फल छेदक)',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Leucinodes_orbonalis1.jpg?width=600',
+            svgKey: 'caterpillar',
+            symptoms: 'Komal kalle murjhana aur baingan/bhindi/tamatar ke phalon me mal se bhare chhed.',
+            organic: 'Murjhayi tehniyan aur chhed wale phal todkar dabayein, Leucinodes/Helico Pheromone Traps aur 5% NSKE.',
+            predators: 'Trichogramma chilonis, Trathala flavoorbitalis, Bracon greeni',
+            cultures: ['Beauveria bassiana'],
+            ids: ['beauveria']
+          },
+          {
+            stage: 'Root & Soil Zone',
+            type: 'Nematode & Disease',
+            name: 'Root-Knot Nematodes (सूत्रकृमि) & Bacterial Wilt',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tomato_(Solanum_lycopersicon)-_Root_knot_nematodes_(galls_with_egg_masses).jpg?width=600',
+            svgKey: 'nematode',
+            symptoms: 'Jadon me gaanth (Nematodes) ya bina peela pade paudhe ka achanak hara murjhana (Bacterial Wilt).',
+            organic: 'Neem Khali (2–3 quintal/acre), Genda intercrop aur drip se bio-agents drenching karein.',
+            predators: 'Predatory soil microbes & nematodes',
+            cultures: ['Paecilomyces sp.', 'Pseudomonas fluorescens', 'Trichoderma viride'],
+            ids: ['paecilomyces', 'pseudomonas', 'trichoderma-viride']
+          }
+        ]
+      },
+      fruits: {
+        label: 'Bagwani (Mango, Citrus, Pomegranate, Guava)',
+        entries: [
+          {
+            stage: 'Root & Collar Zone',
+            type: 'Insect Pest & Disease',
+            name: 'Banana Rhizome Weevil (घुन) & Citrus Foot Rot',
+            img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Cosmopolites_sordidus,_banana_weevil_(Mindanao,_Philippines)_03.jpg?width=600',
+            svgKey: 'weevil',
+            symptoms: 'Kele ke kand aur tane me surang ban kar tootna ya nimbu ke tane ke paas se gond tapakna (Gummosis).',
+            organic: 'Cosmolure traps (5/ha), double-ring sinchai (pani tane ko na chhuye) aur mitti me Neem Khali + bio-culture.',
+            predators: 'Earwigs & predatory beetles',
+            cultures: ['Metarhizium anisopliae', 'Trichoderma viride', 'Pseudomonas fluorescens'],
+            ids: ['metarhizium', 'trichoderma-viride', 'pseudomonas']
+          },
+          {
+            stage: 'New Flush & Flowering Stage',
+            type: 'Insect Pest',
+            name: 'Mango Hopper, Citrus Leaf Miner & Mealybug',
+            img: '',
+            svgKey: 'hopper',
+            symptoms: 'Baur ka ras chooskar phool girana, patti me safed surang (Canker ka darwaza) aur tehniyon par safed mealybug.',
+            organic: 'Tane par 20 cm Polythene Grease Band (Nov–Dec), chhantai, Yellow Traps aur nayi kopal par Neem Oil spray.',
+            predators: 'Cryptolaemus montrouzieri (10 beetles/tree), Chrysoperla carnea',
+            cultures: ['Verticillium lecanii', 'Beauveria bassiana', 'Pseudomonas fluorescens'],
+            ids: ['verticillium', 'beauveria', 'pseudomonas']
+          },
+          {
+            stage: 'Fruit Development Stage',
+            type: 'Insect Pest',
+            name: 'Fruit Fly (फल मक्खी), Anar Butterfly & Fruit Cracking',
+            img: '',
+            svgKey: 'fruitfly',
+            symptoms: 'Phalon me chhed aur sadan (Fruit Fly/Anar Butterfly) ya calcium-potash kami se anar/tamatar phatna.',
+            organic: 'Fruit Bagging (5 cm phal par), Methyl Eugenol Traps (10/acre), gire phal gaddhe me dabayein aur 5% NSKE.',
+            predators: 'Trichogramma chilonis (1 lakh/acre), Opius compensatus, Spalangia sp.',
+            cultures: ['Beauveria bassiana', 'Metarhizium anisopliae', 'Calcium Mobilizing Bacteria (CMB)', 'Potash Mobilizing Bacteria (KMB)'],
+            ids: ['beauveria', 'metarhizium', 'cmb', 'kmb']
           }
         ]
       }
     };
+
+    function getScientificDiagramSVG(key, label) {
+      const colors = { blast: '#92400e', termite: '#78350f', rust: '#d97706', ergot: '#701a75', rootrot: '#451a03', redrot: '#991b1b', whitegrub: '#854d0e', dampingoff: '#166534', weevil: '#3f3f46', fruitfly: '#b45309', hopper: '#065f46' };
+      const bg = colors[key] || '#065f46';
+      return `
+        <div class="w-full h-40 bg-gradient-to-br from-emerald-50 via-white to-amber-50 flex flex-col items-center justify-center p-3 text-center border-b border-slate-200">
+          <svg viewBox="0 0 120 75" class="h-20 w-auto mb-1">
+            <rect x="10" y="8" width="100" height="58" rx="12" fill="${bg}" fill-opacity="0.12" stroke="${bg}" stroke-width="2"/>
+            <path d="M35 52 Q60 15 85 52" fill="none" stroke="#15803d" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="60" cy="36" r="10" fill="${bg}" fill-opacity="0.85"/>
+            <circle cx="57" cy="34" r="2" fill="#fde047"/>
+            <circle cx="63" cy="34" r="2" fill="#fde047"/>
+          </svg>
+          <span class="text-[11px] font-extrabold text-emerald-950 line-clamp-1">${label}</span>
+          <span class="text-[9px] font-bold text-slate-500">Diagnostic Visual Reference</span>
+        </div>
+      `;
+    }
           let cart = [];
     let currentFilter = 'all';
+    let currentCrop = 'common';
+    let currentStage = 'All Stages';
     let diagnosedIds = ['nitrogen', 'psb', 'zmb'];
 
-    function selectPestCrop(cropKey, btnEl) {
-      document.querySelectorAll('.pest-tab-btn').forEach(btn => {
-        const circle = btn.querySelector('div');
-        const label = btn.querySelector('span');
-        circle.classList.remove('bg-emerald-700', 'text-white', 'ring-2', 'ring-emerald-600', 'ring-offset-2');
-        label.classList.remove('font-extrabold', 'text-emerald-900');
-        label.classList.add('font-semibold', 'text-slate-700');
+    function setLanguage(lang) {
+      const dict = LANG_DICT[lang] || LANG_DICT.hinglish;
+      document.querySelectorAll('[data-t]').forEach(el => {
+        const key = el.getAttribute('data-t');
+        if (dict[key]) el.innerText = dict[key];
       });
+      showToast('Language updated!');
+    }
 
+    function selectCrop(cropKey, btnEl) {
+      currentCrop = cropKey;
+      currentStage = 'All Stages';
+      document.querySelectorAll('.crop-tab-btn').forEach(btn => {
+        btn.querySelector('div').classList.remove('ring-4', 'ring-yellow-400', 'scale-105', 'shadow');
+        btn.querySelector('span').classList.remove('font-extrabold', 'text-emerald-900');
+      });
       if (btnEl) {
-        const activeCircle = btnEl.querySelector('div');
-        const activeLabel = btnEl.querySelector('span');
-        activeCircle.classList.add('bg-emerald-700', 'text-white', 'ring-2', 'ring-emerald-600', 'ring-offset-2');
-        activeLabel.classList.remove('font-semibold', 'text-slate-700');
-        activeLabel.classList.add('font-extrabold', 'text-emerald-900');
+        btnEl.querySelector('div').classList.add('ring-4', 'ring-yellow-400', 'scale-105', 'shadow');
+        btnEl.querySelector('span').classList.add('font-extrabold', 'text-emerald-900');
       }
+      renderCropsStageExplorer();
+    }
 
-      const data = PEST_DATA[cropKey];
-      document.getElementById('pest-section-badge').innerText = data.badge;
-      document.getElementById('pest-grid-heading').innerText = data.heading;
+    function selectStage(stageName) {
+      currentStage = stageName;
+      renderCropsStageExplorer();
+    }
 
-      const grid = document.getElementById('pest-cards-grid');
-      grid.innerHTML = data.pests.map(p => `
+    function renderCropsStageExplorer() {
+      const cropObj = CROP_STAGE_DATA[currentCrop];
+      document.getElementById('active-crop-label').innerText = cropObj.label;
+
+      const stages = ['All Stages', ...new Set(cropObj.entries.map(e => e.stage))];
+      document.getElementById('crop-stage-bar').innerHTML = stages.map(st => `
+        <button onclick="selectStage('${st}')" class="shrink-0 px-3.5 py-1.5 rounded-full text-xs font-extrabold transition ${currentStage === st ? 'bg-yellow-400 text-emerald-950 shadow' : 'bg-slate-100 text-slate-700 hover:bg-emerald-50'}">
+          ${st}
+        </button>
+      `).join('');
+
+      const list = currentStage === 'All Stages' ? cropObj.entries : cropObj.entries.filter(e => e.stage === currentStage);
+      document.getElementById('crop-pest-disease-grid').innerHTML = list.map(item => `
         <div class="bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between">
           <div>
-            <div class="relative h-40 bg-slate-200 overflow-hidden">
-              <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover" />
-              <span class="absolute top-2.5 left-2.5 bg-slate-900/85 text-amber-300 text-[10px] font-extrabold px-2.5 py-1 rounded-lg">100% Organic IPM</span>
-            </div>
-            <div class="p-4 space-y-2.5">
-              <h3 class="text-base font-extrabold text-slate-900 leading-snug">${p.name}</h3>
-              <p class="text-xs text-slate-600 leading-relaxed"><strong>Nuksan:</strong> ${p.damage}</p>
-
+            ${item.img
+              ? `<div class="relative h-40 bg-slate-200 overflow-hidden">
+                   <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                   <div style="display:none;" class="w-full h-full">${getScientificDiagramSVG(item.svgKey, item.name)}</div>
+                   <span class="absolute top-2.5 left-2.5 bg-emerald-950/90 text-yellow-300 text-[10px] font-extrabold px-2.5 py-1 rounded-lg">${item.stage}</span>
+                   <span class="absolute top-2.5 right-2.5 bg-white/95 text-emerald-900 text-[10px] font-extrabold px-2 py-0.5 rounded-md">${item.type}</span>
+                 </div>`
+              : `<div class="relative">
+                   ${getScientificDiagramSVG(item.svgKey, item.name)}
+                   <span class="absolute top-2.5 left-2.5 bg-emerald-950/90 text-yellow-300 text-[10px] font-extrabold px-2.5 py-1 rounded-lg">${item.stage}</span>
+                   <span class="absolute top-2.5 right-2.5 bg-white/95 text-emerald-900 text-[10px] font-extrabold px-2 py-0.5 rounded-md">${item.type}</span>
+                 </div>`
+            }
+            <div class="p-4 space-y-2">
+              <h3 class="text-sm sm:text-base font-extrabold text-slate-900 leading-snug">${item.name}</h3>
+              <p class="text-xs text-slate-600 leading-relaxed"><strong>Lakshan:</strong> ${item.symptoms}</p>
               <div class="bg-white p-2.5 rounded-xl border border-emerald-200 text-[11px] text-slate-700 space-y-1">
-                <p><strong class="text-emerald-800">🌿 Organic & Natural Treatment:</strong> ${p.organic}</p>
-                <p><strong class="text-sky-800">🐞 Natural Predators (मित्र कीट):</strong> ${p.predators}</p>
+                <p><strong class="text-emerald-800">🌿 100% Organic Treatment:</strong> ${item.organic}</p>
+                <p><strong class="text-sky-800">🐞 Natural Predators:</strong> ${item.predators}</p>
               </div>
-
-              <div class="pt-1">
-                <span class="text-[10px] font-extrabold uppercase text-emerald-800 block mb-1">Useful Bio-Cultures:</span>
+              <div>
+                <span class="text-[10px] font-extrabold uppercase text-emerald-800 block mb-1">Hamare Useful Bio-Cultures:</span>
                 <div class="flex flex-wrap gap-1">
-                  ${p.cultures.map(c => `<span class="bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2 py-0.5 rounded-md">✓ ${c}</span>`).join('')}
+                  ${item.cultures.map(c => `<span class="bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2 py-0.5 rounded-md">✓ ${c}</span>`).join('')}
                 </div>
               </div>
             </div>
           </div>
-
           <div class="p-4 pt-0">
-            <button onclick='addMultipleToCart(${JSON.stringify(p.ids)})' class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2.5 rounded-xl text-xs shadow transition flex items-center justify-center gap-1.5">
+            <button onclick='addMultipleToCart(${JSON.stringify(item.ids)})' class="w-full bg-yellow-400 hover:bg-yellow-300 text-emerald-950 font-extrabold py-2.5 rounded-xl text-xs shadow transition flex items-center justify-center gap-1.5">
               <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
-              <span>+ Useful Bio-Culture Cart Me Dalein</span>
+              <span>+ Useful Culture Kharidein (Cart)</span>
             </button>
           </div>
         </div>
@@ -1116,151 +1000,28 @@
       lucide.createIcons();
     }
 
-    function openSoilTreatmentAssistant() {
-      const modal = document.getElementById('ai-assistant-modal');
-      modal.classList.remove('hidden');
-      const chatBox = document.getElementById('ai-chat-messages');
-      chatBox.innerHTML += `
-        <div class="bg-amber-50 border border-amber-300 rounded-2xl rounded-tl-none p-3.5 shadow-xs max-w-[92%] space-y-2.5">
-          <strong class="text-amber-950 block">🌍 Soil Treatment Guide (Mitti Ka pH Sudhar):</strong>
-          <p class="text-xs text-slate-700">Aapki mitti kis prakar ki hai? Neeche chunein:</p>
-          <div class="flex flex-wrap gap-2">
-            <button onclick="askQuickQuestion('Alkaline soil treatment kaise karein?')" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-3 py-1.5 rounded-xl text-xs">1. Alkaline Soil (pH &gt; 7.5)</button>
-            <button onclick="askQuickQuestion('Acidic soil treatment kaise karein?')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-3 py-1.5 rounded-xl text-xs">2. Acidic Soil (pH &lt; 6.0)</button>
-          </div>
-        </div>
-      `;
-      chatBox.scrollTop = chatBox.scrollHeight;
-      lucide.createIcons();
-    }
-
-    function toggleAssistant() {
-      document.getElementById('ai-assistant-modal').classList.toggle('hidden');
-      lucide.createIcons();
-    }
-
-    function askQuickQuestion(q) {
-      document.getElementById('ai-user-input').value = q;
-      handleAiChatSubmit(new Event('submit'));
-    }
-
-    function handleAiChatSubmit(e) {
-      e.preventDefault();
-      const input = document.getElementById('ai-user-input');
-      const text = input.value.trim();
-      if (!text) return;
-
-      const chatBox = document.getElementById('ai-chat-messages');
-      chatBox.innerHTML += `
-        <div class="flex justify-end">
-          <div class="bg-indigo-600 text-white rounded-2xl rounded-tr-none p-3 max-w-[82%] shadow-xs">
-            <p>${text}</p>
-          </div>
-        </div>
-      `;
-      input.value = '';
-      chatBox.scrollTop = chatBox.scrollHeight;
-
-      setTimeout(() => {
-        const reply = generateAiReply(text.toLowerCase());
-        chatBox.innerHTML += `
-          <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-3.5 shadow-xs max-w-[92%] space-y-2">
-            ${reply.html}
-            ${reply.ids ? `<button onclick='addMultipleToCart(${JSON.stringify(reply.ids)}); toggleAssistant();' class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-3 py-1.5 rounded-xl text-xs">+ Yeh Cultures Cart Me Dalein</button>` : ''}
-          </div>
-        `;
-        chatBox.scrollTop = chatBox.scrollHeight;
-      }, 400);
-    }
-
-    function generateAiReply(q) {
-      if (q.includes('alkaline') || q.includes('usar') || q.includes('kshariya') || q.includes('khari')) {
-        return {
-          html: `<strong class="text-amber-800 block">Alkaline Soil Treatment (pH 7.5 se upar / Usar Mitti):</strong>
-          <p class="text-slate-700 leading-relaxed">
-            1. <strong>Gypsum (Calcium Sulphate):</strong> 500 kg se 2 ton prati acre mitti me milakar bhari sinchai (leaching) karein taaki hanikarak sodium bahar nikle.<br>
-            2. <strong>Hari Khad (Dhaincha / Sunhemp):</strong> Dhaincha ugakar 45–55 din me mitti me palat dein; isse organic acids bante hain jo pH kam karte hain.<br>
-            3. <strong>Jaivik Bio-Cultures:</strong> Gobar khad (FYM) ke sath <strong>Sulphur Mobilizing Bacteria (SMB)</strong>, <strong>Iron Mobilizing Bacteria (IMB)</strong> aur <strong>Zinc Mobilizing Bacteria (ZMB)</strong> dein.
-          </p>`,
-          ids: ['smb', 'imb', 'zmb']
-        };
-      }
-      if (q.includes('acid') || q.includes('amliya')) {
-        return {
-          html: `<strong class="text-emerald-800 block">Acidic Soil Treatment (pH 6.0 se neeche / Amliya Mitti):</strong>
-          <p class="text-slate-700 leading-relaxed">
-            1. <strong>Agricultural Lime / Dolomite (Chuna):</strong> Buwai se 3–4 hafte pehle 1 se 2 ton prati acre chuna mitti me milayein—yeh acidity ko neutral karta hai.<br>
-            2. <strong>FYM & Vermicompost:</strong> Zyada compost dalne se mitti ki pH buffering shakti badhti hai.<br>
-            3. <strong>Jaivik Bio-Cultures:</strong> Acidic mitti me Phosphorus aur Calcium lock ho jata hai, isliye <strong>Phosphorus Solubilizing Bacteria (PSB)</strong> aur <strong>Calcium Mobilizing Bacteria (CMB)</strong> zaroor dein.
-          </p>`,
-          ids: ['psb', 'cmb']
-        };
-      }
-      if (q.includes('30') || q.includes('multiply') || q.includes('vidhi') || q.includes('gud') || q.includes('besan')) {
-        return {
-          html: `<strong class="text-emerald-800 block">1 Liter se 30 Liter Banane Ki Vidhi:</strong><p class="text-slate-700">10L pani me <strong>300g gud</strong> ubaal kar Markin kapde se chhaanein. Thanda hone par <strong>100g besan</strong> aur <strong>1L Mother Culture</strong> milakar 5–7 din chhaon me rakhein (din me 1–2 baar dande se hilayein). Is process ko 3 baar karke <strong>30 Liter</strong> banayein (1 Acre = 1 Liter).</p>`
-        };
-      }
-      if (q.includes('nematode') || q.includes('gaanth') || q.includes('jad')) {
-        return {
-          html: `<strong class="text-rose-800 block">Nematodes (Jad Gaanth Rog) Ka Jaivik Ilaj:</strong><p class="text-slate-700"><strong>Paecilomyces sp.</strong> ko <strong>Pseudomonas fluorescens</strong> aur <strong>Trichoderma viride</strong> ke sath milakar 3–4 ghante ke andar mitti/sinchai me dein.</p>`,
-          ids: ['paecilomyces', 'pseudomonas', 'trichoderma-viride']
-        };
-      }
-      if (q.includes('wilt') || q.includes('sukh') || q.includes('fafund') || q.includes('fungus') || q.includes('disease')) {
-        return {
-          html: `<strong class="text-amber-800 block">Fafund & Uktha Rog (Wilt) Ka Jaivik Upchar:</strong><p class="text-slate-700"><strong>Trichoderma viride, Trichoderma harzianum aur Pseudomonas fluorescens</strong> ko FYM/compost ya pani me milakar 3–4 ghante me prayog karein.</p>`,
-          ids: ['trichoderma-viride', 'trichoderma-harzianum', 'pseudomonas']
-        };
-      }
-      if (q.includes('keet') || q.includes('pest') || q.includes('sundi') || q.includes('deemak') || q.includes('whitefly')) {
-        return {
-          html: `<strong class="text-sky-800 block">Keet, Sundi Aur Deemak Ka Jaivik Niyantran:</strong><p class="text-slate-700">Mitti ke keeton ke liye <strong>Metarhizium anisopliae</strong> aur patton ki sundi/ras chusak keeton ke liye <strong>Beauveria bassiana + Verticillium lecanii</strong> ka prayog karein.</p>`,
-          ids: ['metarhizium', 'beauveria', 'verticillium']
-        };
-      }
-      return {
-        html: `<p class="text-slate-700">Aap apni fasal ya mitti ki samasya (jaise <em>Alkaline soil treatment, Acidic soil treatment, peelapan, wilt fafund, sundi keet, ya nematodes</em>) likhein—main aapko turant sahi <strong>100% Organic Upchar</strong> bataunga!</p>`
-      };
-    }
-
     function renderProducts() {
-      const grid = document.getElementById('product-grid');
       const filtered = currentFilter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === currentFilter);
-
-      grid.innerHTML = filtered.map(p => {
-        const directWaText = encodeURIComponent(`Namaste KrishiCulture, mujhe *${p.name}* (1 Liter - ₹${p.price}) order karna hai.`);
+      document.getElementById('product-grid').innerHTML = filtered.map(p => {
+        const waText = encodeURIComponent(`Namaste KrishiCulture, mujhe *${p.name}* (1 Liter - ₹${p.price}) order karna hai.`);
         return `
-        <div class="product-card bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col justify-between">
+        <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col justify-between">
           <div>
-            <div onclick="openProductModal('${p.id}')" class="cursor-pointer">
-              ${getWhiteBottleSVG(p.bottleLines)}
-            </div>
-            <div class="p-5 pb-2">
-              <span class="inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 mb-2">${p.catLabel}</span>
-              <h3 onclick="openProductModal('${p.id}')" class="text-base font-extrabold text-slate-900 hover:text-emerald-700 cursor-pointer leading-snug">${p.name}</h3>
+            <div onclick="openProductModal('${p.id}')" class="cursor-pointer">${getWhiteBottleSVG(p.bottleLines)}</div>
+            <div class="p-4 pb-2">
+              <span class="inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 mb-1.5">${p.catLabel}</span>
+              <h3 onclick="openProductModal('${p.id}')" class="text-sm sm:text-base font-extrabold text-slate-900 hover:text-emerald-700 cursor-pointer leading-snug">${p.name}</h3>
               <p class="text-xs text-slate-600 mt-1.5 line-clamp-2">${p.benefits}</p>
             </div>
           </div>
-
-          <div class="p-5 pt-3 border-t border-slate-100 mt-2 space-y-3">
+          <div class="p-4 pt-3 border-t border-slate-100 space-y-2.5">
             <div class="flex items-center justify-between">
-              <div>
-                <span class="text-[11px] text-slate-500 block">Price Per Liter</span>
-                <span class="text-xl font-extrabold text-slate-900">₹${p.price} <span class="text-xs font-semibold text-slate-500">/ Liter</span></span>
-              </div>
-              <button onclick="openProductModal('${p.id}')" class="text-xs font-bold text-emerald-700 underline">Mixing & Vidhi</button>
+              <span class="text-lg font-extrabold text-slate-900">₹${p.price} <span class="text-xs font-semibold text-slate-500">/ Liter</span></span>
+              <button onclick="openProductModal('${p.id}')" class="text-xs font-bold text-emerald-700 underline">Mixing &amp; Vidhi</button>
             </div>
-
             <div class="grid grid-cols-2 gap-2">
-              <button onclick="addToCart('${p.id}')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2.5 px-3 rounded-xl text-xs shadow transition flex items-center justify-center gap-1.5">
-                <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
-                <span>Add to Cart</span>
-              </button>
-              <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${directWaText}" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-3 rounded-xl text-xs shadow transition flex items-center justify-center gap-1.5">
-                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-                <span>WhatsApp</span>
-              </a>
+              <button onclick="addToCart('${p.id}')" class="bg-yellow-400 hover:bg-yellow-300 text-emerald-950 font-extrabold py-2.5 rounded-xl text-xs shadow transition">+ Add to Cart</button>
+              <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${waText}" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 rounded-xl text-xs shadow flex items-center justify-center gap-1"><i data-lucide="message-circle" class="w-3.5 h-3.5"></i><span>WhatsApp</span></a>
             </div>
           </div>
         </div>
@@ -1270,22 +1031,21 @@
 
     function filterProducts(cat, btnEl) {
       currentFilter = cat;
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('bg-emerald-700', 'text-white');
-        btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
-      });
-      btnEl.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
-      btnEl.classList.add('bg-emerald-700', 'text-white');
+      document.querySelectorAll('.filter-btn').forEach(b => { b.className = 'filter-btn bg-white text-slate-700 border border-slate-200 px-3.5 py-2 rounded-full text-xs font-bold'; });
+      btnEl.className = 'filter-btn bg-emerald-700 text-white px-3.5 py-2 rounded-full text-xs font-bold';
       renderProducts();
     }
+
+    function openScannerModal() { document.getElementById('scanner-modal').classList.remove('hidden'); }
+    function openOtherOptionsModal() { document.getElementById('other-options-modal').classList.remove('hidden'); }
+    function closeModalById(id) { document.getElementById(id).classList.add('hidden'); }
 
     function handlePhotoSelected(e) {
       const file = e.target.files[0];
       if (!file) return;
       const reader = new FileReader();
-      reader.onload = function(ev) {
+      reader.onload = ev => {
         document.getElementById('photo-preview-img').src = ev.target.result;
-        document.getElementById('photo-step-empty').classList.add('hidden');
         document.getElementById('photo-step-preview').classList.remove('hidden');
         document.getElementById('photo-step-result').classList.add('hidden');
       };
@@ -1293,174 +1053,162 @@
     }
 
     function proceedDiagnosis() {
-      const btn = document.getElementById('proceed-scan-btn');
-      const scanLine = document.getElementById('scan-line');
-      scanLine.classList.remove('hidden');
-      btn.innerHTML = '<span>Scanning Fasal Photo...</span>';
-
+      document.getElementById('scan-line').classList.remove('hidden');
       setTimeout(() => {
-        scanLine.classList.add('hidden');
-        btn.innerHTML = '<span>Proceed — Jaanch Karein & Upchar Dekhein</span>';
+        document.getElementById('scan-line').classList.add('hidden');
         const sym = document.getElementById('photo-symptom').value;
         const map = {
-          yellow: {
-            title: 'Poshak Tatva Kami (Nutrients Deficiency)',
-            desc: 'Pattiya peeli padne aur kamzor badhwar ke liye in Nutrients cultures ko ek sath FYM ya pani me milakar 3–4 ghante ke andar prayog karein:',
-            names: ['Nitrogen Fixing Bacteria', 'PSB', 'Zinc Mobilizing Bacteria (ZMB)', 'Iron Mobilizing Bacteria (IMB)'],
-            ids: ['nitrogen', 'psb', 'zmb', 'imb']
-          },
-          wilt: {
-            title: 'Fafund / Jad Galan / Uktha Rog (Fungal & Bacterial Disease)',
-            desc: 'Paudha sukhne aur jad galan rokne ke liye in Disease Control cultures ko ek sath milakar 3–4 ghante me mitti/jadon me dein:',
-            names: ['Pseudomonas fluorescens', 'Trichoderma viride', 'Trichoderma harzianum'],
-            ids: ['pseudomonas', 'trichoderma-viride', 'trichoderma-harzianum']
-          },
-          pests: {
-            title: 'Sundi, Safed Makhi, Mahu & Deemak (Pest Attack)',
-            desc: 'Bina chemical spray ke keeton ko rokne ke liye in Pest Control cultures ka prayog 3–4 ghante ke bheetar karein:',
-            names: ['Metarhizium anisopliae', 'Beauveria bassiana', 'Verticillium lecanii'],
-            ids: ['metarhizium', 'beauveria', 'verticillium']
-          },
-          nematode: {
-            title: 'Jad Gaanth Rog (Plant Parasitic Nematodes)',
-            desc: 'Jadon me gaanth banne ki samasya ke liye Paecilomyces sp. ko Pseudomonas fluorescens aur Trichoderma viride ke sath milakar 3–4 ghante me prayog karein:',
-            names: ['Paecilomyces sp.', 'Pseudomonas fluorescens', 'Trichoderma viride'],
-            ids: ['paecilomyces', 'pseudomonas', 'trichoderma-viride']
-          }
+          yellow: { title: 'Poshak Tatva Kami (V/W Pattern)', desc: 'V-pattern purani pattiyon par Nitrogen kami aur W-pattern nayi pattiyon par Zinc/Iron kami batata hai. Nutrients combo FYM/pani me milakar 3–4 ghante me dein:', names: ['Nitrogen Fixing Bacteria', 'PSB', 'ZMB', 'IMB'], ids: ['nitrogen', 'psb', 'zmb', 'imb'] },
+          wilt: { title: 'Fafund / Bacterial Rog (Wilt, Blight, Blast)', desc: 'Pseudomonas fluorescens, Trichoderma viride aur Trichoderma harzianum ko FYM ya pani me milakar 3–4 ghante me jaden/patti par dein:', names: ['Pseudomonas fluorescens', 'Trichoderma viride', 'Trichoderma harzianum'], ids: ['pseudomonas', 'trichoderma-viride', 'trichoderma-harzianum'] },
+          pests: { title: 'Keet Hamla (Sundi, Thrips, Whitefly, Deemak)', desc: 'Beauveria bassiana, Verticillium lecanii aur Metarhizium anisopliae ko 3–4 ghante ke andar prayog karein:', names: ['Beauveria bassiana', 'Verticillium lecanii', 'Metarhizium anisopliae'], ids: ['beauveria', 'verticillium', 'metarhizium'] },
+          nematode: { title: 'Root-Knot Nematodes (Jad Gaanth)', desc: 'Paecilomyces sp. ko Pseudomonas fluorescens aur Trichoderma viride ke sath milakar 3–4 ghante me jaden/sinchai me dein:', names: ['Paecilomyces sp.', 'Pseudomonas fluorescens', 'Trichoderma viride'], ids: ['paecilomyces', 'pseudomonas', 'trichoderma-viride'] }
         };
         const res = map[sym];
         diagnosedIds = res.ids;
         document.getElementById('diag-title').innerText = res.title;
         document.getElementById('diag-desc').innerText = res.desc;
-        document.getElementById('diag-cultures').innerHTML = res.names.map(n => `<span class="bg-white border border-emerald-300 text-emerald-900 text-[11px] font-bold px-2.5 py-1 rounded-lg">🌿 ${n}</span>`).join('');
+        document.getElementById('diag-cultures').innerHTML = res.names.map(n => `<span class="bg-white border border-emerald-300 text-emerald-900 text-[11px] font-bold px-2 py-0.5 rounded">${n}</span>`).join('');
         document.getElementById('photo-step-result').classList.remove('hidden');
-      }, 900);
+        saveHistory('Scanner Diagnosis', `${res.title} → ${res.names.join(', ')}`);
+      }, 700);
     }
 
-    function resetPhotoTool() {
-      document.getElementById('crop-photo-input').value = '';
-      document.getElementById('photo-step-empty').classList.remove('hidden');
-      document.getElementById('photo-step-preview').classList.add('hidden');
-      document.getElementById('photo-step-result').classList.add('hidden');
+    function saveHistory(type, detail) {
+      const list = JSON.parse(localStorage.getItem('kc_history') || '[]');
+      list.unshift({ type, detail, time: new Date().toLocaleString() });
+      localStorage.setItem('kc_history', JSON.stringify(list.slice(0, 20)));
     }
 
-    function addDiagnosedToCart() { addMultipleToCart(diagnosedIds); }
-    function addMultipleToCart(ids) { ids.forEach(id => addToCart(id)); toggleCart(); }
+    function openHistoryModal() {
+      const list = JSON.parse(localStorage.getItem('kc_history') || '[]');
+      document.getElementById('history-list').innerHTML = list.length === 0
+        ? '<p class="text-slate-500 text-center py-6">Abhi koi Scan ya Order history nahi hai.</p>'
+        : list.map(h => `<div class="bg-slate-50 border border-slate-200 rounded-2xl p-3"><div class="flex justify-between font-bold text-emerald-800 mb-1"><span>${h.type}</span><span class="text-[10px] text-slate-400">${h.time}</span></div><p class="text-slate-700">${h.detail}</p></div>`).join('');
+      document.getElementById('history-modal').classList.remove('hidden');
+    }
+
+    function clearHistory() { localStorage.removeItem('kc_history'); openHistoryModal(); }
+
+    function toggleAssistant() { document.getElementById('ai-assistant-modal').classList.toggle('hidden'); lucide.createIcons(); }
+    function openSoilTreatmentAssistant(type) {
+      document.getElementById('ai-assistant-modal').classList.remove('hidden');
+      askQuickQuestion(type === 'acidic' ? 'Acidic soil treatment kaise karein?' : 'Alkaline soil treatment kaise karein?');
+    }
+    function askQuickQuestion(q) { document.getElementById('ai-user-input').value = q; handleAiChatSubmit(new Event('submit')); }
+
+    function handleAiChatSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('ai-user-input');
+      const text = input.value.trim();
+      if (!text) return;
+      const box = document.getElementById('ai-chat-messages');
+      box.innerHTML += `<div class="flex justify-end"><div class="bg-emerald-700 text-white rounded-2xl rounded-tr-none p-3 max-w-[82%]"><p>${text}</p></div></div>`;
+      input.value = '';
+      setTimeout(() => {
+        const q = text.toLowerCase();
+        let reply = { html: '<p>Fasal ke rog, keet, <strong>Alkaline/Acidic soil treatment</strong>, ya <strong>1L→30L multiplication</strong> puchein.</p>', ids: null };
+        if (q.includes('alkaline') || q.includes('usar') || q.includes('7.5')) {
+          reply = { html: '<strong>Alkaline Soil (pH &gt; 7.5) Upchar:</strong><p>1. Gypsum (1.5–3 tons/acre) milakar leaching karein + Dhaincha hari khad palat dein.<br>2. FYM ke sath <strong>SMB, IMB aur ZMB</strong> chalayein.</p>', ids: ['smb', 'imb', 'zmb'] };
+        } else if (q.includes('acid') || q.includes('6.0')) {
+          reply = { html: '<strong>Acidic Soil (pH &lt; 6.0) Upchar:</strong><p>1. Agricultural Lime/Dolomite (1–2 tons/acre) buwai se 1–2 mahine pehle milayein + zyada FYM dalein.<br>2. <strong>PSB aur CMB</strong> bio-cultures chalayein.</p>', ids: ['psb', 'cmb'] };
+        } else if (q.includes('30') || q.includes('multiply') || q.includes('vidhi')) {
+          reply = { html: '<strong>1L se 30L Vidhi:</strong><p>10L pani + 300g gud ubaal kar Markin kapde se chhaanein. Thanda hone par 100g besan aur 1L Mother Culture milakar 5–7 din chhaon me rakhein (3 baar multiply se 30L taiyar, 1L/acre).</p>' };
+        } else if (q.includes('peel') || q.includes('v ') || q.includes('w ') || q.includes('kami')) {
+          reply = { html: '<strong>Deficiency vs Disease:</strong><p>Nichli purani patti par V-shape peelapan = Nitrogen kami (<strong>Nitrogen Fixing Bacteria</strong>); upari nayi patti par hari nas ke beech peelapan (W-pattern) = Zinc/Iron kami (<strong>ZMB + IMB</strong>).</p>', ids: ['nitrogen', 'zmb', 'imb'] };
+        }
+        box.innerHTML += `<div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-3.5 max-w-[90%] space-y-2">${reply.html}${reply.ids ? `<button onclick='addMultipleToCart(${JSON.stringify(reply.ids)}); toggleAssistant();' class="bg-yellow-400 text-emerald-950 font-extrabold px-3 py-1.5 rounded-xl text-xs">+ Cart Me Dalein</button>` : ''}</div>`;
+        box.scrollTop = box.scrollHeight;
+        saveHistory('Kisan Mitra AI', text);
+      }, 350);
+    }
 
     function updateAcreCalc() {
-      const acres = parseInt(document.getElementById('acre-slider').value);
-      document.getElementById('calc-acre-val').innerText = `${acres} Acre`;
-      document.getElementById('calc-field-liters').innerText = `${acres} Liter Ready Culture`;
-      const bottles = Math.ceil(acres / 30);
-      document.getElementById('calc-mother-needed').innerText = `Sirf ${bottles} Liter Mother Culture`;
+      const a = parseInt(document.getElementById('acre-slider').value);
+      document.getElementById('calc-acre-val').innerText = `${a} Acre`;
+      document.getElementById('calc-summary').innerText = `${a} Liter Ready Culture = Sirf ${Math.ceil(a / 30)} Liter Mother Culture (₹400–₹440 me 30 Acre tak)`;
     }
 
     function openProductModal(id) {
-      const p = PRODUCTS.find(item => item.id === id);
+      const p = PRODUCTS.find(x => x.id === id);
       if (!p) return;
       document.getElementById('modal-body').innerHTML = `
         <span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-full">${p.catLabel}</span>
-        <h3 class="text-xl font-extrabold text-slate-900 mt-3">${p.name}</h3>
-        <p class="text-2xl font-extrabold text-emerald-700 mt-1">₹${p.price} <span class="text-xs text-slate-500 font-semibold">/ 1 Liter Mother Culture</span></p>
-        <div class="mt-4 space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs">
-          <div><strong class="uppercase text-slate-900 block mb-1">Fayde:</strong><p class="text-slate-700 leading-relaxed">${p.benefits}</p></div>
-          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200"><strong class="uppercase text-amber-950 block mb-1">Mixing Rule:</strong><p class="text-amber-900 leading-relaxed">${p.mixText}</p></div>
-          <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200"><strong class="uppercase text-emerald-950 block mb-1">1L se 30L Multiplication:</strong><p class="text-emerald-900 leading-relaxed">10L pani + 300g gud ubaal kar Markin kapde se chhaanein, thanda hone par 100g besan aur 1L Mother Culture milakar 5–7 din chhaon me rakhein. 3 baar multiply karke 30L banayein (1 Acre = 1 Liter).</p></div>
+        <h3 class="text-lg font-extrabold text-slate-900 mt-2">${p.name}</h3>
+        <p class="text-2xl font-extrabold text-emerald-700 mt-1">₹${p.price} / 1 Liter Mother Culture</p>
+        <div class="mt-3 space-y-2.5 text-xs bg-slate-50 p-4 rounded-2xl border">
+          <p><strong>Fayde:</strong> ${p.benefits}</p>
+          <p class="bg-amber-50 p-2.5 rounded-xl border border-amber-200"><strong>Mixing Rule:</strong> ${p.mixText}</p>
+          <p class="bg-emerald-50 p-2.5 rounded-xl border border-emerald-200"><strong>30× Multiply:</strong> 10L pani + 300g gud ubaal kar Markin kapde se chhaanein, thanda hone par 100g besan aur 1L Mother Culture milakar 5–7 din chhaon me rakhein.</p>
         </div>
-        <button onclick="addToCart('${p.id}'); closeModal();" class="w-full mt-4 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl text-sm shadow">Cart Me Add Karein — ₹${p.price}</button>
+        <button onclick="addToCart('${p.id}'); closeModalById('product-modal');" class="w-full mt-4 bg-yellow-400 text-emerald-950 font-extrabold py-3 rounded-xl text-sm">+ Cart Me Add Karein (₹${p.price})</button>
       `;
       document.getElementById('product-modal').classList.remove('hidden');
     }
 
-    function closeModal() { document.getElementById('product-modal').classList.add('hidden'); }
-
+    function addMultipleToCart(ids) { ids.forEach(id => addToCart(id)); toggleCart(); }
     function addToCart(id) {
-      const product = PRODUCTS.find(p => p.id === id);
-      const existing = cart.find(item => item.id === id);
-      if (existing) existing.qty += 1;
-      else cart.push({ ...product, qty: 1 });
+      const p = PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+      const ex = cart.find(i => i.id === id);
+      if (ex) ex.qty += 1; else cart.push({ ...p, qty: 1 });
       updateCartUI();
-      showToast(`${product.name.split('(')[0].trim()} cart me add ho gaya!`);
+      showToast(`${p.name.split('(')[0].trim()} added!`);
     }
-
-    function changeQty(id, delta) {
-      const idx = cart.findIndex(item => item.id === id);
+    function changeQty(id, d) {
+      const idx = cart.findIndex(i => i.id === id);
       if (idx === -1) return;
-      cart[idx].qty += delta;
-            if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      cart[idx].qty += d;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
       updateCartUI();
     }
-
     function updateCartUI() {
-      const count = cart.reduce((sum, i) => sum + i.qty, 0);
-      document.getElementById('cart-count').innerText = count;
-      const itemsContainer = document.getElementById('cart-items');
+      document.getElementById('cart-count').innerText = cart.reduce((s, i) => s + i.qty, 0);
       const footer = document.getElementById('cart-footer');
-
+      const container = document.getElementById('cart-items');
       if (cart.length === 0) {
-        itemsContainer.innerHTML = `<div class="text-center py-16"><p class="font-bold text-slate-700">Aapka cart abhi khali hai</p></div>`;
+        container.innerHTML = '<p class="text-center py-12 text-sm font-bold text-slate-500">Cart khali hai</p>';
         footer.classList.add('hidden');
         return;
       }
-
       footer.classList.remove('hidden');
-      const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+      const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
       document.getElementById('cart-total').innerText = `₹${total}`;
-
-      itemsContainer.innerHTML = cart.map(item => `
-        <div class="flex justify-between gap-3 bg-white border border-slate-200 p-3 rounded-2xl items-center">
-          <div class="flex-1 min-w-0">
-            <h4 class="font-bold text-xs text-slate-900 line-clamp-2">${item.name}</h4>
-            <p class="text-xs text-emerald-700 font-bold mt-0.5">₹${item.price} / Liter</p>
-            <div class="flex items-center gap-2 mt-2">
-              <button onclick="changeQty('${item.id}', -1)" class="w-6 h-6 rounded-lg bg-slate-100 font-bold">-</button>
-              <span class="text-xs font-extrabold w-5 text-center">${item.qty} L</span>
-              <button onclick="changeQty('${item.id}', 1)" class="w-6 h-6 rounded-lg bg-emerald-100 font-bold text-emerald-800">+</button>
-            </div>
+      container.innerHTML = cart.map(i => `
+        <div class="flex justify-between items-center bg-white border p-3 rounded-2xl text-xs">
+          <div class="flex-1 pr-2"><strong class="block line-clamp-1">${i.name}</strong><span class="text-emerald-700 font-bold">₹${i.price}/L</span>
+            <div class="flex items-center gap-2 mt-1.5"><button onclick="changeQty('${i.id}',-1)" class="w-6 h-6 bg-slate-100 rounded">-</button><span class="font-bold">${i.qty} L</span><button onclick="changeQty('${i.id}',1)" class="w-6 h-6 bg-emerald-100 rounded">+</button></div>
           </div>
-          <div class="font-extrabold text-sm text-slate-900">₹${item.price * item.qty}</div>
+          <strong>₹${i.price * i.qty}</strong>
         </div>
       `).join('');
     }
-
     function toggleCart() { document.getElementById('cart-drawer').classList.toggle('hidden'); }
-
     function openCheckout() {
       toggleCart();
-      const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
-      document.getElementById('checkout-summary-box').innerHTML = `
-        <strong class="block mb-1">Aapke Selected Cultures (${cart.length} items):</strong>
-        ${cart.map(i => `<div>• ${i.name} — <strong>${i.qty} Liter</strong> (₹${i.price * i.qty})</div>`).join('')}
-        <div class="pt-1.5 mt-1.5 border-t border-emerald-200 font-extrabold text-sm">Total Amount: ₹${total}</div>
-      `;
+      const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      document.getElementById('checkout-summary-box').innerHTML = cart.map(i => `<div>• ${i.name} (${i.qty}L) = ₹${i.price * i.qty}</div>`).join('') + `<div class="font-extrabold pt-1 border-t">Total: ₹${total}</div>`;
       document.getElementById('checkout-modal').classList.remove('hidden');
     }
-
-    function closeCheckout() { document.getElementById('checkout-modal').classList.add('hidden'); }
-
     function sendOrderToWhatsApp(e) {
       e.preventDefault();
       const name = document.getElementById('cust-name').value;
       const phone = document.getElementById('cust-phone').value;
       const pin = document.getElementById('cust-pin').value;
-      const address = document.getElementById('cust-address').value;
-      const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
-
-      const productLines = cart.map((i, index) => `${index + 1}. *${i.name}* (${i.qty} Liter) = ₹${i.price * i.qty}`).join('%0A');
-      const fullMessage = `*🌿 NAYA BIO-CULTURE ORDER*%0A%0A*Customer Details:*%0ANaam: ${name}%0AMobile: ${phone}%0APata: ${address} (PIN: ${pin})%0A%0A*Selected Products:*%0A${productLines}%0A%0A*Kul Rashi (Total): ₹${total}*`;
-
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${fullMessage}`, '_blank');
-      closeCheckout();
+      const addr = document.getElementById('cust-address').value;
+      const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const lines = cart.map(i => `• *${i.name}* (${i.qty} L) = ₹${i.price * i.qty}`).join('%0A');
+      saveHistory('WhatsApp Order', `${cart.map(i => `${i.name} (${i.qty}L)`).join(', ')} — Total ₹${total}`);
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=*🌿 NAYA KRISHICULTURE ORDER*%0ANaam: ${name}%0APhone: ${phone}%0APata: ${addr} (${pin})%0A%0A${lines}%0A%0A*Total: ₹${total}*`, '_blank');
+      closeModalById('checkout-modal');
     }
+    function showToast(m) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-msg').innerText = m;
+      t.classList.remove('opacity-0');
+      setTimeout(() => t.classList.add('opacity-0'), 2200);
+       }
 
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      document.getElementById('toast-msg').innerText = msg;
-      toast.classList.remove('opacity-0');
-      setTimeout(() => toast.classList.add('opacity-0'), 2500);
-    }
-
-    selectPestCrop('common', document.querySelector('.pest-tab-btn'));
+    selectCrop('common', document.querySelector('.crop-tab-btn'));
     renderProducts();
     updateAcreCalc();
     lucide.createIcons();
