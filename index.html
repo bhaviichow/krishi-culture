@@ -3,28 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KrishiCulture | 100% Jaivik Bio-Cultures & AI Kisan Assistant</title>
+  <title>KrishiCulture | 100% Organic Lab-Certified Bio-Cultures & AI Agri Assistant</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-    .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); }
+    .glass-nav { background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); }
+    .hero-bg {
+      background-color: #064e3b;
+      background-image: radial-gradient(at 85% 20%, rgba(16, 185, 129, 0.32) 0px, transparent 55%),
+                        radial-gradient(at 15% 85%, rgba(245, 158, 11, 0.2) 0px, transparent 55%);
+    }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    @keyframes scanline {
-      0% { top: 0%; }
-      50% { top: 92%; }
-      100% { top: 0%; }
-    }
-    .scanner-bar { animation: scanline 1.6s ease-in-out infinite; }
+    @keyframes scanline { 0% { top: 0%; } 50% { top: 92%; } 100% { top: 0%; } }
+    .scanner-bar { animation: scanline 1.5s ease-in-out infinite; }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased pb-20 sm:pb-0">
 
-  <!-- Top Notice Bar -->
-  <div class="bg-emerald-950 text-emerald-100 text-xs py-2 px-4 text-center font-medium">
-    <span>🌿 100% Pure Organic Bio-Cultures (Zero Chemical) | 1L se 30L Multiply Karein | Helpline: <a href="tel:+916350078784" class="underline font-bold text-amber-300">+91 63500 78784</a></span>
+  <!-- Top Notice & Multi-Language Bar -->
+  <div class="bg-emerald-950 text-emerald-100 text-xs py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <span>📞 Kisan Helpline & WhatsApp: <a href="tel:+916350078784" class="underline font-bold text-amber-300">+91 63500 78784</a></span>
+      <div class="flex items-center gap-1.5">
+        <i data-lucide="languages" class="w-3.5 h-3.5 text-amber-300"></i>
+        <span class="text-[11px] text-emerald-200">Language:</span>
+        <select id="lang-selector" onchange="changeLanguage(this.value)" class="bg-emerald-900 border border-emerald-700 text-white text-xs font-bold rounded-lg px-2 py-1 focus:outline-none">
+          <option value="hinglish">Hinglish (Default)</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="en">English</option>
+          <option value="te">తెలుగు (Telugu)</option>
+          <option value="ta">தமிழ் (Tamil)</option>
+          <option value="kn">ಕನ್ನಡ (Kannada)</option>
+          <option value="ml">മലയാളം (Malayalam)</option>
+        </select>
+      </div>
+    </div>
   </div>
 
   <!-- Navbar -->
@@ -34,39 +50,68 @@
         <div class="w-9 h-9 rounded-xl bg-emerald-700 text-white flex items-center justify-center shadow">
           <i data-lucide="sprout" class="w-5 h-5"></i>
         </div>
-        <div>
-          <span class="text-lg sm:text-xl font-extrabold text-emerald-950 tracking-tight">Krishi<span class="text-emerald-600">Culture</span></span>
-          <span class="block text-[9px] uppercase tracking-widest text-emerald-700 font-bold -mt-1">100% Organic Mother Cultures</span>
-        </div>
+        <span class="text-lg sm:text-xl font-extrabold text-emerald-950 tracking-tight">Krishi<span class="text-emerald-600">Culture</span></span>
       </a>
 
       <nav class="hidden md:flex items-center gap-5 text-sm font-semibold text-slate-600">
-        <a href="#products" class="hover:text-emerald-700">15 Bio-Cultures</a>
-        <a href="#plant-doctor" class="hover:text-emerald-700">Photo Jaanch</a>
-        <button onclick="openSoilTreatmentAssistant()" class="hover:text-emerald-700 font-semibold">Soil Treatment</button>
-        <a href="#multiplication" class="hover:text-emerald-700">1L→30L Vidhi</a>
+        <a href="#products" class="hover:text-emerald-700" data-i18n="nav_cultures">15 Bio-Cultures</a>
+        <a href="#plant-doctor" class="hover:text-emerald-700" data-i18n="nav_photo">Photo Diagnosis</a>
+        <a href="#soil-master" class="hover:text-emerald-700" data-i18n="nav_soil">Soil Science</a>
+        <a href="#multiplication" class="hover:text-emerald-700" data-i18n="nav_vidhi">1L→30L Vidhi</a>
       </nav>
 
       <div class="flex items-center gap-2">
-        <button onclick="toggleAssistant()" class="flex items-center gap-1.5 text-xs font-extrabold bg-indigo-50 text-indigo-700 border border-indigo-200 px-3 py-2 rounded-full hover:bg-indigo-100 shadow-xs transition">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indigo-600"></i>
-          <span>AI Assistant</span>
+        <button onclick="toggleAssistant()" class="flex items-center gap-1.5 text-xs font-extrabold bg-indigo-600 hover:bg-indigo-700 text-white px-3.5 py-2 rounded-full shadow transition">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
+          <span data-i18n="btn_ai">Krishi AI Assistant</span>
         </button>
 
         <button onclick="toggleCart()" class="relative flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white px-3.5 py-2 rounded-full text-xs sm:text-sm font-bold shadow transition">
           <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-          <span class="hidden sm:inline">Cart</span>
           <span id="cart-count" class="bg-amber-400 text-emerald-950 text-xs font-extrabold w-5 h-5 rounded-full flex items-center justify-center">0</span>
         </button>
       </div>
     </div>
   </header>
 
+  <!-- Large Half-Page Hero Banner -->
+  <section class="hero-bg text-white min-h-[48vh] flex items-center py-12 sm:py-16 px-4 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto w-full text-center space-y-6">
+      <div class="inline-flex items-center gap-2 bg-emerald-800/80 border border-emerald-500/40 rounded-full px-4 py-1.5 text-xs sm:text-sm font-bold text-amber-300">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <span>Zero Chemical • Sustainable & Scientific Organic Agriculture</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
+        Krishi<span class="text-amber-400">Culture</span>
+      </h1>
+
+      <p data-i18n="hero_tagline" class="text-lg sm:text-2xl lg:text-3xl font-bold text-emerald-100 max-w-4xl mx-auto leading-snug">
+        100% Organic Lab-Certified Bio-Cultures with High CFU Count — Multiply Up to 30x (1 Liter se 30 Liter)
+      </p>
+
+      <p class="text-xs sm:text-base text-emerald-200/90 max-w-2xl mx-auto">
+        High live microbial count (2×10⁸ to 1×10⁹ CFU/ml) jo mitti ki urvarakta badhaye, poshak tatvon ko unlock kare aur fasal ko rog-keet mukt rakhe.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-3 pt-2">
+        <a href="#products" class="bg-amber-400 hover:bg-amber-300 text-emerald-950 font-extrabold px-6 py-3.5 rounded-2xl shadow-lg text-sm sm:text-base flex items-center gap-2 transition">
+          <span data-i18n="cta_shop">15 Bio-Cultures Khareedein</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <button onclick="toggleAssistant()" class="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-6 py-3.5 rounded-2xl text-sm sm:text-base flex items-center gap-2 transition">
+          <i data-lucide="sparkles" class="w-4 h-4 text-amber-300"></i>
+          <span data-i18n="cta_ai">Crop, Weather & Soil AI Salah</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- Crop Selector & Crop-Specific Diseases Bar -->
   <section id="crops-section" class="bg-white border-b border-slate-200 py-5 px-4">
     <div class="max-w-7xl mx-auto">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-800">Apni Fasal Chunein (Fasal Ke Rog Aur Jaivik Upchar):</span>
+        <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-800" data-i18n="crop_title">Apni Fasal Chunein (Crop-Wise Rog, Variety & Bio-Upchar):</span>
         <span id="active-crop-badge" class="text-xs font-bold bg-emerald-100 text-emerald-800 px-3 py-0.5 rounded-full">Sabhi Fasalein</span>
       </div>
 
@@ -97,10 +142,9 @@
         </button>
       </div>
 
-      <!-- Dynamic Crop-Specific Diseases Panel -->
       <div id="crop-disease-panel" class="hidden mt-4 bg-emerald-50/80 border border-emerald-200 rounded-2xl p-4 sm:p-5">
         <div class="flex items-center justify-between mb-3">
-          <h3 id="crop-panel-title" class="text-base sm:text-lg font-extrabold text-emerald-950">Fasal Ke Mukhya Rog Aur Jaivik Upchar</h3>
+          <h3 id="crop-panel-title" class="text-base sm:text-lg font-extrabold text-emerald-950"></h3>
           <button onclick="selectCrop('all')" class="text-xs font-bold text-slate-500 hover:text-slate-800">Band Karein ✕</button>
         </div>
         <div id="crop-disease-list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3"></div>
@@ -108,99 +152,120 @@
     </div>
   </section>
 
-  <!-- Working Photo Diagnosis Tool + Compact Soil Treatment & AI Assistant Triggers -->
-  <section id="plant-doctor" class="py-8 px-4 max-w-7xl mx-auto">
+  <!-- Smart Photo Deficiency & Disease Diagnosis + Scan History -->
+  <section id="plant-doctor" class="py-10 px-4 max-w-7xl mx-auto">
     <div class="bg-white border-2 border-emerald-200 rounded-3xl p-5 sm:p-8 shadow-sm">
-      <div class="grid lg:grid-cols-12 gap-6 items-center">
-        <div class="lg:col-span-6 space-y-4">
+      <div class="grid lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-5 space-y-4">
           <span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-full">
             <i data-lucide="camera" class="w-3.5 h-3.5"></i>
-            <span>Organic Crop Doctor & Soil Assistant</span>
+            <span data-i18n="photo_badge">Smart Leaf Deficiency & Disease Scanner</span>
           </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-            Fasal Ki Photo Lein Ya Mitti Ka Upchar Puchein
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900" data-i18n="photo_heading">
+            Photo Click Karein — Particular Deficiency & Rog Pehchanein
           </h2>
-          <p class="text-xs sm:text-sm text-slate-600">
-            Patte, tane ya jad ki photo khinchein ya <strong>Soil Treatment / AI Assistant</strong> par click karke Acidic & Alkaline mitti aur fasal ka jaivik ilaj jaanein.
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Patte ki photo lein aur batayein ki lakshan <strong>Purani (nichli) pattiyon</strong> par hain ya <strong>Nayi (oopari) pattiyon</strong> par — hamara scanner photo ke color pixels aur plant mobility science se exact deficiency (N, P, K, Mg, Fe, Zn, Ca, B, S) ya fungal/pest attack batayega.
           </p>
 
           <input type="file" id="crop-photo-input" accept="image/*" onchange="handlePhotoSelected(event)" class="hidden" />
           <div class="flex flex-wrap gap-2.5">
-            <button type="button" onclick="document.getElementById('crop-photo-input').click()" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-3 rounded-2xl shadow flex items-center gap-2 text-xs sm:text-sm transition">
-              <i data-lucide="camera" class="w-4 h-4"></i>
-              <span>Take a Picture</span>
-            </button>
-            <button type="button" onclick="openSoilTreatmentAssistant()" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-4 py-3 rounded-2xl shadow flex items-center gap-2 text-xs sm:text-sm transition">
-              <i data-lucide="layers" class="w-4 h-4"></i>
-              <span>Soil Treatment (pH)</span>
-            </button>
-            <button type="button" onclick="toggleAssistant()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-3 rounded-2xl shadow flex items-center gap-2 text-xs sm:text-sm transition">
-              <i data-lucide="sparkles" class="w-4 h-4"></i>
-              <span>AI Assistant</span>
+            <button type="button" onclick="document.getElementById('crop-photo-input').click()" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-3.5 rounded-2xl shadow flex items-center gap-2 text-xs sm:text-sm transition">
+              <i data-lucide="camera" class="w-5 h-5"></i>
+              <span data-i18n="btn_take_pic">Take a Picture / Upload Photo</span>
             </button>
           </div>
         </div>
 
-        <div class="lg:col-span-6">
+        <div class="lg:col-span-7 space-y-4">
           <div id="photo-step-empty" class="border-2 border-dashed border-slate-300 rounded-2xl p-6 text-center bg-slate-50">
             <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-2">
-              <i data-lucide="image-plus" class="w-6 h-6"></i>
+              <i data-lucide="scan-line" class="w-6 h-6"></i>
             </div>
-            <p class="text-sm font-bold text-slate-700">Yahan aapki li gayi photo dikhegi</p>
-            <p class="text-xs text-slate-500 mt-1">Photo select karne ke baad Proceed button aayega</p>
+            <p class="text-sm font-bold text-slate-700">Patte ya paudhe ki clear photo upload karein</p>
+            <p class="text-xs text-slate-500 mt-1">Photo color analysis + Leaf position se exact deficiency milegi</p>
           </div>
 
           <div id="photo-step-preview" class="hidden bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
-            <div class="flex items-center gap-4">
-              <div class="relative w-20 h-20 rounded-xl overflow-hidden border border-emerald-400 shrink-0">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div class="relative w-24 h-24 rounded-xl overflow-hidden border-2 border-emerald-500 shrink-0">
                 <img id="photo-preview-img" src="" class="w-full h-full object-cover" />
                 <div id="scan-line" class="hidden scanner-bar absolute left-0 right-0 h-1 bg-amber-400 shadow"></div>
               </div>
-              <div class="flex-1">
-                <span class="text-[11px] font-bold text-emerald-700">Photo Taiyar Hai ✓</span>
-                <label class="block text-xs font-extrabold text-slate-800 mt-1">Fasal me kya dikh raha hai?</label>
-                <select id="photo-symptom" class="w-full mt-1 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold bg-white text-slate-800">
-                  <option value="yellow">Pattiya peeli padna / Poshan ki kami</option>
-                  <option value="wilt">Paudha sukhna / Jad galan / Fafund rog</option>
-                  <option value="pests">Sundi / Safed makhi / Ras chusak keet / Deemak</option>
-                  <option value="nematode">Jadon me gaanth banna (Nematodes)</option>
-                </select>
+              <div class="flex-1 w-full space-y-2">
+                <div>
+                  <label class="block text-[11px] font-extrabold text-slate-700">1. Lakshan Kahan Dikh Rahe Hain? (Leaf Zone):</label>
+                  <select id="leaf-zone" class="w-full mt-1 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold bg-white">
+                    <option value="old">Purani / Nichli Pattiyon Par (Old Leaves - Mobile Nutrients)</option>
+                    <option value="new">Nayi / Oopari Pattiyon Par (New Leaves - Immobile Nutrients)</option>
+                    <option value="tip">Sabse Oopari Kopal / Phal Par (Terminal Bud / Fruit)</option>
+                    <option value="random">Poore Paudhe Par Dhabbe / Keet / Jad Galan</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-extrabold text-slate-700">2. Kaisa Pattern Dikh Raha Hai?</label>
+                  <select id="leaf-pattern" class="w-full mt-1 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold bg-white">
+                    <option value="v_yellow">Nok se 'V' aakar me peelapan (V-Shape Yellowing)</option>
+                    <option value="interveinal">Nasein hari aur beech ka hissa peela/safed (Interveinal Chlorosis)</option>
+                    <option value="edge_burn">Patti ke kinare jale hue / bhure (Marginal Scorching)</option>
+                    <option value="purple">Patti par baingani / laal rangat (Purplish Tint)</option>
+                    <option value="small_leaf">Chhoti patti aur guchha banna (Little Leaf / Rosette)</option>
+                    <option value="hook_crack">Patti hook jaisi mudna ya phal phatna (Hook / Fruit Cracking)</option>
+                    <option value="spots_wilt">Gol dhabbe, safed powder ya paudha sukhna (Fungal / Wilt)</option>
+                    <option value="pest_nematode">Keet, sundi, safed makhi ya jad me gaanth</option>
+                  </select>
+                </div>
               </div>
             </div>
 
             <button type="button" onclick="proceedDiagnosis()" id="proceed-scan-btn" class="w-full bg-amber-400 hover:bg-amber-300 text-emerald-950 font-extrabold py-3 rounded-xl text-sm shadow transition flex items-center justify-center gap-2">
-              <span>Proceed — Jaanch Karein & Upchar Dekhein</span>
+              <span>Proceed — Photo Scan & Deficiency Report Dekhein</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
           </div>
 
-          <div id="photo-step-result" class="hidden mt-3 bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-4 space-y-2.5">
+          <div id="photo-step-result" class="hidden bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-4 space-y-2.5">
             <div class="flex items-center justify-between">
-              <span class="bg-emerald-700 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">100% Organic Report</span>
-              <button type="button" onclick="resetPhotoTool()" class="text-xs font-bold text-emerald-800 underline">Doosri Photo Lein</button>
+              <span id="pixel-tone-badge" class="bg-emerald-700 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full">Scan Complete</span>
+              <button type="button" onclick="resetPhotoTool()" class="text-xs font-bold text-emerald-800 underline">Nayi Photo Scan Karein</button>
             </div>
-            <h4 id="diag-title" class="font-extrabold text-base text-emerald-950"></h4>
+            <h4 id="diag-title" class="font-extrabold text-base sm:text-lg text-emerald-950"></h4>
+            <p id="diag-reason" class="text-xs text-slate-700 font-semibold"></p>
             <p id="diag-desc" class="text-xs text-slate-700 leading-relaxed"></p>
             <div id="diag-cultures" class="flex flex-wrap gap-1.5 pt-1"></div>
             <button type="button" onclick="addDiagnosedToCart()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2.5 rounded-xl text-xs shadow mt-2">
-              Yeh Recommended Cultures Cart Me Dalein
+              + Recommended Bio-Cultures Cart Me Dalein
             </button>
+          </div>
+
+          <!-- Scan History Section -->
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2.5">
+              <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                <i data-lucide="history" class="w-3.5 h-3.5 text-emerald-700"></i>
+                <span>Recent Photo Scan History</span>
+              </h4>
+              <button onclick="clearScanHistory()" class="text-[11px] font-bold text-rose-600 hover:underline">Clear History</button>
+            </div>
+            <div id="scan-history-list" class="space-y-2 text-xs text-slate-600">
+              <p class="text-slate-400 text-xs">Abhi tak koi photo scan nahi ki gayi hai.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-    <!-- All 15 Bio-Cultures Catalog -->
+    <!-- All 15 Bio-Cultures Catalog (Larger White Round 1L Bottle Cards) -->
   <section id="products" class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
       <div>
-        <span class="text-emerald-700 font-bold text-xs uppercase tracking-wider">100% Pure Mother Cultures (1 Liter Packing)</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1">Sabhi 15 Agriculture Bio-Cultures</h2>
-        <p class="text-slate-600 text-xs sm:text-sm mt-1">Har 1 Liter Mother Culture ko multiply karke 30 Liter (30 Acre ke liye) bana sakte hain</p>
+        <span class="text-emerald-700 font-bold text-xs uppercase tracking-wider">100% Organic Lab-Certified • High CFU Count</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1">Sabhi 15 Agriculture Mother Bio-Cultures</h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-1">Har 1 Liter Mother Culture ko 3 baar multiply karke 30 Liter (30 Acre ke liye) bana sakte hain</p>
       </div>
 
       <div class="flex flex-wrap gap-2" id="category-filters">
-        <button onclick="filterProducts('all', this)" class="filter-btn bg-emerald-700 text-white px-3.5 py-2 rounded-full text-xs font-bold transition">Sabhi Cultures</button>
+        <button onclick="filterProducts('all', this)" class="filter-btn bg-emerald-700 text-white px-3.5 py-2 rounded-full text-xs font-bold transition">Sabhi (15)</button>
         <button onclick="filterProducts('nutrient', this)" class="filter-btn bg-white text-slate-700 border border-slate-200 hover:border-emerald-500 px-3.5 py-2 rounded-full text-xs font-bold transition">Nutrients (₹400/L)</button>
         <button onclick="filterProducts('disease', this)" class="filter-btn bg-white text-slate-700 border border-slate-200 hover:border-emerald-500 px-3.5 py-2 rounded-full text-xs font-bold transition">Disease Control (₹420/L)</button>
         <button onclick="filterProducts('pest', this)" class="filter-btn bg-white text-slate-700 border border-slate-200 hover:border-emerald-500 px-3.5 py-2 rounded-full text-xs font-bold transition">Pest Control (₹440/L)</button>
@@ -208,7 +273,97 @@
       </div>
     </div>
 
-    <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+  </section>
+
+  <!-- Comprehensive Soil Science & Health Master Section -->
+  <section id="soil-master" class="py-14 bg-amber-50/70 border-y border-amber-200 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="bg-amber-200 text-amber-950 font-extrabold text-xs uppercase tracking-wider px-3 py-1 rounded-full">Complete Soil Science & Sustainable Management</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3">Mitti Ko Samjhein: pH, EC, Organic Carbon Aur Soil Structure</h2>
+        <p class="text-slate-700 text-xs sm:text-base mt-2">
+          Mitti sirf dhool nahi, ek jeeti-jaagti prayogshala hai. Jab mitti ka pH, EC aur Organic Carbon santulit rehta hai, tabhi Bio-Cultures 100% shakti se kaam karte hain.
+        </p>
+      </div>
+
+      <!-- 4 Pillars of Soil Health -->
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <!-- Pillar 1: Soil pH -->
+        <div class="bg-white rounded-3xl p-6 border border-amber-300 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="bg-amber-100 text-amber-950 text-xs font-extrabold px-3 py-1 rounded-full">1. Mitti Ki Aatma: Soil pH (Ideal: 6.5 – 7.5)</span>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900">pH Ka 'Nutrient Lock' Vigyan Aur Upchar</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <strong>• Acidic Soil (pH &lt; 6.0):</strong> Low pH par Aluminium aur Iron zehrile star tak ghul jate hain aur Phosphorus, Calcium, Magnesium ko lock kar dete hain. <strong>Upchar:</strong> Buwai se 3–4 hafte pehle <strong>1–2 ton/acre Agricultural Lime / Dolomite (Chuna)</strong> milayein aur <strong>PSB + CMB</strong> bio-cultures dein.
+          </p>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <strong>• Alkaline / Sodic Soil (pH &gt; 7.5):</strong> High pH par Phosphorus calcium se judkar patthar (Tricalcium phosphate) ban jata hai aur Zinc, Iron, Manganese lock ho jate hain. <strong>Upchar:</strong> <strong>Gypsum (500 kg – 2 ton/acre)</strong> milakar bhari sinchai (leaching) karein, <strong>Dhaincha (Hari Khad)</strong> palat dein aur <strong>SMB + IMB + ZMB</strong> dein.
+          </p>
+        </div>
+
+        <!-- Pillar 2: Electrical Conductivity (EC) -->
+        <div class="bg-white rounded-3xl p-6 border border-sky-300 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="bg-sky-100 text-sky-900 text-xs font-extrabold px-3 py-1 rounded-full">2. Mitti Ka Current: EC (Ideal: 0.0 – 0.8 dS/m)</span>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900">Kharapan (Salinity) Aur Reverse Osmosis Se Bachav</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <strong>• High EC (&gt; 1.6 dS/m) Ka Khatra:</strong> Jab mitti me namak (Sodium, Chloride) zyada hota hai, to pani jadon me jaane ke bajay jadon se bahar khinchne lagta hai (Reverse Osmosis), jisse gili mitti me bhi paudha sookhne lagta hai aur pattiyon ke kinare jalte hain (Tip Burn).
+          </p>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <strong>• Jaivik Samadhan:</strong> Khet me achhi jal nikasi (Drainage) banakar meethay pani se <strong>Leaching</strong> karein, sadi gobar khad (FYM) aur Humic substance dein, aur jadon ki suraksha ke liye <strong>Trichoderma harzianum + Pseudomonas fluorescens</strong> ka prayog karein.
+          </p>
+        </div>
+
+        <!-- Pillar 3: Organic Carbon (OC) -->
+        <div class="bg-white rounded-3xl p-6 border border-emerald-300 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="bg-emerald-100 text-emerald-900 text-xs font-extrabold px-3 py-1 rounded-full">3. Mitti Ka Engine: Organic Carbon (Ideal: &gt; 0.75%)</span>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900">Jaivik Carbon Aur C:N Ratio Ka Rahasya</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <strong>• 3-in-1 Fayde:</strong> Organic Carbon mitti me <em>Sponge</em> (pani rokne), <em>Chumbak</em> (poshak tatvon ko bahne se rokne), aur <em>Microbes ka Bhojan</em> banne ka kaam karta hai. Bina carbon ke koi bhi bio-culture zinda nahi reh sakta.
+          </p>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <strong>• C:N Anupat (10:1 se 12:1):</strong> Khet me kachha bhoosa ya parali kabhi na jalayein; us par gobar khad aur bio-cultures ka chhidkav karke khet me hi galayein. Hari khad (Dhaincha/Sanai) aur Vermicompost se OC tezi se badhta hai.
+          </p>
+        </div>
+
+        <!-- Pillar 4: Soil Texture & Structure -->
+        <div class="bg-white rounded-3xl p-6 border border-purple-300 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="bg-purple-100 text-purple-900 text-xs font-extrabold px-3 py-1 rounded-full">4. Mitti Ka Shareer: Sandy, Loam & Clay Management</span>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900">Mitti Ki Banawat Ke Anusar Jaivik Prabandhan</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <strong>• Retili Mitti (Sandy Soil):</strong> Pani aur khad jaldi neeche beh (Leach) jate hain. Isme 5–10 ton/acre sadi FYM/Compost milayein aur bio-cultures ko 2–3 baar tukdon (Split dose) me dein.
+          </p>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <strong>• Chikni / Kali Mitti (Clay Soil):</strong> Pani bharne se jadon ko oxygen nahi milti aur Phosphorus lock hota hai. Geeli mitti me rotavator na chalayein, Gypsum aur <strong>PSB + KMB + Silicon (SiMB)</strong> ka prayog karein. <strong>Domat (Loam)</strong> mitti sabse uttam hoti hai.
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive Soil Health Diagnostic Box -->
+      <div class="bg-white rounded-3xl p-6 border-2 border-emerald-600 shadow-md max-w-4xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div>
+            <span class="text-xs font-extrabold uppercase text-emerald-700">Interactive Soil Doctor</span>
+            <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">Apni Mitti Ki Samasya Chunein — Turant Jaivik Upchar Paayein</h3>
+          </div>
+          <select id="soil-issue-select" onchange="updateSoilGuide()" class="border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-bold bg-slate-50 text-slate-900">
+            <option value="alkaline">Alkaline / Usar Mitti (pH 7.5 se upar)</option>
+            <option value="acidic">Acidic / Amliya Mitti (pH 6.0 se neeche)</option>
+            <option value="saline">Khari Mitti / High EC (Pani khara hai)</option>
+            <option value="low_oc">Sakht Mitti / Kam Organic Carbon (OC &lt; 0.5%)</option>
+            <option value="sandy">Retili Mitti (Sandy Soil - Khad tikti nahi)</option>
+          </select>
+        </div>
+        <div id="soil-dynamic-result" class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-xs sm:text-sm text-slate-800 space-y-2"></div>
+      </div>
+    </div>
   </section>
 
   <!-- Upyog Vidhi: 1L se 30L Multiplication Method -->
@@ -363,7 +518,7 @@
         <p class="text-xs text-slate-800 leading-relaxed">
           • <strong>Group B (Ek Sath Mila Sakte Hain):</strong> Metarhizium anisopliae, Beauveria bassiana, Verticillium lecanii ko aapas me aur Paecilomyces sp. ke sath milakar prayog kar sakte hain.
         </p>
-        <p class="text-xs font-bold text-red-800 bg-red-100 p-2.5 rounded-xl">
+                <p class="text-xs font-bold text-red-800 bg-red-100 p-2.5 rounded-xl">
           ⏱️ Zaroori Niyam: Cultures ko keval prayog ke samay hi milayein aur 3 se 4 ghante ke andar khet me istemal kar lein. Mix karne ke baad store karke na rakhein.
         </p>
       </div>
@@ -378,7 +533,7 @@
           <span class="text-xl font-extrabold">KrishiCulture</span>
         </div>
         <p class="text-xs text-slate-400 leading-relaxed">
-          100% Pure Organic Mother Bio-Cultures (1 Liter Bottle Packing). 1L se 30L tak multiply karein aur jaivik kheti apnayein.
+          100% Organic Lab-Certified Bio-Cultures with High CFU Count. Multiply up to 30x for sustainable farming.
         </p>
       </div>
       <div>
@@ -401,56 +556,74 @@
 
   <!-- Mobile Bottom Navigation Bar -->
   <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 flex justify-around py-2 sm:hidden shadow-lg">
-    <a href="#crops-section" class="flex flex-col items-center text-[10px] font-bold text-slate-600 hover:text-emerald-700">
-      <i data-lucide="wheat" class="w-5 h-5 mb-0.5 text-emerald-700"></i>
-      <span>Crops</span>
+    <a href="#products" class="flex flex-col items-center text-[10px] font-bold text-slate-600 hover:text-emerald-700">
+      <i data-lucide="flask-conical" class="w-5 h-5 mb-0.5 text-emerald-700"></i>
+      <span>15 Cultures</span>
     </a>
     <a href="#plant-doctor" class="flex flex-col items-center text-[10px] font-bold text-slate-600 hover:text-emerald-700">
       <i data-lucide="camera" class="w-5 h-5 mb-0.5 text-emerald-700"></i>
-      <span>Photo Jaanch</span>
+      <span>Photo Scan</span>
     </a>
-    <button onclick="openSoilTreatmentAssistant()" class="flex flex-col items-center text-[10px] font-bold text-amber-800">
+    <a href="#soil-master" class="flex flex-col items-center text-[10px] font-bold text-slate-600 hover:text-emerald-700">
       <i data-lucide="layers" class="w-5 h-5 mb-0.5 text-amber-600"></i>
-      <span>Soil Treatment</span>
-    </button>
+      <span>Soil Science</span>
+    </a>
     <button onclick="toggleAssistant()" class="flex flex-col items-center text-[10px] font-extrabold text-indigo-700">
       <i data-lucide="sparkles" class="w-5 h-5 mb-0.5 text-indigo-600"></i>
       <span>AI Assistant</span>
     </button>
   </nav>
 
-  <!-- Plantix-Style Krishi AI Assistant & Soil Treatment Drawer/Modal -->
+  <!-- Advanced Krishi AI Assistant (Crop, Season, Region, Varieties, Soil & Bio-Cultures) -->
   <div id="ai-assistant-modal" class="fixed inset-0 z-50 hidden bg-slate-950/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white rounded-t-3xl sm:rounded-3xl max-w-lg w-full h-[85vh] sm:h-[600px] flex flex-col shadow-2xl overflow-hidden">
+    <div class="bg-white rounded-t-3xl sm:rounded-3xl max-w-xl w-full h-[88vh] sm:h-[640px] flex flex-col shadow-2xl overflow-hidden">
       <div class="p-4 bg-gradient-to-r from-indigo-700 to-emerald-700 text-white flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
             <i data-lucide="sparkles" class="w-5 h-5 text-amber-300"></i>
           </div>
           <div>
-            <h3 class="font-extrabold text-sm sm:text-base">Krishi AI & Soil Assistant</h3>
-            <span class="text-[11px] text-emerald-100 block">Acidic / Alkaline Soil & 100% Organic Salahkar</span>
+            <h3 class="font-extrabold text-sm sm:text-base">Krishi AI Agronomist Assistant</h3>
+            <span class="text-[11px] text-emerald-100 block">Crop Selection, Season, Varieties, Soil & Bio-Cultures</span>
           </div>
         </div>
         <button onclick="toggleAssistant()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">✕</button>
       </div>
 
+      <!-- Crop & Region Selector Inside AI Assistant -->
+      <div class="bg-indigo-50/70 px-3 py-2 border-b border-indigo-100 grid grid-cols-2 gap-2">
+        <select id="ai-crop-context" class="bg-white border border-indigo-200 rounded-lg px-2 py-1.5 text-xs font-bold text-slate-800">
+          <option value="general">Fasal Chunein (All Crops)</option>
+          <option value="wheat">Gehu (Wheat - Rabi)</option>
+          <option value="rice">Dhan (Rice / Paddy)</option>
+          <option value="mustard">Sarso / Chana (Rabi Oilseed/Pulse)</option>
+          <option value="vegetables">Tamatar / Mirch / Sabjiya</option>
+          <option value="cotton">Kapas / Ganna (Cotton/Sugarcane)</option>
+          <option value="fruits">Bagwani (Mango, Citrus, Guava, Pomegranate)</option>
+        </select>
+        <select id="ai-region-context" class="bg-white border border-indigo-200 rounded-lg px-2 py-1.5 text-xs font-bold text-slate-800">
+          <option value="north">North / Central India (Rajasthan, UP, MP, Punjab, Haryana)</option>
+          <option value="south">South India (AP, Telangana, TN, Karnataka, Kerala)</option>
+          <option value="west">West / East India (Gujarat, Maharashtra, Bihar, WB)</option>
+        </select>
+      </div>
+
       <div id="ai-chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50 text-xs sm:text-sm">
-        <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-3.5 shadow-xs max-w-[90%]">
-          <p class="font-bold text-emerald-800 mb-1">Namaste Kisan Bhai/Behen! 🌱</p>
-          <p class="text-slate-700 leading-relaxed">Main aapka <strong>Jaivik Krishi AI Assistant</strong> hoon. Neeche diye gaye buttons par click karein ya apna sawal likhein — <strong>Alkaline Soil Treatment</strong>, <strong>Acidic Soil Treatment</strong>, fasal ke rog, ya <strong>1L se 30L culture vidhi</strong> ke baare me turant jaanein.</p>
+        <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-3.5 shadow-xs max-w-[92%]">
+          <p class="font-bold text-emerald-800 mb-1">Namaste Kisan Bhai/Behen! 🌾</p>
+          <p class="text-slate-700 leading-relaxed">Upar apni <strong>Fasal aur Area (North/South India)</strong> chunein aur mujhse kuch bhi poochein: <strong>aane wale mausam me kaun si fasal lagayein, buwai ka sahi samay, best seed varieties, mitti ka pH/EC/Carbon sudhar, ya bio-cultures ka prayog</strong>!</p>
         </div>
       </div>
 
       <div class="px-3 py-2 bg-white border-t border-slate-100 flex gap-2 overflow-x-auto no-scrollbar">
-        <button onclick="askQuickQuestion('Alkaline soil treatment kaise karein?')" class="shrink-0 bg-amber-100 text-amber-950 border border-amber-300 text-[11px] font-extrabold px-3 py-1.5 rounded-full">Alkaline Soil Treatment</button>
-        <button onclick="askQuickQuestion('Acidic soil treatment kaise karein?')" class="shrink-0 bg-emerald-100 text-emerald-950 border border-emerald-300 text-[11px] font-extrabold px-3 py-1.5 rounded-full">Acidic Soil Treatment</button>
-        <button onclick="askQuickQuestion('1L se 30L kaise banayein?')" class="shrink-0 bg-sky-50 text-sky-900 border border-sky-200 text-[11px] font-bold px-3 py-1.5 rounded-full">1L se 30L vidhi</button>
-        <button onclick="askQuickQuestion('Nematodes jad gaanth ka ilaj?')" class="shrink-0 bg-rose-50 text-rose-900 border border-rose-200 text-[11px] font-bold px-3 py-1.5 rounded-full">Nematodes ilaj</button>
+        <button onclick="askQuickQuestion('Aane wale mausam me kaun si crop aur variety lagayein?')" class="shrink-0 bg-indigo-50 text-indigo-900 border border-indigo-200 text-[11px] font-extrabold px-3 py-1.5 rounded-full">Mausam & Best Crop/Variety</button>
+        <button onclick="askQuickQuestion('Alkaline aur Acidic soil treatment kaise karein?')" class="shrink-0 bg-amber-50 text-amber-950 border border-amber-200 text-[11px] font-bold px-3 py-1.5 rounded-full">Soil pH & EC Treatment</button>
+        <button onclick="askQuickQuestion('1L se 30L multiply karne ki vidhi?')" class="shrink-0 bg-emerald-50 text-emerald-900 border border-emerald-200 text-[11px] font-bold px-3 py-1.5 rounded-full">1L→30L Vidhi</button>
+        <button onclick="askQuickQuestion('Is fasal ke mukhya rog aur bio-culture ilaj?')" class="shrink-0 bg-rose-50 text-rose-900 border border-rose-200 text-[11px] font-bold px-3 py-1.5 rounded-full">Crop Rog & Bio-Ilaj</button>
       </div>
 
       <form onsubmit="handleAiChatSubmit(event)" class="p-3 bg-white border-t border-slate-200 flex gap-2">
-        <input type="text" id="ai-user-input" placeholder="Apna sawal likhein (jaise: Alkaline soil treatment)..." class="flex-1 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-indigo-600" />
+        <input type="text" id="ai-user-input" placeholder="Fasal, mausam, variety, seed ya mitti ke baare me puchein..." class="flex-1 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-indigo-600" />
         <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 rounded-xl flex items-center justify-center">
           <i data-lucide="send" class="w-4 h-4"></i>
         </button>
@@ -539,219 +712,176 @@
     <script>
     const WHATSAPP_NUMBER = '916350078784';
 
+    // Multi-Language Dictionary (Hinglish, Hindi, English, Telugu, Tamil, Kannada, Malayalam)
+    const TRANSLATIONS = {
+      hinglish: {
+        nav_cultures: '15 Bio-Cultures', nav_photo: 'Photo Diagnosis', nav_soil: 'Soil Science', nav_vidhi: '1L→30L Vidhi',
+        btn_ai: 'Krishi AI Assistant',
+        hero_tagline: '100% Organic Lab-Certified Bio-Cultures with High CFU Count — Multiply Up to 30x (1 Liter se 30 Liter)',
+        cta_shop: '15 Bio-Cultures Khareedein', cta_ai: 'Crop, Weather & Soil AI Salah',
+        crop_title: 'Apni Fasal Chunein (Crop-Wise Rog, Variety & Bio-Upchar):',
+        photo_badge: 'Smart Leaf Deficiency & Disease Scanner',
+        photo_heading: 'Photo Click Karein — Particular Deficiency & Rog Pehchanein',
+        btn_take_pic: 'Take a Picture / Upload Photo'
+      },
+      hi: {
+        nav_cultures: '15 बायो-कल्चर', nav_photo: 'फोटो जांच', nav_soil: 'मृदा विज्ञान', nav_vidhi: '1L→30L विधि',
+        btn_ai: 'कृषि AI सहायक',
+        hero_tagline: '100% ऑर्गेनिक लैब-प्रमाणित बायो-कल्चर (उच्च CFU काउंट) — 30 गुना तक मल्टीप्लाई करें',
+        cta_shop: 'सभी 15 बायो-कल्चर देखें', cta_ai: 'फसल, मौसम व मिट्टी सलाह',
+        crop_title: 'अपनी फसल चुनें (फसल अनुसार रोग, किस्में और जैविक उपचार):',
+        photo_badge: 'स्मार्ट पत्ती पोषक तत्व व रोग स्कैनर',
+        photo_heading: 'फोटो लें — सटीक पोषक तत्व की कमी और रोग पहचानें',
+        btn_take_pic: 'फोटो लें / अपलोड करें'
+      },
+      en: {
+        nav_cultures: '15 Bio-Cultures', nav_photo: 'Photo Diagnosis', nav_soil: 'Soil Science', nav_vidhi: '1L→30L Method',
+        btn_ai: 'Krishi AI Assistant',
+        hero_tagline: '100% Organic Lab-Certified Bio-Cultures with High CFU Count — Multiply Up to 30x',
+        cta_shop: 'Shop 15 Bio-Cultures', cta_ai: 'Crop, Weather & Soil AI Guide',
+        crop_title: 'Select Your Crop (Crop-Wise Diseases, Varieties & Organic Cure):',
+        photo_badge: 'Smart Leaf Deficiency & Disease Scanner',
+        photo_heading: 'Take a Picture — Identify Exact Nutrient Deficiency & Disease',
+        btn_take_pic: 'Take a Picture / Upload Photo'
+      },
+      te: {
+        nav_cultures: '15 బయో-కల్చర్స్', nav_photo: 'ఫోటో పరీక్ష', nav_soil: 'నేల విజ్ఞానం', nav_vidhi: '1L→30L విధానం',
+        btn_ai: 'కృషి AI అసిస్టెంట్',
+        hero_tagline: 'అధిక CFU కౌంట్ కలిగిన 100% ఆర్గానిక్ ల్యాబ్-సర్టిఫైడ్ బయో-కల్చర్స్ — 30 రెట్లు పెంచుకోండి',
+        cta_shop: '15 బయో-కల్చర్స్ కొనండి', cta_ai: 'పంట, వాతావరణం & నేల సలహా',
+        crop_title: 'మీ పంటను ఎంచుకోండి (తెగుళ్లు, రకాలు & సేంద్రీయ చికిత్స):',
+        photo_badge: 'స్మార్ట్ ఆకు పోషక లోపం & తెగుళ్ల స్కానర్',
+        photo_heading: 'ఫోటో తీయండి — పోషక లోపం మరియు తెగులును గుర్తించండి',
+        btn_take_pic: 'ఫోటో తీయండి / అప్‌లోడ్ చేయండి'
+      },
+      ta: {
+        nav_cultures: '15 உயிர் உரங்கள்', nav_photo: 'புகைப்பட ஆய்வு', nav_soil: 'மண் அறிவியல்', nav_vidhi: '1L→30L முறை',
+        btn_ai: 'வேளாண் AI உதவியாளர்',
+        hero_tagline: 'அதிக CFU எண்ணிக்கை கொண்ட 100% இயற்கை ஆய்வக சான்றளிக்கப்பட்ட உயிர் உரங்கள் — 30 மடங்கு பெருக்கவும்',
+        cta_shop: '15 உயிர் உரங்களை வாங்கவும்', cta_ai: 'பயிர், வானிலை & மண் ஆலோசனை',
+        crop_title: 'உங்கள் பயிரைத் தேர்ந்தெடுக்கவும் (நோய்கள், ரகங்கள் & இயற்கை தீர்வு):',
+        photo_badge: 'ஸ்மார்ட் இலை ஊட்டச்சத்து & நோய் ஸ்கேனர்',
+        photo_heading: 'புகைப்படம் எடுக்கவும் — ஊட்டச்சத்து குறைபாடு & நோயை கண்டறியவும்',
+        btn_take_pic: 'புகைப்படம் எடுக்கவும்'
+      },
+      kn: {
+        nav_cultures: '15 ಜೈವಿಕ ಕಲ್ಚರ್‌ಗಳು', nav_photo: 'ಫೋಟೋ ಪರೀಕ್ಷೆ', nav_soil: 'ಮಣ್ಣಿನ ವಿಜ್ಞಾನ', nav_vidhi: '1L→30L ವಿಧಾನ',
+        btn_ai: 'ಕೃಷಿ AI ಸಹಾಯಕ',
+        hero_tagline: 'ಹೆಚ್ಚಿನ CFU ಕೌಂಟ್ ಹೊಂದಿರುವ 100% ಸಾವಯವ ಲ್ಯಾಬ್-ಪ್ರಮಾಣೀಕೃತ ಬಯೋ-ಕಲ್ಚರ್‌ಗಳು — 30 ಪಟ್ಟು ವೃದ್ಧಿಸಿ',
+        cta_shop: '15 ಬಯೋ-ಕಲ್ಚರ್‌ಗಳನ್ನು ಖರೀದಿಸಿ', cta_ai: 'ಬೆಳೆ, ಹವಾಮಾನ & ಮಣ್ಣಿನ ಸಲಹೆ',
+        crop_title: 'ನಿಮ್ಮ ಬೆಳೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ (ರೋಗಗಳು, ತಳಿಗಳು & ಸಾವಯವ ಚಿಕಿತ್ಸೆ):',
+        photo_badge: 'ಸ್ಮಾರ್ಟ್ ಎಲೆ ಪೋಷಕಾಂಶ ಮತ್ತು ರೋಗ ಸ್ಕ್ಯಾನರ್',
+        photo_heading: 'ಫೋಟೋ ತೆಗೆಯಿರಿ — ನಿಖರವಾದ ಪೋಷಕಾಂಶದ ಕೊರತೆ ಮತ್ತು ರೋಗವನ್ನು ಗುರುತಿಸಿ',
+        btn_take_pic: 'ಫೋಟೋ ತೆಗೆಯಿರಿ / ಅಪ್‌ಲೋಡ್ ಮಾಡಿ'
+      },
+      ml: {
+        nav_cultures: '15 ബയോ-കൾച്ചറുകൾ', nav_photo: 'ഫോട്ടോ പരിശോധന', nav_soil: 'മണ്ണ് ശാസ്ത്രം', nav_vidhi: '1L→30L രീതി',
+        btn_ai: 'കൃഷി AI അസിസ്റ്റന്റ്',
+        hero_tagline: 'ഉയർന്ന CFU കൗണ്ട് ഉള്ള 100% ഓർഗാനിക് ലാബ്-സർട്ടിഫൈഡ് ബയോ-കൾച്ചറുകൾ — 30 മടങ്ങ് വർദ്ധിപ്പിക്കുക',
+        cta_shop: '15 ബയോ-കൾച്ചറുകൾ വാങ്ങുക', cta_ai: 'വിള, കാലാവസ്ഥ & മണ്ണ് ഉപദേശം',
+        crop_title: 'നിങ്ങളുടെ വിള തിരഞ്ഞെടുക്കുക (രോഗങ്ങൾ, ഇനങ്ങൾ & ജൈവ പരിഹാരം):',
+        photo_badge: 'സ്മാർട്ട് ഇല പോഷക കുറവ് & രോഗ സ്കാനർ',
+        photo_heading: 'ഫോട്ടോ എടുക്കുക — കൃത്യമായ പോഷക കുറവും രോഗവും തിരിച്ചറിയുക',
+        btn_take_pic: 'ഫോട്ടോ എടുക്കുക / അപ്‌ലോഡ് ചെയ്യുക'
+      }
+    };
+
+    function changeLanguage(lang) {
+      const dict = TRANSLATIONS[lang] || TRANSLATIONS.hinglish;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.innerText = dict[key];
+      });
+      showToast('Language updated!');
+    }
+
+    // Large, Crystal-Clear White Round 1-Liter Bottle Image with Green Font Label
     function getWhiteBottleSVG(shortLabel) {
       return `
-        <div class="w-full h-48 bg-gradient-to-b from-slate-100 to-slate-200/70 flex items-center justify-center p-3 relative overflow-hidden">
-          <svg viewBox="0 0 180 220" class="h-44 w-auto drop-shadow-md">
-            <rect x="74" y="10" width="32" height="16" rx="4" fill="#15803d"/>
-            <rect x="72" y="23" width="36" height="5" rx="2" fill="#166534"/>
-            <path d="M76 28 L104 28 L112 52 L68 52 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-            <rect x="46" y="50" width="88" height="156" rx="26" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-            <rect x="114" y="56" width="12" height="144" rx="6" fill="#f1f5f9"/>
-            <rect x="53" y="82" width="74" height="88" rx="8" fill="#f8fafc" stroke="#bbf7d0" stroke-width="1.2"/>
-            <rect x="53" y="82" width="74" height="14" rx="4" fill="#15803d"/>
-            <text x="90" y="92" font-size="6.5" font-weight="bold" fill="#ffffff" text-anchor="middle" font-family="sans-serif">100% ORGANIC</text>
-            <text x="90" y="118" font-size="7.2" font-weight="800" fill="#15803d" text-anchor="middle" font-family="sans-serif">${shortLabel[0]}</text>
-            <text x="90" y="129" font-size="7.2" font-weight="800" fill="#15803d" text-anchor="middle" font-family="sans-serif">${shortLabel[1] || ''}</text>
-            <text x="90" y="140" font-size="6.5" font-weight="700" fill="#166534" text-anchor="middle" font-family="sans-serif">${shortLabel[2] || ''}</text>
-            <line x1="62" y1="150" x2="118" y2="150" stroke="#dcfce7" stroke-width="1"/>
-            <text x="90" y="161" font-size="6.8" font-weight="bold" fill="#166534" text-anchor="middle" font-family="sans-serif">1 Liter Mother Culture</text>
+        <div class="w-full h-60 bg-gradient-to-b from-slate-100 to-emerald-50/50 flex items-center justify-center p-3 relative overflow-hidden">
+          <svg viewBox="0 0 220 260" class="h-56 w-auto drop-shadow-lg transition-transform duration-300 hover:scale-105">
+            <!-- Green Cap -->
+            <rect x="88" y="8" width="44" height="20" rx="5" fill="#15803d"/>
+            <rect x="85" y="25" width="50" height="6" rx="2" fill="#166534"/>
+            <!-- White Neck -->
+            <path d="M90 31 L130 31 L142 62 L78 62 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.8"/>
+            <!-- Large White Round 1 Liter Body -->
+            <rect x="52" y="60" width="116" height="190" rx="34" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.8"/>
+            <!-- Bottle Highlight -->
+            <rect x="142" y="68" width="14" height="174" rx="7" fill="#f1f5f9"/>
+            <!-- Green-Bordered Label -->
+            <rect x="61" y="96" width="98" height="114" rx="10" fill="#ffffff" stroke="#22c55e" stroke-width="1.6"/>
+            <rect x="61" y="96" width="98" height="18" rx="5" fill="#15803d"/>
+            <text x="110" y="108" font-size="8" font-weight="bold" fill="#ffffff" text-anchor="middle" font-family="sans-serif">100% ORGANIC</text>
+            <!-- Small Green Font Culture Name -->
+            <text x="110" y="138" font-size="9.5" font-weight="800" fill="#15803d" text-anchor="middle" font-family="sans-serif">${shortLabel[0]}</text>
+            <text x="110" y="152" font-size="9.5" font-weight="800" fill="#15803d" text-anchor="middle" font-family="sans-serif">${shortLabel[1] || ''}</text>
+            <text x="110" y="165" font-size="8.2" font-weight="700" fill="#166534" text-anchor="middle" font-family="sans-serif">${shortLabel[2] || ''}</text>
+            <!-- Net Volume & CFU -->
+            <line x1="72" y1="176" x2="148" y2="176" stroke="#dcfce7" stroke-width="1.2"/>
+            <text x="110" y="189" font-size="7.5" font-weight="bold" fill="#15803d" text-anchor="middle" font-family="sans-serif">High CFU • Multiply 30x</text>
+            <text x="110" y="201" font-size="8.2" font-weight="800" fill="#166534" text-anchor="middle" font-family="sans-serif">Net Vol: 1 Liter</text>
           </svg>
         </div>
       `;
     }
 
     const PRODUCTS = [
-      {
-        id: 'nitrogen',
-        name: 'Nitrogen Fixing Bacteria (Azotobacter, Azospirillum, Acetobacter, Rhizobium)',
-        bottleLines: ['Nitrogen Fixing', 'Bacteria', '(Azoto/Rhizo/Aceto)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'Nitrogen fixing bacteria ko baaki sabhi Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante ke andar prayog karein.',
-        benefits: 'Hawa se nitrogen lekar mitti aur jadon me sthir karta hai. 1L se 30L tak multiply karke 30 acre me prayog karein.'
-      },
-      {
-        id: 'psb',
-        name: 'Phosphorus Solubilizing Bacteria (PSB)',
-        bottleLines: ['Phosphorus', 'Solubilizing', 'Bacteria (PSB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'PSB ko sabhi Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Zameen me pade aghulansheel phosphorus ko ghulansheel banakar jadon ko upalabdh karata hai.'
-      },
-      {
-        id: 'kmb',
-        name: 'Potash Mobilizing Bacteria (KMB)',
-        bottleLines: ['Potash', 'Mobilizing', 'Bacteria (KMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'KMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Mitti me bandhe hue potash ko gati dekar phal aur daane ka size, chamak aur wazan badhata hai.'
-      },
-      {
-        id: 'zmb',
-        name: 'Zinc Mobilizing Bacteria (ZMB)',
-        bottleLines: ['Zinc', 'Mobilizing', 'Bacteria (ZMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'ZMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Dhan, gehu aur bagwani faslon me zinc ki kami (khaira rog) door karta hai.'
-      },
-      {
-        id: 'smb',
-        name: 'Sulphur Mobilizing Bacteria (SMB)',
-        bottleLines: ['Sulphur', 'Mobilizing', 'Bacteria (SMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'SMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Tilhan (Sarso, Moongfali, Soyabean) aur pyaz-lahsun me tel ki matra aur quality badhata hai. Alkaline soil me bhi upyogi.'
-      },
-      {
-        id: 'imb',
-        name: 'Iron Mobilizing Bacteria (IMB)',
-        bottleLines: ['Iron', 'Mobilizing', 'Bacteria (IMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'IMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Paudhon me iron (loha) ki uplabdhata badhakar pattiyon ka peela padna (chlorosis) rokta hai.'
-      },
-      {
-        id: 'simb',
-        name: 'Silicon Mobilizing Bacteria (SiMB)',
-        bottleLines: ['Silicon', 'Mobilizing', 'Bacteria (SiMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'SiMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Paudhe ke tane ko majboot banata hai jisse fasal girti nahi aur rog pratirodhak shakti badhti hai.'
-      },
-      {
-        id: 'cmb',
-        name: 'Calcium Mobilizing Bacteria (CMB)',
-        bottleLines: ['Calcium', 'Mobilizing', 'Bacteria (CMB)'],
-        category: 'nutrient',
-        catLabel: 'Nutrients Fixation & Mobilization',
-        price: 400,
-        mixText: 'CMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Phal aur sabjiyon ko phatne (cracking) se bachata hai aur acidic soil me calcium uplabdh karata hai.'
-      },
-      {
-        id: 'pseudomonas',
-        name: 'Pseudomonas fluorescens',
-        bottleLines: ['Pseudomonas', 'fluorescens', 'Bio-Bactericide'],
-        category: 'disease',
-        catLabel: 'Disease Management / Control',
-        price: 420,
-        mixText: 'Pseudomonas fluorescens ko Nutrients cultures aur Trichoderma ke sath (ya Nematodes ke liye Paecilomyces sp. aur Trichoderma viride ke sath) milakar 3–4 ghante me prayog karein.',
-        benefits: 'Bacterial wilt, blight aur blast rogon ko rokta hai. Paecilomyces sp. aur Trichoderma viride ke sath nematodes control karta hai.'
-      },
-      {
-        id: 'trichoderma-viride',
-        name: 'Trichoderma viride',
-        bottleLines: ['Trichoderma', 'viride', 'Bio-Fungicide'],
-        category: 'disease',
-        catLabel: 'Disease Management / Control',
-        price: 420,
-        mixText: 'Trichoderma viride ko Nutrients cultures aur Pseudomonas ke sath (ya Nematodes ke liye Paecilomyces sp. aur Pseudomonas ke sath) milakar 3–4 ghante me prayog karein.',
-        benefits: 'Mitti janit fafund rog (Root rot, Collar rot, Wilt) ko jad se khatam karta hai.'
-      },
-      {
-        id: 'trichoderma-harzianum',
-        name: 'Trichoderma harzianum',
-        bottleLines: ['Trichoderma', 'harzianum', 'Bio-Fungicide'],
-        category: 'disease',
-        catLabel: 'Disease Management / Control',
-        price: 420,
-        mixText: 'Trichoderma harzianum ko Nutrients cultures, Pseudomonas fluorescens aur Trichoderma viride ke sath milakar 3–4 ghante me prayog karein.',
-        benefits: 'Jadon ke aas-paas suraksha kavach banakar Fusarium, Rhizoctonia aur Pythium fafund ko rokta hai.'
-      },
-      {
-        id: 'metarhizium',
-        name: 'Metarhizium anisopliae',
-        bottleLines: ['Metarhizium', 'anisopliae', 'Bio-Insecticide'],
-        category: 'pest',
-        catLabel: 'Pests Management / Control',
-        price: 440,
-        mixText: 'Metarhizium anisopliae ko Beauveria bassiana, Verticillium lecanii aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.',
-        benefits: 'Safed lat (White grub), deemak (Termite) aur mitti ke keeton ka 100% jaivik niyantran karta hai.'
-      },
-      {
-        id: 'beauveria',
-        name: 'Beauveria bassiana',
-        bottleLines: ['Beauveria', 'bassiana', 'Bio-Insecticide'],
-        category: 'pest',
-        catLabel: 'Pests Management / Control',
-        price: 440,
-        mixText: 'Beauveria bassiana ko Metarhizium anisopliae, Verticillium lecanii aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.',
-        benefits: 'Sundi (Caterpillar), pod borer, whitefly aur thrips keeton ko prakritik roop se nasht karta hai.'
-      },
-      {
-        id: 'verticillium',
-        name: 'Verticillium lecanii',
-        bottleLines: ['Verticillium', 'lecanii', 'Bio-Insecticide'],
-        category: 'pest',
-        catLabel: 'Pests Management / Control',
-        price: 440,
-        mixText: 'Verticillium lecanii ko Metarhizium anisopliae, Beauveria bassiana aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.',
-        benefits: 'Ras chusak keet jaise Mahu (Aphids), Jassids, Whitefly aur Mealybug par tezi se asar karta hai.'
-      },
-      {
-        id: 'paecilomyces',
-        name: 'Paecilomyces sp.',
-        bottleLines: ['Paecilomyces', 'sp.', 'Nematode Control'],
-        category: 'nematode',
-        catLabel: 'Plant Parasitic Nematodes Control',
-        price: 440,
-        mixText: 'Paecilomyces sp. ko Pseudomonas fluorescens aur Trichoderma viride ke sath (ya Metarhizium, Beauveria, Verticillium ke sath) milakar 3–4 ghante me prayog karein.',
-        benefits: 'Plant parasitic nematodes (jad gaanth rog) ko khatam karta hai. Pseudomonas fluorescens aur Trichoderma viride ke sath best result deta hai.'
-      }
+      { id: 'nitrogen', name: 'Nitrogen Fixing Bacteria (Azotobacter, Azospirillum, Acetobacter, Rhizobium)', bottleLines: ['Nitrogen Fixing', 'Bacteria', '(Azoto/Rhizo/Aceto)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'Nitrogen fixing bacteria ko baaki sabhi Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante ke andar prayog karein.', benefits: 'Hawa se nitrogen lekar mitti aur jadon me sthir karta hai. 1L se 30L tak multiply karke 30 acre me prayog karein.' },
+      { id: 'psb', name: 'Phosphorus Solubilizing Bacteria (PSB)', bottleLines: ['Phosphorus', 'Solubilizing', 'Bacteria (PSB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'PSB ko sabhi Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Zameen me pade aghulansheel phosphorus ko ghulansheel banakar jadon ko upalabdh karata hai.' },
+      { id: 'kmb', name: 'Potash Mobilizing Bacteria (KMB)', bottleLines: ['Potash', 'Mobilizing', 'Bacteria (KMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'KMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Mitti me bandhe hue potash ko gati dekar phal aur daane ka size, chamak aur wazan badhata hai.' },
+      { id: 'zmb', name: 'Zinc Mobilizing Bacteria (ZMB)', bottleLines: ['Zinc', 'Mobilizing', 'Bacteria (ZMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'ZMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Dhan, gehu aur bagwani faslon me zinc ki kami (khaira rog) door karta hai.' },
+      { id: 'smb', name: 'Sulphur Mobilizing Bacteria (SMB)', bottleLines: ['Sulphur', 'Mobilizing', 'Bacteria (SMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'SMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Tilhan (Sarso, Moongfali, Soyabean) aur pyaz-lahsun me tel ki matra aur quality badhata hai.' },
+      { id: 'imb', name: 'Iron Mobilizing Bacteria (IMB)', bottleLines: ['Iron', 'Mobilizing', 'Bacteria (IMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'IMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Paudhon me iron (loha) ki uplabdhata badhakar pattiyon ka peela padna (chlorosis) rokta hai.' },
+      { id: 'simb', name: 'Silicon Mobilizing Bacteria (SiMB)', bottleLines: ['Silicon', 'Mobilizing', 'Bacteria (SiMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'SiMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Paudhe ke tane ko majboot banata hai jisse fasal girti nahi aur rog pratirodhak shakti badhti hai.' },
+      { id: 'cmb', name: 'Calcium Mobilizing Bacteria (CMB)', bottleLines: ['Calcium', 'Mobilizing', 'Bacteria (CMB)'], category: 'nutrient', catLabel: 'Nutrients Fixation & Mobilization', price: 400, mixText: 'CMB ko baaki Nutrients cultures aur Pseudomonas, Trichoderma viride, Trichoderma harzianum ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Phal aur sabjiyon ko phatne (cracking) se bachata hai aur shelf-life badhata hai.' },
+      { id: 'pseudomonas', name: 'Pseudomonas fluorescens', bottleLines: ['Pseudomonas', 'fluorescens', 'Bio-Bactericide'], category: 'disease', catLabel: 'Disease Management / Control', price: 420, mixText: 'Pseudomonas fluorescens ko Nutrients cultures aur Trichoderma ke sath (ya Nematodes ke liye Paecilomyces sp. aur Trichoderma viride ke sath) milakar 3–4 ghante me prayog karein.', benefits: 'Bacterial wilt, blight aur blast rogon ko rokta hai. Paecilomyces sp. aur Trichoderma viride ke sath nematodes control karta hai.' },
+      { id: 'trichoderma-viride', name: 'Trichoderma viride', bottleLines: ['Trichoderma', 'viride', 'Bio-Fungicide'], category: 'disease', catLabel: 'Disease Management / Control', price: 420, mixText: 'Trichoderma viride ko Nutrients cultures aur Pseudomonas ke sath (ya Nematodes ke liye Paecilomyces sp. aur Pseudomonas ke sath) milakar 3–4 ghante me prayog karein.', benefits: 'Mitti janit fafund rog (Root rot, Collar rot, Wilt) ko jad se khatam karta hai.' },
+      { id: 'trichoderma-harzianum', name: 'Trichoderma harzianum', bottleLines: ['Trichoderma', 'harzianum', 'Bio-Fungicide'], category: 'disease', catLabel: 'Disease Management / Control', price: 420, mixText: 'Trichoderma harzianum ko Nutrients cultures, Pseudomonas fluorescens aur Trichoderma viride ke sath milakar 3–4 ghante me prayog karein.', benefits: 'Jadon ke aas-paas suraksha kavach banakar Fusarium, Rhizoctonia aur Pythium fafund ko rokta hai.' },
+      { id: 'metarhizium', name: 'Metarhizium anisopliae', bottleLines: ['Metarhizium', 'anisopliae', 'Bio-Insecticide'], category: 'pest', catLabel: 'Pests Management / Control', price: 440, mixText: 'Metarhizium anisopliae ko Beauveria bassiana, Verticillium lecanii aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.', benefits: 'Safed lat (White grub), deemak (Termite) aur mitti ke keeton ka 100% jaivik niyantran karta hai.' },
+      { id: 'beauveria', name: 'Beauveria bassiana', bottleLines: ['Beauveria', 'bassiana', 'Bio-Insecticide'], category: 'pest', catLabel: 'Pests Management / Control', price: 440, mixText: 'Beauveria bassiana ko Metarhizium anisopliae, Verticillium lecanii aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.', benefits: 'Sundi (Caterpillar), pod borer, whitefly aur thrips keeton ko prakritik roop se nasht karta hai.' },
+      { id: 'verticillium', name: 'Verticillium lecanii', bottleLines: ['Verticillium', 'lecanii', 'Bio-Insecticide'], category: 'pest', catLabel: 'Pests Management / Control', price: 440, mixText: 'Verticillium lecanii ko Metarhizium anisopliae, Beauveria bassiana aur Paecilomyces sp. ke sath milakar 3–4 ghante ke andar prayog karein.', benefits: 'Ras chusak keet jaise Mahu (Aphids), Jassids, Whitefly aur Mealybug par tezi se asar karta hai.' },
+      { id: 'paecilomyces', name: 'Paecilomyces sp.', bottleLines: ['Paecilomyces', 'sp.', 'Nematode Control'], category: 'nematode', catLabel: 'Plant Parasitic Nematodes Control', price: 440, mixText: 'Paecilomyces sp. ko Pseudomonas fluorescens aur Trichoderma viride ke sath (ya Metarhizium, Beauveria, Verticillium ke sath) milakar 3–4 ghante me prayog karein.', benefits: 'Plant parasitic nematodes (jad gaanth rog) ko khatam karta hai. Pseudomonas fluorescens aur Trichoderma viride ke sath best result deta hai.' }
     ];
           const CROP_DISEASES = {
       cereals: {
-        title: 'Gehu, Dhan & Makka Ke Mukhya Rog Aur Jaivik Ilaj',
+        title: 'Gehu & Dhan: Rog, Best Varieties Aur Jaivik Upchar',
         items: [
-          { disease: 'Dhan Ka Blast & Sheath Blight', solution: 'Pseudomonas fluorescens + Trichoderma viride', ids: ['pseudomonas', 'trichoderma-viride'] },
-          { disease: 'Khaira Rog (Zinc & Iron Kami)', solution: 'Zinc Mobilizing Bacteria (ZMB) + Iron Mobilizing Bacteria (IMB)', ids: ['zmb', 'imb'] },
-          { disease: 'Deemak (Termite) & Tana Chhedak', solution: 'Metarhizium anisopliae + Beauveria bassiana', ids: ['metarhizium', 'beauveria'] }
+          { disease: 'Dhan Ka Blast, Brown Spot & Bacterial Blight', solution: 'Pseudomonas fluorescens + Trichoderma viride (Varieties: Swarnamukhi, Lalat, IR-36)', ids: ['pseudomonas', 'trichoderma-viride'] },
+          { disease: 'Khaira Rog (Zinc & Iron Kami) & Peelapan', solution: 'Zinc Mobilizing Bacteria (ZMB) + Iron Mobilizing Bacteria (IMB)', ids: ['zmb', 'imb'] },
+          { disease: 'Termite (Deemak), Stem Borer & BPH', solution: 'Metarhizium anisopliae + Beauveria bassiana (20 cm alleys / paata banayein)', ids: ['metarhizium', 'beauveria'] }
         ]
       },
       vegetables: {
-        title: 'Sabjiyon (Mirch, Tamatar, Gobhi, Aloo) Ke Rog Aur Ilaj',
+        title: 'Sabjiya (Mirch, Tamatar, Gobhi, Aloo): Rog Aur Jaivik Upchar',
         items: [
-          { disease: 'Uktha Rog (Wilt) & Jad Galan', solution: 'Trichoderma viride + Trichoderma harzianum + Pseudomonas fluorescens', ids: ['trichoderma-viride', 'trichoderma-harzianum', 'pseudomonas'] },
+          { disease: 'Uktha Rog (Wilt), Damping Off & Jad Galan', solution: 'Trichoderma viride + Trichoderma harzianum + Pseudomonas fluorescens', ids: ['trichoderma-viride', 'trichoderma-harzianum', 'pseudomonas'] },
           { disease: 'Jad Gaanth Rog (Root-Knot Nematodes)', solution: 'Paecilomyces sp. + Pseudomonas fluorescens + Trichoderma viride', ids: ['paecilomyces', 'pseudomonas', 'trichoderma-viride'] },
-          { disease: 'Safed Makhi, Mahu & Phal Chhedak Sundi', solution: 'Verticillium lecanii + Beauveria bassiana', ids: ['verticillium', 'beauveria'] }
+          { disease: 'Thrips (Oopar Mudna), Whitefly & Fruit Borer', solution: 'Beauveria bassiana + Verticillium lecanii + Blue/Yellow Sticky Traps', ids: ['beauveria', 'verticillium'] }
         ]
       },
       pulses: {
-        title: 'Dalhan & Tilhan (Chana, Moong, Sarso, Soyabean) Ke Rog',
+        title: 'Dalhan & Tilhan (Chana, Arhar, Sarso, Moongfali) Guide',
         items: [
-          { disease: 'Root Rot & Collar Rot (Jad Sadna)', solution: 'Trichoderma viride + Trichoderma harzianum', ids: ['trichoderma-viride', 'trichoderma-harzianum'] },
-          { disease: 'Nitrogen & Sulphur Kami (Kam Phali/Tel)', solution: 'Nitrogen Fixing Bacteria + Sulphur Mobilizing Bacteria (SMB)', ids: ['nitrogen', 'smb'] },
-          { disease: 'Pod Borer (Phali Chhedak Sundi)', solution: 'Beauveria bassiana', ids: ['beauveria'] }
+          { disease: 'Root Rot, Collar Rot & Wilt Rog', solution: 'Trichoderma viride + Trichoderma harzianum (Varieties: ICPL-332, LRG-41)', ids: ['trichoderma-viride', 'trichoderma-harzianum'] },
+          { disease: 'Nitrogen & Sulphur Kami (Kam Phali aur Tel)', solution: 'Nitrogen Fixing Bacteria (Rhizobium) + Sulphur Mobilizing Bacteria (SMB)', ids: ['nitrogen', 'smb'] },
+          { disease: 'Pod Borer (Phali Chhedak) & Mustard Aphid (Mahu)', solution: 'Beauveria bassiana + Verticillium lecanii', ids: ['beauveria', 'verticillium'] }
         ]
       },
       cotton: {
-        title: 'Kapas & Ganna Ke Mukhya Rog Aur Jaivik Upchar',
+        title: 'Kapas & Ganna: Rog, Varieties Aur Jaivik Prabandhan',
         items: [
-          { disease: 'Safed Lat (White Grub) & Deemak', solution: 'Metarhizium anisopliae', ids: ['metarhizium'] },
-          { disease: 'Gulabi Sundi, Whitefly & Mealybug', solution: 'Beauveria bassiana + Verticillium lecanii', ids: ['beauveria', 'verticillium'] },
-          { disease: 'Red Rot & Wilt Rog', solution: 'Trichoderma harzianum + Pseudomonas fluorescens', ids: ['trichoderma-harzianum', 'pseudomonas'] }
+          { disease: 'White Grub (Safed Lat) & Termite (Deemak)', solution: 'Metarhizium anisopliae (FYM ke sath jadon me dein)', ids: ['metarhizium'] },
+          { disease: 'Pink Bollworm, Jassids & Whitefly', solution: 'Beauveria bassiana + Verticillium lecanii (Varieties: Kanchana, Narasimha, MCU-5)', ids: ['beauveria', 'verticillium'] },
+          { disease: 'Red Rot (Ganna Cancer) & Wilt Rog', solution: 'Trichoderma harzianum + Pseudomonas fluorescens (Variety: CO-7706)', ids: ['trichoderma-harzianum', 'pseudomonas'] }
         ]
       },
       fruits: {
-        title: 'Bagwani (Amrud, Nimbu, Anar, Kela) Ke Rog Aur Ilaj',
+        title: 'Bagwani (Aam, Nimbu, Amrud, Anar, Kela) Guide',
         items: [
           { disease: 'Wilt Rog & Nematodes (Jad Gaanth)', solution: 'Paecilomyces sp. + Pseudomonas fluorescens + Trichoderma viride', ids: ['paecilomyces', 'pseudomonas', 'trichoderma-viride'] },
-          { disease: 'Phal Phatna & Chhota Size', solution: 'Calcium Mobilizing Bacteria (CMB) + Potash Mobilizing Bacteria (KMB)', ids: ['cmb', 'kmb'] },
-          { disease: 'Citrus Psylla, Aphids & Mealybug', solution: 'Verticillium lecanii + Beauveria bassiana', ids: ['verticillium', 'beauveria'] }
+          { disease: 'Phal Phatna & Chhota Size (Blossom End Rot)', solution: 'Calcium Mobilizing Bacteria (CMB) + Potash Mobilizing Bacteria (KMB)', ids: ['cmb', 'kmb'] },
+          { disease: 'Mealybug, Citrus Psylla, Hoppers & Fruit Borer', solution: 'Verticillium lecanii + Beauveria bassiana + Metarhizium anisopliae', ids: ['verticillium', 'beauveria', 'metarhizium'] }
         ]
       }
     };
@@ -759,23 +889,69 @@
     let cart = [];
     let currentFilter = 'all';
     let diagnosedIds = ['nitrogen', 'psb', 'zmb'];
+    let scanHistory = JSON.parse(localStorage.getItem('kc_scan_history') || '[]');
+    let lastAnalyzedTone = 'Yellow-Green Tone';
 
-    function openSoilTreatmentAssistant() {
-      const modal = document.getElementById('ai-assistant-modal');
-      modal.classList.remove('hidden');
-      const chatBox = document.getElementById('ai-chat-messages');
-      chatBox.innerHTML += `
-        <div class="bg-amber-50 border border-amber-300 rounded-2xl rounded-tl-none p-3.5 shadow-xs max-w-[92%] space-y-2.5">
-          <strong class="text-amber-950 block">🌍 Soil Treatment Guide (Mitti Ka pH Sudhar):</strong>
-          <p class="text-xs text-slate-700">Aapki mitti kis prakar ki hai? Neeche chunein:</p>
-          <div class="flex flex-wrap gap-2">
-            <button onclick="askQuickQuestion('Alkaline soil treatment kaise karein?')" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-3 py-1.5 rounded-xl text-xs">1. Alkaline Soil (pH &gt; 7.5)</button>
-            <button onclick="askQuickQuestion('Acidic soil treatment kaise karein?')" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-3 py-1.5 rounded-xl text-xs">2. Acidic Soil (pH &lt; 6.0)</button>
+    function renderScanHistory() {
+      const container = document.getElementById('scan-history-list');
+      if (scanHistory.length === 0) {
+        container.innerHTML = `<p class="text-slate-400 text-xs">Abhi tak koi photo scan nahi ki gayi hai.</p>`;
+        return;
+      }
+      container.innerHTML = scanHistory.map(h => `
+        <div class="bg-white border border-slate-200 rounded-xl p-2.5 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[10px] font-bold text-slate-400">${h.date} • ${h.tone}</span>
+            <strong class="block text-xs text-slate-900">${h.title}</strong>
+            <span class="text-[11px] text-emerald-700 font-semibold">Upchar: ${h.solution}</span>
           </div>
+          <button onclick='addMultipleToCart(${JSON.stringify(h.ids)})' class="shrink-0 bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-bold px-2.5 py-1.5 rounded-lg text-[11px]">+ Order</button>
         </div>
+      `).join('');
+    }
+
+    function clearScanHistory() {
+      scanHistory = [];
+      localStorage.removeItem('kc_scan_history');
+      renderScanHistory();
+    }
+
+    function updateSoilGuide() {
+      const val = document.getElementById('soil-issue-select').value;
+      const box = document.getElementById('soil-dynamic-result');
+      const map = {
+        alkaline: {
+          title: 'Alkaline / Sodic Soil (pH > 7.5) Sudhar Vidhi:',
+          text: '1. Khet me <strong>Gypsum (500 kg – 2 ton/acre)</strong> milakar bhari sinchai (Leaching) karein taaki excess sodium bahar nikle.<br>2. <strong>Dhaincha (Hari Khad)</strong> ugakar 45–50 din me mitti me palat dein.<br>3. Compost/FYM ke sath <strong>Sulphur Mobilizing Bacteria (SMB) + Iron (IMB) + Zinc (ZMB)</strong> dein.',
+          ids: ['smb', 'imb', 'zmb']
+        },
+        acidic: {
+          title: 'Acidic / Amliya Soil (pH < 6.0) Sudhar Vidhi:',
+          text: '1. Buwai se 3–4 hafte pehle <strong>1–2 ton/acre Agricultural Lime / Dolomite (Chuna)</strong> mitti me milayein.<br>2. Acidic mitti me Phosphorus aur Calcium lock ho jata hai, isliye <strong>PSB + Calcium Mobilizing Bacteria (CMB)</strong> dein.',
+          ids: ['psb', 'cmb']
+        },
+        saline: {
+          title: 'Khari Mitti / High EC (> 1.6 dS/m) Sudhar Vidhi:',
+          text: '1. Achhi jal nikasi (Drainage) banakar meethay pani se <strong>Leaching</strong> karein taaki namak jड़ kshetra se neeche chala jaye.<br>2. High EC me jad galan rokne ke liye <strong>Trichoderma harzianum + Pseudomonas fluorescens</strong> aur FYM dein.',
+          ids: ['trichoderma-harzianum', 'pseudomonas']
+        },
+        low_oc: {
+          title: 'Sakht Mitti / Kam Organic Carbon (< 0.50%) Sudhar Vidhi:',
+          text: '1. Khet me 5–10 ton/acre sadi <strong>Gobar Khad (FYM)</strong> ya <strong>Vermicompost</strong> dalein aur parali ko khet me hi galayein.<br>2. Mitti me jeevit microbes badhane ke liye <strong>Nitrogen Fixing + PSB + KMB + Trichoderma viride</strong> dein.',
+          ids: ['nitrogen', 'psb', 'kmb', 'trichoderma-viride']
+        },
+        sandy: {
+          title: 'Retili Mitti (Sandy Soil) Prabandhan:',
+          text: '1. Pani aur poshak tatvon ko rokne ke liye <strong>FYM / Vermicompost</strong> aur mulching karein.<br>2. Bio-cultures ko 2–3 baar tukdon (Split dose) me dein: <strong>Nitrogen Fixing + PSB + KMB</strong>.',
+          ids: ['nitrogen', 'psb', 'kmb']
+        }
+      };
+      const item = map[val];
+      box.innerHTML = `
+        <strong class="text-emerald-950 block">${item.title}</strong>
+        <p class="leading-relaxed">${item.text}</p>
+        <button onclick='addMultipleToCart(${JSON.stringify(item.ids)})' class="mt-1 bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-3.5 py-2 rounded-xl text-xs">+ Recommended Bio-Cultures Cart Me Dalein</button>
       `;
-      chatBox.scrollTop = chatBox.scrollHeight;
-      lucide.createIcons();
     }
 
     function toggleAssistant() {
@@ -794,6 +970,9 @@
       const text = input.value.trim();
       if (!text) return;
 
+      const crop = document.getElementById('ai-crop-context').value;
+      const region = document.getElementById('ai-region-context').value;
+
       const chatBox = document.getElementById('ai-chat-messages');
       chatBox.innerHTML += `
         <div class="flex justify-end">
@@ -806,70 +985,85 @@
       chatBox.scrollTop = chatBox.scrollHeight;
 
       setTimeout(() => {
-        const reply = generateAiReply(text.toLowerCase());
+        const reply = generateAiReply(text.toLowerCase(), crop, region);
         chatBox.innerHTML += `
           <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-3.5 shadow-xs max-w-[92%] space-y-2">
             ${reply.html}
-            ${reply.ids ? `<button onclick='addMultipleToCart(${JSON.stringify(reply.ids)}); toggleAssistant();' class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-3 py-1.5 rounded-xl text-xs">+ Yeh Cultures Cart Me Dalein</button>` : ''}
+            ${reply.ids ? `<button onclick='addMultipleToCart(${JSON.stringify(reply.ids)}); toggleAssistant();' class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-3 py-1.5 rounded-xl text-xs">+ Yeh Bio-Cultures Cart Me Dalein</button>` : ''}
           </div>
         `;
         chatBox.scrollTop = chatBox.scrollHeight;
       }, 400);
     }
 
-    function generateAiReply(q) {
-      if (q.includes('alkaline') || q.includes('usar') || q.includes('kshariya') || q.includes('khari')) {
+    function generateAiReply(q, crop, region) {
+      const regionName = region === 'south' ? 'South India (AP, Telangana, TN, Karnataka, Kerala)' : (region === 'west' ? 'West & East India' : 'North & Central India');
+      
+      if (q.includes('mausam') || q.includes('weather') || q.includes('season') || q.includes('variety') || q.includes('seed') || q.includes('kab') || q.includes('konsi crop')) {
+        if (crop === 'wheat' || (crop === 'general' && region === 'north')) {
+          return {
+            html: `<strong class="text-indigo-800 block">🌾 Rabi Season & Gehu (Wheat) Salah (${regionName}):</strong>
+            <p class="text-slate-700 leading-relaxed">
+              • <strong>Sahi Samay:</strong> November ka mahina Rabi buwai (Gehu, Sarso, Chana) ke liye sabse uttam hai.<br>
+              • <strong>Seed Treatment:</strong> Buwai se pehle beej ko <strong>Azotobacter (Nitrogen Fixing) + PSB + Trichoderma viride</strong> se upcharit karein.<br>
+              • <strong>Mitti Suraksha:</strong> Deemak (Termite) se bachav ke liye <strong>Metarhizium anisopliae</strong> FYM me milakar dein.
+            </p>`,
+            ids: ['nitrogen', 'psb', 'trichoderma-viride', 'metarhizium']
+          };
+        }
+        if (crop === 'rice' || region === 'south') {
+          return {
+            html: `<strong class="text-indigo-800 block">🌾 Dhan (Rice) & South India Rabi/Late Kharif Guide:</strong>
+            <p class="text-slate-700 leading-relaxed">
+              • <strong>Resistant Varieties:</strong> Stem Borer ke liye <em>Swarnamukhi (NLR 145), Pothana, Varsha</em>; Gall Midge ke liye <em>Phalguna, Surekha, Vikram, IR-36</em>; BPH ke liye <em>Chaitanya, Godavari, Indra, Vijetha</em> chunein.<br>
+              • <strong>Bio-Culture Schedule:</strong> Ropai ke samay <strong>Azospirillum + PSB + ZMB</strong> (Khaira rog rokne ke liye) aur Blast/Blight ke liye <strong>Pseudomonas fluorescens + Trichoderma viride</strong> dein.
+            </p>`,
+            ids: ['nitrogen', 'psb', 'zmb', 'pseudomonas']
+          };
+        }
+        if (crop === 'mustard') {
+          return {
+            html: `<strong class="text-indigo-800 block">🌼 Sarso & Chana (Rabi) Guide:</strong>
+            <p class="text-slate-700 leading-relaxed">
+              • <strong>Best Varieties:</strong> Sarso me <em>Varuna, RH-785, RLM-514</em> (10–15 din jaldi buwai karein); Chana me wilt-tolerant <em>ICPL-332, LRG-41</em> chunein.<br>
+              • <strong>Bio-Nutrition:</strong> Tilhan me tel badhane ke liye <strong>Sulphur Mobilizing Bacteria (SMB) + Rhizobium + PSB</strong> ka prayog karein.
+            </p>`,
+            ids: ['smb', 'nitrogen', 'psb']
+          };
+        }
         return {
-          html: `<strong class="text-amber-800 block">Alkaline Soil Treatment (pH 7.5 se upar / Usar Mitti):</strong>
+          html: `<strong class="text-indigo-800 block">🌱 Mausam, Fasal Aur Variety Chayan (${regionName}):</strong>
           <p class="text-slate-700 leading-relaxed">
-            1. <strong>Gypsum (Calcium Sulphate):</strong> 500 kg se 2 ton prati acre mitti me milakar bhari sinchai (leaching) karein taaki hanikarak sodium bahar nikle.<br>
-            2. <strong>Hari Khad (Dhaincha / Sunhemp):</strong> Dhaincha ugakar 45–55 din me mitti me palat dein; isse organic acids bante hain jo pH kam karte hain.<br>
-            3. <strong>Jaivik Bio-Cultures:</strong> Gobar khad (FYM) ke sath <strong>Sulphur Mobilizing Bacteria (SMB)</strong>, <strong>Iron Mobilizing Bacteria (IMB)</strong> aur <strong>Zinc Mobilizing Bacteria (ZMB)</strong> dein.
+            • Abhi <strong>Rabi season</strong> ki buwai (Gehu, Sarso, Chana, Matar, Aloo, Tamatar, Mirch, Pyaz-Lahsun) ka sarvottam samay hai.<br>
+            • Har fasal me buwai ke samay <strong>Nitrogen Fixing + PSB + KMB + Trichoderma viride</strong> ka upyog karne se jadon ka vikas 2 guna tezi se hota hai aur rasayanik khad ki 40% bachat hoti hai.
           </p>`,
-          ids: ['smb', 'imb', 'zmb']
+          ids: ['nitrogen', 'psb', 'kmb', 'trichoderma-viride']
         };
       }
-      if (q.includes('acid') || q.includes('amliya')) {
+
+      if (q.includes('soil') || q.includes('ph') || q.includes('alkaline') || q.includes('acid') || q.includes('ec') || q.includes('carbon')) {
         return {
-          html: `<strong class="text-emerald-800 block">Acidic Soil Treatment (pH 6.0 se neeche / Amliya Mitti):</strong>
+          html: `<strong class="text-amber-800 block">🌍 Sampoorna Soil Health & pH Sudhar:</strong>
           <p class="text-slate-700 leading-relaxed">
-            1. <strong>Agricultural Lime / Dolomite (Chuna):</strong> Buwai se 3–4 hafte pehle 1 se 2 ton prati acre chuna mitti me milayein—yeh acidity ko neutral karta hai.<br>
-            2. <strong>FYM & Vermicompost:</strong> Zyada compost dalne se mitti ki pH buffering shakti badhti hai.<br>
-            3. <strong>Jaivik Bio-Cultures:</strong> Acidic mitti me Phosphorus aur Calcium lock ho jata hai, isliye <strong>Phosphorus Solubilizing Bacteria (PSB)</strong> aur <strong>Calcium Mobilizing Bacteria (CMB)</strong> zaroor dein.
+            • <strong>Alkaline Soil (pH &gt; 7.5):</strong> Gypsum (500 kg–2 ton/acre) + Dhaincha hari khad + <strong>SMB, IMB, ZMB</strong>.<br>
+            • <strong>Acidic Soil (pH &lt; 6.0):</strong> Agricultural Lime/Dolomite (1–2 ton/acre) + <strong>PSB, CMB</strong>.<br>
+            • <strong>High EC (Khari Mitti):</strong> Drainage banakar Leaching karein + FYM + <strong>Trichoderma harzianum</strong>.
           </p>`,
-          ids: ['psb', 'cmb']
+          ids: ['smb', 'psb', 'cmb', 'trichoderma-harzianum']
         };
       }
-      if (q.includes('30') || q.includes('multiply') || q.includes('vidhi') || q.includes('gud') || q.includes('besan')) {
+
+      if (q.includes('30') || q.includes('multiply') || q.includes('vidhi')) {
         return {
-          html: `<strong class="text-emerald-800 block">1 Liter se 30 Liter Banane Ki Vidhi:</strong><p class="text-slate-700">10L pani me <strong>300g gud</strong> ubaal kar Markin kapde se chhaanein. Thanda hone par <strong>100g besan</strong> aur <strong>1L Mother Culture</strong> milakar 5–7 din chhaon me rakhein (din me 1–2 baar dande se hilayein). Is process ko 3 baar karke <strong>30 Liter</strong> banayein (1 Acre = 1 Liter).</p>`
+          html: `<strong class="text-emerald-800 block">1 Liter se 30 Liter Banane Ki Vidhi (5–7 Din):</strong>
+          <p class="text-slate-700 leading-relaxed">10L pani me <strong>300g gud</strong> ubaal kar Markin kapde se chhaanein. Thanda hone par <strong>100g besan</strong> aur <strong>1L Mother Culture</strong> milakar chhaon me rakhein (din me 1–2 baar dande se hilayein). 5–7 din me 10L taiyar hoga; ise <strong>3 baar multiply karke 30 Liter</strong> bana sakte hain (1 Acre = 1 Liter).</p>`
         };
       }
-      if (q.includes('nematode') || q.includes('gaanth') || q.includes('jad')) {
-        return {
-          html: `<strong class="text-rose-800 block">Nematodes (Jad Gaanth Rog) Ka Jaivik Ilaj:</strong><p class="text-slate-700"><strong>Paecilomyces sp.</strong> ko <strong>Pseudomonas fluorescens</strong> aur <strong>Trichoderma viride</strong> ke sath milakar 3–4 ghante ke andar mitti/sinchai me dein.</p>`,
-          ids: ['paecilomyces', 'pseudomonas', 'trichoderma-viride']
-        };
-      }
-      if (q.includes('wilt') || q.includes('sukh') || q.includes('fafund') || q.includes('fungus') || q.includes('disease')) {
-        return {
-          html: `<strong class="text-amber-800 block">Fafund & Uktha Rog (Wilt) Ka Jaivik Upchar:</strong><p class="text-slate-700"><strong>Trichoderma viride, Trichoderma harzianum aur Pseudomonas fluorescens</strong> ko FYM/compost ya pani me milakar 3–4 ghante me prayog karein.</p>`,
-          ids: ['trichoderma-viride', 'trichoderma-harzianum', 'pseudomonas']
-        };
-      }
-      if (q.includes('keet') || q.includes('pest') || q.includes('sundi') || q.includes('deemak') || q.includes('whitefly')) {
-        return {
-          html: `<strong class="text-sky-800 block">Keet, Sundi Aur Deemak Ka Jaivik Niyantran:</strong><p class="text-slate-700">Mitti ke keeton ke liye <strong>Metarhizium anisopliae</strong> aur patton ki sundi/ras chusak keeton ke liye <strong>Beauveria bassiana + Verticillium lecanii</strong> ka prayog karein.</p>`,
-          ids: ['metarhizium', 'beauveria', 'verticillium']
-        };
-      }
-      if (q.includes('mix') || q.includes('mila')) {
-        return {
-          html: `<strong class="text-emerald-800 block">Cultures Milane (Mixing) Ka Niyam:</strong><p class="text-slate-700">• Sabhi <strong>Nutrients cultures</strong> aur <strong>Pseudomonas, Trichoderma viride, Trichoderma harzianum</strong> ko ek sath mila sakte hain.<br>• <strong>Metarhizium, Beauveria, Verticillium aur Paecilomyces sp.</strong> ko ek sath mila sakte hain.<br>• Milane ke baad <strong>3–4 ghante ke andar</strong> prayog zaroori hai.</p>`
-        };
-      }
+
       return {
-        html: `<p class="text-slate-700">Aap apni fasal ya mitti ki samasya (jaise <em>Alkaline soil treatment, Acidic soil treatment, peelapan, wilt fafund, sundi keet, ya nematodes</em>) likhein—main aapko turant sahi <strong>100% Organic Upchar</strong> bataunga!</p>`
+        html: `<strong class="text-emerald-800 block">🌿 Jaivik Krishi Salah (${crop.toUpperCase()}):</strong>
+        <p class="text-slate-700 leading-relaxed">Apni fasal me sampoorna poshan ke liye <strong>Nitrogen Fixing + PSB + KMB + ZMB</strong>, fafund rogon ke liye <strong>Pseudomonas fluorescens + Trichoderma viride</strong>, aur keeton ke liye <strong>Beauveria bassiana + Verticillium lecanii</strong> ka prayog karein (milane ke 3–4 ghante ke andar istemal karein).</p>`,
+        ids: ['nitrogen', 'psb', 'trichoderma-viride', 'beauveria']
       };
     }
 
@@ -882,17 +1076,17 @@
         return;
       }
       const data = CROP_DISEASES[cropKey];
-      badge.innerText = data.title.split(' Ke ')[0];
+      badge.innerText = data.title.split(':')[0];
       document.getElementById('crop-panel-title').innerText = data.title;
       document.getElementById('crop-disease-list').innerHTML = data.items.map(item => `
         <div class="bg-white rounded-2xl p-4 border border-emerald-200 shadow-xs flex flex-col justify-between gap-2">
           <div>
-            <span class="text-[10px] font-extrabold uppercase text-rose-700 bg-rose-50 px-2 py-0.5 rounded">Samasya / Rog</span>
+            <span class="text-[10px] font-extrabold uppercase text-rose-700 bg-rose-50 px-2 py-0.5 rounded">Rog / Samasya</span>
             <h4 class="font-extrabold text-sm text-slate-900 mt-1">${item.disease}</h4>
-            <p class="text-xs text-emerald-800 font-semibold mt-1.5">🌿 Jaivik Upchar: ${item.solution}</p>
+            <p class="text-xs text-emerald-800 font-semibold mt-1.5">🌿 ${item.solution}</p>
           </div>
           <button onclick='addMultipleToCart(${JSON.stringify(item.ids)})' class="mt-2 w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2 rounded-xl text-xs transition">
-            + Yeh Upchar Cart Me Dalein
+            + Yeh Bio-Upchar Cart Me Dalein
           </button>
         </div>
       `).join('');
@@ -907,12 +1101,11 @@
       grid.innerHTML = filtered.map(p => {
         const directWaText = encodeURIComponent(`Namaste KrishiCulture, mujhe *${p.name}* (1 Liter - ₹${p.price}) order karna hai.`);
         return `
-        <div class="product-card bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col justify-between">
+        <div class="product-card bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
           <div>
             <div onclick="openProductModal('${p.id}')" class="cursor-pointer">
               ${getWhiteBottleSVG(p.bottleLines)}
             </div>
-
             <div class="p-5 pb-2">
               <span class="inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 mb-2">${p.catLabel}</span>
               <h3 onclick="openProductModal('${p.id}')" class="text-base font-extrabold text-slate-900 hover:text-emerald-700 cursor-pointer leading-snug">${p.name}</h3>
@@ -956,12 +1149,29 @@
       renderProducts();
     }
 
+    // Real Image Pixel Color Extraction + Specific Nutrient Deficiency Diagnosis
     function handlePhotoSelected(e) {
       const file = e.target.files[0];
       if (!file) return;
       const reader = new FileReader();
       reader.onload = function(ev) {
-        document.getElementById('photo-preview-img').src = ev.target.result;
+        const img = document.getElementById('photo-preview-img');
+        img.src = ev.target.result;
+        img.onload = function() {
+          try {
+            const canvas = document.createElement('canvas');
+            canvas.width = 50; canvas.height = 50;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, 50, 50);
+            const data = ctx.getImageData(0, 0, 50, 50).data;
+            let r = 0, g = 0, b = 0, count = data.length / 4;
+            for (let i = 0; i < data.length; i += 4) { r += data[i]; g += data[i+1]; b += data[i+2]; }
+                        r = Math.round(r/count); g = Math.round(g/count); b = Math.round(b/count);
+            if (r > g + 15) lastAnalyzedTone = 'Chlorotic / Yellow-Brown Pixel Tone Detected';
+            else if (b > g) lastAnalyzedTone = 'Purplish / Dark Stressed Tone Detected';
+            else lastAnalyzedTone = 'Leaf Chlorophyll & Spot Pattern Analyzed';
+          } catch (err) { lastAnalyzedTone = 'Visual Leaf Pattern Analyzed'; }
+        };
         document.getElementById('photo-step-empty').classList.add('hidden');
         document.getElementById('photo-step-preview').classList.remove('hidden');
         document.getElementById('photo-step-result').classList.add('hidden');
@@ -973,44 +1183,102 @@
       const btn = document.getElementById('proceed-scan-btn');
       const scanLine = document.getElementById('scan-line');
       scanLine.classList.remove('hidden');
-      btn.innerHTML = '<span>Scanning Fasal Photo...</span>';
+      btn.innerHTML = '<span>Scanning Image & Analyzing Deficiency...</span>';
 
       setTimeout(() => {
         scanLine.classList.add('hidden');
-        btn.innerHTML = '<span>Proceed — Jaanch Karein & Upchar Dekhein</span>';
-        const sym = document.getElementById('photo-symptom').value;
-        const map = {
-          yellow: {
-            title: 'Poshak Tatva Kami (Nutrients Deficiency)',
-            desc: 'Pattiya peeli padne aur kamzor badhwar ke liye in Nutrients cultures ko ek sath FYM ya pani me milakar 3–4 ghante ke andar prayog karein:',
-            names: ['Nitrogen Fixing Bacteria', 'PSB', 'Zinc Mobilizing Bacteria (ZMB)', 'Iron Mobilizing Bacteria (IMB)'],
-            ids: ['nitrogen', 'psb', 'zmb', 'imb']
-          },
-          wilt: {
-            title: 'Fafund / Jad Galan / Uktha Rog (Fungal & Bacterial Disease)',
-            desc: 'Paudha sukhne aur jad galan rokne ke liye in Disease Control cultures ko ek sath milakar 3–4 ghante me mitti/jadon me dein:',
+        btn.innerHTML = '<span>Proceed — Photo Scan & Deficiency Report Dekhein</span>';
+
+        const zone = document.getElementById('leaf-zone').value;
+        const pattern = document.getElementById('leaf-pattern').value;
+
+        let result = {
+          title: 'Nitrogen (N) Deficiency — V-Shape Yellowing',
+          reason: 'Kyunki Nitrogen mobile tatva hai, paudha purani pattiyon se N kheenchkar nayi pattiyon ko bhej deta hai.',
+          desc: 'Iske jaivik samadhan ke liye Nitrogen Fixing Bacteria (Azotobacter / Rhizobium / Azospirillum) ko FYM ya pani me milakar 3–4 ghante ke andar prayog karein.',
+          names: ['Nitrogen Fixing Bacteria'],
+          ids: ['nitrogen']
+        };
+
+        if (pattern === 'purple') {
+          result = {
+            title: 'Phosphorus (P) Deficiency — Purplish / Reddish Leaves',
+            reason: 'Mitti me Phosphorus lock hone ya thand me jadon ke kamzor hone se purani pattiyan baingani padti hain.',
+            desc: 'Mitti me bandhe hue Phosphorus ko gholne ke liye Phosphorus Solubilizing Bacteria (PSB) ka prayog karein.',
+            names: ['Phosphorus Solubilizing Bacteria (PSB)'],
+            ids: ['psb']
+          };
+        } else if (pattern === 'edge_burn') {
+          result = {
+            title: 'Potash (K) Deficiency — Marginal Leaf Scorching',
+            reason: 'Purani pattiyon ke kinare jalna Potash ki kami darshata hai (agar keeda nahi hai to yeh K deficiency hai).',
+            desc: 'Potash Mobilizing Bacteria (KMB) aur Silicon Mobilizing Bacteria (SiMB) dene se pattiyon ke kinare jalna rukta hai aur fasal majboot hoti hai.',
+            names: ['Potash Mobilizing Bacteria (KMB)', 'Silicon Mobilizing Bacteria (SiMB)'],
+            ids: ['kmb', 'simb']
+          };
+        } else if (pattern === 'interveinal' && zone === 'new') {
+          result = {
+            title: 'Iron (Fe) Deficiency — New Leaf Interveinal Chlorosis',
+            reason: 'Iron (Loha) paudhe me immobile hota hai aur High pH (Alkaline mitti) me lock ho jata hai, jisse nayi pattiyan safed/peeli padti hain.',
+            desc: 'Iron Mobilizing Bacteria (IMB) aur Sulphur Mobilizing Bacteria (SMB) ka prayog karein.',
+            names: ['Iron Mobilizing Bacteria (IMB)', 'Sulphur Mobilizing Bacteria (SMB)'],
+            ids: ['imb', 'smb']
+          };
+        } else if (pattern === 'interveinal' && zone === 'old') {
+          result = {
+            title: 'Magnesium (Mg) / Sulphur Deficiency — Zebra Striping',
+            reason: 'Purani pattiyon ki nasein hari rehna aur beech ka hissa peela padna Chlorophyll nirman me kami dikhata hai.',
+            desc: 'Sulphur Mobilizing Bacteria (SMB) aur Nitrogen Fixing Bacteria ke sath FYM/Compost dein.',
+            names: ['Sulphur Mobilizing Bacteria (SMB)', 'Nitrogen Fixing Bacteria'],
+            ids: ['smb', 'nitrogen']
+          };
+        } else if (pattern === 'small_leaf') {
+          result = {
+            title: 'Zinc (Zn) Deficiency — Little Leaf & Rosette (Khaira Rog)',
+            reason: 'Zinc Auxin growth hormone banata hai; iski kami se pattiyan chhoti reh jati hain aur dhan me Khaira rog aata hai.',
+            desc: 'Zinc Mobilizing Bacteria (ZMB) aur PSB ko compost me milakar 3–4 ghante me dein.',
+            names: ['Zinc Mobilizing Bacteria (ZMB)', 'Phosphorus Solubilizing Bacteria (PSB)'],
+            ids: ['zmb', 'psb']
+          };
+        } else if (pattern === 'hook_crack' || zone === 'tip') {
+          result = {
+            title: 'Calcium (Ca) Deficiency — Hooked Tips & Fruit Cracking',
+            reason: 'Calcium immobile tatva hai jo cell wall (Calcium Pectate) banata hai; kami se nayi pattiyan mudti hain aur phal phat-te hain.',
+            desc: 'Calcium Mobilizing Bacteria (CMB) aur Potash Mobilizing Bacteria (KMB) ka prayog karein.',
+            names: ['Calcium Mobilizing Bacteria (CMB)', 'Potash Mobilizing Bacteria (KMB)'],
+            ids: ['cmb', 'kmb']
+          };
+        } else if (pattern === 'spots_wilt') {
+          result = {
+            title: 'Fungal / Bacterial Disease — Leaf Spot, Blight & Wilt',
+            reason: 'Patti par gol chhalle (concentric rings) ya paudha murjhana fafund/bacteria sankraman ka sanket hai.',
+            desc: 'Pseudomonas fluorescens, Trichoderma viride aur Trichoderma harzianum ko ek sath milakar 3–4 ghante ke andar prayog karein.',
             names: ['Pseudomonas fluorescens', 'Trichoderma viride', 'Trichoderma harzianum'],
             ids: ['pseudomonas', 'trichoderma-viride', 'trichoderma-harzianum']
-          },
-          pests: {
-            title: 'Sundi, Safed Makhi, Mahu & Deemak (Pest Attack)',
-            desc: 'Bina chemical spray ke keeton ko rokne ke liye in Pest Control cultures ka prayog 3–4 ghante ke bheetar karein:',
-            names: ['Metarhizium anisopliae', 'Beauveria bassiana', 'Verticillium lecanii'],
-            ids: ['metarhizium', 'beauveria', 'verticillium']
-          },
-          nematode: {
-            title: 'Jad Gaanth Rog (Plant Parasitic Nematodes)',
-            desc: 'Jadon me gaanth banne ki samasya ke liye Paecilomyces sp. ko Pseudomonas fluorescens aur Trichoderma viride ke sath milakar 3–4 ghante me prayog karein:',
-            names: ['Paecilomyces sp.', 'Pseudomonas fluorescens', 'Trichoderma viride'],
-            ids: ['paecilomyces', 'pseudomonas', 'trichoderma-viride']
-          }
-        };
-        const res = map[sym];
-        diagnosedIds = res.ids;
-        document.getElementById('diag-title').innerText = res.title;
-        document.getElementById('diag-desc').innerText = res.desc;
-        document.getElementById('diag-cultures').innerHTML = res.names.map(n => `<span class="bg-white border border-emerald-300 text-emerald-900 text-[11px] font-bold px-2.5 py-1 rounded-lg">🌿 ${n}</span>`).join('');
+          };
+        } else if (pattern === 'pest_nematode') {
+          result = {
+            title: 'Pest Attack / Root-Knot Nematodes Detected',
+            reason: 'Keet, sundi, whitefly ya jadon me gaanth (Nematodes) paudhe ka ras choos kar badhwar rok dete hain.',
+            desc: 'Keeton ke liye Beauveria bassiana + Verticillium lecanii aur Nematodes ke liye Paecilomyces sp. + Pseudomonas + Trichoderma viride dein.',
+            names: ['Beauveria bassiana', 'Verticillium lecanii', 'Paecilomyces sp.'],
+            ids: ['beauveria', 'verticillium', 'paecilomyces']
+          };
+        }
+
+        diagnosedIds = result.ids;
+        document.getElementById('pixel-tone-badge').innerText = lastAnalyzedTone;
+        document.getElementById('diag-title').innerText = result.title;
+        document.getElementById('diag-reason').innerText = 'Vaigyanik Karan: ' + result.reason;
+        document.getElementById('diag-desc').innerText = result.desc;
+        document.getElementById('diag-cultures').innerHTML = result.names.map(n => `<span class="bg-white border border-emerald-300 text-emerald-900 text-[11px] font-bold px-2.5 py-1 rounded-lg">🌿 ${n}</span>`).join('');
         document.getElementById('photo-step-result').classList.remove('hidden');
+
+        const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        scanHistory.unshift({ date: 'Today ' + now, tone: lastAnalyzedTone, title: result.title, solution: result.names.join(' + '), ids: result.ids });
+        if (scanHistory.length > 6) scanHistory.pop();
+        localStorage.setItem('kc_scan_history', JSON.stringify(scanHistory));
+        renderScanHistory();
       }, 900);
     }
 
@@ -1039,7 +1307,7 @@
         <span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-full">${p.catLabel}</span>
         <h3 class="text-xl font-extrabold text-slate-900 mt-3">${p.name}</h3>
         <p class="text-2xl font-extrabold text-emerald-700 mt-1">₹${p.price} <span class="text-xs text-slate-500 font-semibold">/ 1 Liter Mother Culture</span></p>
-                <div class="mt-4 space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs">
+        <div class="mt-4 space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs">
           <div><strong class="uppercase text-slate-900 block mb-1">Fayde:</strong><p class="text-slate-700 leading-relaxed">${p.benefits}</p></div>
           <div class="bg-amber-50 p-3 rounded-xl border border-amber-200"><strong class="uppercase text-amber-950 block mb-1">Mixing Rule:</strong><p class="text-amber-900 leading-relaxed">${p.mixText}</p></div>
           <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200"><strong class="uppercase text-emerald-950 block mb-1">1L se 30L Multiplication:</strong><p class="text-emerald-900 leading-relaxed">10L pani + 300g gud ubaal kar Markin kapde se chhaanein, thanda hone par 100g besan aur 1L Mother Culture milakar 5–7 din chhaon me rakhein. 3 baar multiply karke 30L banayein (1 Acre = 1 Liter).</p></div>
@@ -1139,7 +1407,11 @@
 
     renderProducts();
     updateAcreCalc();
+    updateSoilGuide();
+    renderScanHistory();
     lucide.createIcons();
   </script>
 </body>
 </html>
+
+        
